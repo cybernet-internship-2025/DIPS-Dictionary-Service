@@ -53,7 +53,7 @@ Create a new entry or update an existing one.
 
 **Request Body** (JSON):
 
-* `id` (UUID or sequential, optional): If provided and exists (even soft-deleted), update that entry; if omitted or unknown, create a new one.
+* `id` (UUID or sequential, optional): If provided and exists (even soft-deleted), update that entry; if omitted or unknown - throw validation exception(No data found / bad request), if null - create a new one.
 * `value` (string, **required**, non-empty)
 * `description` (string, optional)
 
