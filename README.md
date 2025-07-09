@@ -8,7 +8,7 @@ This lightweight REST service manages lookup ("dictionary") data for the Digital
 * [Endpoints](#endpoints)
 
   * [GET /api/v1/dictionaries](#get-apiv1dictionaries)
-  * [PUT /api/v1/dictionaries/{id}](#put-apiv1dictionariesid)
+  * [PUT /api/v1/dictionaries](#put-apiv1dictionariesid)
   * [DELETE /api/v1/dictionaries/{id}](#delete-apiv1dictionariesid)
   * [POST /api/v1/dictionaries/{id}/restore](#post-apiv1dictionariesidrestore)
 * [Request & Response Examples](#request--response-examples)
