@@ -9,4 +9,3 @@ public class DictionaryServiceApplication {
         SpringApplication.run(DictionaryServiceApplication.class, args);
     }
 }
-
