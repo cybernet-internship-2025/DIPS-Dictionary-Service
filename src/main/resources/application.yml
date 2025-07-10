@@ -1,13 +1,20 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
+
   datasource:
     driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
-    username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+  redis:
+    host: localhost
+    port: ${REDIS_PORT}
 
 mybatis:
-  mapperLocations:
-    - classpath:/mappers/*Mapper.xml
+#  mapperLocations:
+#    - classpath:/mappers/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
