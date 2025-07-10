@@ -1,0 +1,20 @@
+# docker-compose.yml (Place this file in the root of your project)
+version: '3.8' # Specifies the Docker Compose file format version
+
+services: # Defines the services (containers) that make up your application
+  db: # This is the name of your database service. Your application will connect to "db" (when containerized) or localhost:5432 (from host machine)
+    image: postgres:15-alpine # Use a lightweight PostgreSQL image, version 15
+    container_name: dips-dictionary-postgres # A friendly, unique name for your database container
+    ports:
+      - "5432:5432" # Maps port 5432 on your host machine to port 5432 inside the Docker container.
+      # This allows your Spring Boot application (running directly on your host) to connect to the database.
+    environment: # Environment variables passed into the container to configure PostgreSQL
+      POSTGRES_DB: dictionary      # Creates a database named 'dictionary'
+      POSTGRES_USER: devuser       # Sets the superuser username to 'devuser'
+      POSTGRES_PASSWORD: devpassword # Sets the password for 'devuser'
+    volumes:
+      - dips-dictionary-data:/var/lib/postgresql/data # This ensures your database data persists.
+      # 'dips-dictionary-data' is a named volume on your host.
+
+volumes: # Defines the named volumes used by services
+  dips-dictionary-data: # Declares the named volume, so Docker manages its lifecycle
