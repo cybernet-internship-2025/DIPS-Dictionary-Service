@@ -3,11 +3,13 @@ package az.cybernet.internship.dictionary.service.impl;
 import az.cybernet.internship.dictionary.dto.DictionaryItemRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryItemResponse;
 import az.cybernet.internship.dictionary.mapper.DictionaryItemMapper;
+import az.cybernet.internship.dictionary.model.DictionaryItem;
 import az.cybernet.internship.dictionary.repository.DictionaryItemRepository;
 import az.cybernet.internship.dictionary.service.DictionaryItemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DictionaryItemServiceImpl implements DictionaryItemService {
@@ -21,9 +23,16 @@ public class DictionaryItemServiceImpl implements DictionaryItemService {
     }
 
     @Override
-    public List<DictionaryItemResponse> getAllActiveDictionary() {
-
-        return List.of();
+    public List<DictionaryItemResponse> getAllActiveDictionaryWithLimit(int limit) {
+        List<DictionaryItem> items = mapper.findAllActiveWithLimit(limit);
+        return items.stream()
+                .map(item -> new DictionaryItemResponse(
+                        item.getId(),
+                        item.getCategory(),
+                        item.getValue(),
+                        item.getDescription()
+                ))
+                .collect(Collectors.toList());
     }
 
     @Override

@@ -6,11 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
 public class DictionaryItemRequest {
-    private Long id;
+    private UUID id;
     private String category;
     private String value;
     private String description;

@@ -1,15 +1,12 @@
 package az.cybernet.internship.dictionary.mapper;
 
-import az.cybernet.internship.dictionary.dto.DictionaryItemRequest;
-import az.cybernet.internship.dictionary.dto.DictionaryItemResponse;
 import az.cybernet.internship.dictionary.model.DictionaryItem;
-import org.mapstruct.Mapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface DictionaryItemMapper {
-    DictionaryItem toEntity(DictionaryItemRequest request);
-    DictionaryItemResponse toResponse(DictionaryItem item);
-    List<DictionaryItemResponse> responseList(List<DictionaryItem> itemList);
+    List<DictionaryItem> findAllActiveWithLimit(@Param("limit") int limit);
 }

@@ -6,7 +6,7 @@ import az.cybernet.internship.dictionary.dto.DictionaryItemResponse;
 import java.util.List;
 
 public interface DictionaryItemService {
-    List<DictionaryItemResponse> getAllActiveDictionary();
+    List<DictionaryItemResponse> getAllActiveDictionaryWithLimit(int limit);
     DictionaryItemResponse createOrUpdate(DictionaryItemRequest request);
     void delete(Long id);
     DictionaryItemResponse restore(Long id);

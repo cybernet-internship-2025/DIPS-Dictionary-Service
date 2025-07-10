@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -14,14 +15,14 @@ import java.time.LocalDateTime;
 @Table(name = "dictionaryItem")
 public class DictionaryItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String category;
     @NotNull
     private String value;
     private String description;
 
-    private boolean isActive = true;
+    private Boolean isActive;
 
     @Timestamp
     private LocalDateTime deletedAt;
