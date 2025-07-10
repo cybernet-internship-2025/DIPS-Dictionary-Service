@@ -13,8 +13,8 @@ spring:
     port: ${REDIS_PORT}
 
 mybatis:
-#  mapperLocations:
-#    - classpath:/mappers/*Mapper.xml
+  mapperLocations:
+    - classpath:/mappers/*.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
