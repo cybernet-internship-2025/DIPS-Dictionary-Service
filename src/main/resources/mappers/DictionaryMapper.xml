@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
+
+    <select id="findByFilters" resultType="az.cybernet.internship.dictionary.entity.Dictionary">
+        SELECT * FROM dictionary
+        WHERE
+        <if test="id != null">
+            id = #{id} AND
+        </if>
+        <if test="value != null and value != ''">
+            LOWER(value) LIKE CONCAT('%', LOWER(#{value}), '%') AND
+        </if>
+        is_active = #{isActive}
+        ORDER BY create_date DESC
+        LIMIT #{limit}
+    </select>
+
+
+</mapper>
