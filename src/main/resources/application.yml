@@ -2,16 +2,21 @@ spring:
   application:
     name: DIPS-Dictionary-Service
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
+    url: ${jdbc.url:jdbc:postgresql://localhost:5432/dictionary}
     username: ${jdbc.username:postgres}
     password: ${jdbc.password:postgres}
+    driverClassName: org.postgresql.Driver
   liquibase:
     change-log: classpath:liquibase/changelog-master.yml
     drop-first: false
+  security:
+    user:
+      name: ${USER_NAME}
+      password: ${USER_PASSWORD}
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: az.cybernet.internship.dictionary.entity
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
