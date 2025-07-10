@@ -1,10 +1,12 @@
 package az.cybernet.internship.dictionary.service.impl;
 
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
+import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.mappers.DictionaryMap;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +27,10 @@ public class DictionaryServiceImpl implements DictionaryService {
         if (isActive == null) {
             isActive = true;
         }
-        return dictionaryMap.toDto(dictionaryMapper.findByFilters(id, value, isActive, limit));
+        var result = dictionaryMapper.findByFilters(id, value, isActive, limit);
+        if (id != null && result.isEmpty()) {
+            throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
+        }
+        return dictionaryMap.toDto(result);
     }
 }

@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
 public class DictionaryResp {
+    String id;
     String category;
     String value;
     String description;
