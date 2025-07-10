@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="2" author="mehdi">
+        <createTable tableName="dictionary_entry">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="value" type="varchar(100)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="is_active" type="boolean" defaultValueBoolean="true"/>
+            <column name="deleted_at" type="timestamp"/>
+            <column name="category_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="dictionary_entry"
+                baseColumnNames="category_id"
+                referencedTableName="dictionary_category"
+                referencedColumnNames="id"
+                constraintName="fk_dictionary_category"/>
+    </changeSet>
+
+</databaseChangeLog>
