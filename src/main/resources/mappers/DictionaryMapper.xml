@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
+
+    <!--    Balash's commit    -->
+    <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.Dictionary">
+        SELECT *
+        FROM dictionary
+        <where>
+            <if test="value != null and value != ''">
+                AND value LIKE CONCAT('%', #{value}, '%')
+            </if>
+            <if test="isActive != null">
+                AND is_active = #{isActive}
+            </if>
+        </where>
+        LIMIT #{limit}
+    </select>
+
+    <update id="restore">
+        UPDATE dictionary
+        SET
+            is_active = TRUE,
+            deleted_at = NULL
+        WHERE id = #{id}
+    </update>
+
+    <select id="findById" resultType="az.cybernet.internship.dictionary.model.Dictionary">
+        SELECT * FROM dictionary WHERE id = #{id}
+    </select>
+
+
+    <!--    Balash committed    -->
+    <!--    Goychek commit    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    Goychek committed    -->
+    <!--    Huseyn commit    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    Huseyn committed    -->
+
+</mapper>

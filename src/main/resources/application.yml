@@ -1,16 +1,16 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
-    username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+    url: jdbc:postgresql://localhost:5432/dictionary
+    username: postgres
+    password: 12345
 
 server:
   servlet:
     context-path: /api
 
 mybatis:
-  mapperLocations: classpath:sql/*.xml
+  mapperLocations: classpath:mappers/*.xml
   config-location: classpath:config/mybatis.xml
 
 springdoc:
