@@ -34,9 +34,13 @@ public enum CategoryMapper {
     }
 
     public void updateCategory(DictionaryCategory category, CategoryRequest request) {
-        StringUtils.isNotEmpty(request.getName());
+        if (StringUtils.isNotEmpty(request.getName())) {
+            category.setName(request.getName());
+        }
 
-        StringUtils.isNotEmpty(request.getDescription());
+        if (StringUtils.isNotEmpty(request.getDescription())) {
+            category.setDescription(request.getDescription());
+        }
 
         if (request.getId() != null) {
             category.setId(request.getId());
