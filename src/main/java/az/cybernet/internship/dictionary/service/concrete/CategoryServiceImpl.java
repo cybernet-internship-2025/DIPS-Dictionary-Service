@@ -43,7 +43,8 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void restoreCategory(Long id) {
         log.info("ActionLog.restoreCategory.start - id: {}", id);
-        categoryMapper.restoreCategory(id);
+        var dictionaryCategory = fetchDictionaryIfExist(id);
+        categoryMapper.restoreCategory(dictionaryCategory.getId());
         log.info("ActionLog.restoreCategory.end - id: {}", id);
     }
 
