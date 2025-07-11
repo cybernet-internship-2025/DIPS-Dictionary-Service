@@ -1,20 +1,28 @@
+# src/main/resources/application.yml (This is the file you COMMIT to Git)
+server:
+  port: 8080 # The port your application will run on
+
 spring:
   datasource:
+    # These credentials match the ones defined in your docker-compose.yml for local development
+    url: jdbc:postgresql://localhost:5432/dictionary
+    username: devuser
+    password: devpassword
     driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
-    username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+  flyway:
+    enabled: true # Enables Flyway to run migrations on startup
+    locations: classpath:db/migration # Tells Flyway where to find your SQL migration scripts
 
 mybatis:
   mapperLocations:
-    - classpath:/mappers/*Mapper.xml
+    - classpath:/mappers/*Mapper.xml # Tells MyBatis where to find your XML mapper files (if you use them)
   configuration:
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: true # Automatically maps database_column_names to javaFieldNames
     default-fetch-size: 100
     default-statement-timeout: 30
 
 springdoc:
   api-docs:
-    path: /api/dictionary/api-docs
+    path: /api/dictionary/api-docs # Custom path for OpenAPI JSON documentation
   swagger-ui:
-    path: /api/dictionary/swagger-ui.html
+    path: /api/dictionary/swagger-ui.html # Custom path for Swagger UI

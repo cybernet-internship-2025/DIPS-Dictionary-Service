@@ -1,33 +1,49 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# IDE specific files
+.idea/                 # IntelliJ IDEA project files
+*.iml                  # IntelliJ IDEA module files
+*.ipr                  # IntelliJ IDEA project files (older format)
+*.iws                  # IntelliJ IDEA workspace files (older format)
+.vscode/               # VS Code workspace files
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Build artifacts
+/target/               # Maven build directory
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.flattened-pom.xml
+*.jar                  # Compiled JAR files
+*.war                  # Compiled WAR files
+*.ear                  # Compiled EAR files
+*.zip                  # Zip archives
+*.tar.gz               # Tarball archives
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# Log files
+*.log
+logs/                  # Directory for log files
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# OS generated files
+.DS_Store              # Mac OS X folder metadata
+Thumbs.db              # Windows thumbnail cache
 
-### VS Code ###
-.vscode/
+# Custom local application profiles (IMPORTANT: DO NOT COMMIT THESE!)
+# If individual developers create a file like application-local-john.yml for their specific
+# credentials that differ from the standard devuser/devpassword (e.g., if they are NOT using Docker
+# or have a different custom local DB setup), these files should NOT be committed.
+# Since we decided to use devuser/devpassword in application.yml for the Docker setup,
+# this specific line is less critical for this project, but it's good practice to keep.
+application-local-*.yml
+application-personal.yml
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar # Maven wrapper executable
+
+# Environment variables file (if used, common for local .env files)
+.env
+.env.*
+
+# Compiled class files
+*.class
