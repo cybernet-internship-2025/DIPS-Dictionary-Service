@@ -1,0 +1,3 @@
+<typeHandlers>
+    <typeHandler handler="com.group_one.dictionary.dictionary_service.handler.UUIDTypeHandler"/>
+</typeHandlers>
