@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="az.cybernet.internship.dictionary.repository.CategoryMapper">
+
+    <!-- RESULT MAPS -->
+    <resultMap id="CategoryResultMap" type="az.cybernet.internship.dictionary.entity.DictionaryCategory">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+        <result property="description" column="c_description"/>
+        <result property="isActive" column="c_is_active"/>
+        <result property="createdAt" column="c_created_at"/>
+        <result property="updatedAt" column="c_updated_at"/>
+
+        <collection property="items" ofType="az.cybernet.internship.dictionary.entity.DictionaryItem">
+            <id property="id" column="i_id"/>
+            <result property="value" column="i_value"/>
+            <result property="description" column="i_description"/>
+            <result property="isActive" column="i_is_active"/>
+            <result property="createdAt" column="i_created_at"/>
+            <result property="updatedAt" column="i_updated_at"/>
+        </collection>
+    </resultMap>
+
+    <!-- INSERT -->
+    <insert id="saveCategory" parameterType="az.cybernet.internship.dictionary.entity.DictionaryCategory"
+            useGeneratedKeys="true">
+        INSERT INTO categories (name, description, is_active, created_at, updated_at)
+        VALUES (#{name}, #{description}, true, now(), null)
+    </insert>
+
+    <!-- UPDATE -->
+    <update id="updateCategory" parameterType="az.cybernet.internship.dictionary.entity.DictionaryCategory">
+        UPDATE categories
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            updated_at = now()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- SELECT BY ID -->
+    <select id="findById" resultMap="CategoryResultMap" parameterType="long">
+        SELECT c.id          AS c_id,
+               c.name        AS c_name,
+               c.description AS c_description,
+               c.is_active   AS c_is_active,
+               c.created_at  AS c_created_at,
+               c.updated_at  AS c_updated_at,
+
+               i.id          AS i_id,
+               i.value       AS i_value,
+               i.description AS i_description,
+               i.is_active   AS i_is_active,
+               i.created_at  AS i_created_at,
+               i.updated_at  AS i_updated_at,
+               i.category_id AS i_category_id
+        FROM categories c
+                 LEFT JOIN items i ON c.id = i.category_id
+        WHERE c.id = #{id}
+    </select>
+
+    <!-- DELETE -->
+    <update id="deleteCategory" parameterType="long">
+        UPDATE categories
+        SET is_active  = false,
+            updated_at = now()
+        WHERE id = #{id}
+    </update>
+
+</mapper>

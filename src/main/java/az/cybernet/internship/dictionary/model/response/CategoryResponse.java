@@ -1,27 +1,25 @@
-package az.cybernet.internship.dictionary.entity;
+package az.cybernet.internship.dictionary.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-
-import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@FieldDefaults(level = PRIVATE)
-public class DictionaryCategory {
+public class CategoryResponse {
     Long id;
     String name;
     String description;
     Boolean isActive;
     LocalDateTime createdAt;
     LocalDateTime updatedAt;
-    List<DictionaryItem> items;
+    @Builder.Default
+    List<ItemResponse> items = new ArrayList<>();
 }
