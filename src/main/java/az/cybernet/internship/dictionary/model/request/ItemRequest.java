@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.model.request;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,8 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class ItemRequest {
+    @NotNull(message = "value is required")
     String value;
     String description;
-    Boolean isActive;
+    Long categoryId;
 }
