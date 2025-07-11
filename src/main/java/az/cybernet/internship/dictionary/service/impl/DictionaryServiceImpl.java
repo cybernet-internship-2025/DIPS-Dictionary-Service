@@ -32,5 +32,6 @@ public class DictionaryServiceImpl implements DictionaryService {
             throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
         }
         return dictionaryMap.toDto(result);
+
     }
 }
