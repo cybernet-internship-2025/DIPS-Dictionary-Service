@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.service.impl;
 
+import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
@@ -36,5 +37,10 @@ public class DictionaryServiceImpl implements DictionaryService {
                         item.getDescription()
                 ))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public DictionaryResponse createDictionary(DictionaryRequest request) {
+        return null;
     }
 }

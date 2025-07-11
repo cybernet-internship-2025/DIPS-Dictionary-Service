@@ -5,16 +5,7 @@
 
 <mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
 
-    <resultMap id="DictionaryResultMap" type="az.cybernet.internship.dictionary.model.Dictionary">
-        <id property="id" column="id" javaType="java.util.UUID"/>
-        <result property="category" column="category"/>
-        <result property="value" column="value"/>
-        <result property="description" column="description"/>
-        <result property="isActive" column="is_active"/>
-        <result property="deletedAt" column="deleted_at" javaType="java.time.LocalDateTime"/>
-    </resultMap>
-
-    <select id="findAllActiveDictionaryWithLimit" resultMap="DictionaryResultMap">
+    <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.Dictionary">
         SELECT *
         FROM dictionary
         <where>
