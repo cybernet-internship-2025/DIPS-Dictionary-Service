@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="az.cybernet.digital.invoice.processing.system.repository.ItemMapper">
+
+    <!-- RESULT MAP -->
+    <resultMap id="ItemResultMap" type="az.cybernet.digital.invoice.processing.system.entity.DictionaryItem">
+        <id property="id" column="id"/>
+        <result property="value" column="value"/>
+        <result property="description" column="description"/>
+        <result property="status" column="status" javaType="az.cybernet.digital.invoice.processing.system.model.enums.Status"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <association property="category" javaType="az.cybernet.digital.invoice.processing.system.entity.DictionaryCategory">
+            <id property="id" column="category_id"/>
+        </association>
+    </resultMap>
+
+    <!-- INSERT -->
+    <insert id="saveItem" parameterType="az.cybernet.digital.invoice.processing.system.entity.DictionaryItem" useGeneratedKeys="true">
+        INSERT INTO items (value, description, status, created_at, updated_at, category_id)
+        VALUES (#{value}, #{description}, 'ACTIVE', now(), null, #{category.id})
+    </insert>
+
+    <!-- UPDATE -->
+    <update id="updateItem" parameterType="map">
+        UPDATE items
+        <set>
+            <if test="item != null and item['value'] != null">
+                value = #{item.value},
+            </if>
+            <if test="item != null and item['description'] != null">
+                description = #{item.description},
+            </if>
+            <if test="item != null and item.category != null and item.category.id != null">
+                category_id = #{item.category.id},
+            </if>
+            status = 'IN_PROGRESS',
+            updated_at = now()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- SELECT BY ID -->
+    <select id="findById" resultMap="ItemResultMap" parameterType="long">
+        SELECT
+            i.id,
+            i.value,
+            i.description,
+            i.status,
+            i.created_at,
+            i.updated_at,
+            i.category_id
+        FROM items i
+        WHERE i.id = #{id}
+    </select>
+
+    <!-- SELECT ALL -->
+    <select id="findAll" resultMap="ItemResultMap">
+        SELECT
+            i.id,
+            i.value,
+            i.description,
+            i.status,
+            i.created_at,
+            i.updated_at,
+            i.category_id
+        FROM items i
+        WHERE i.status != 'DELETED'
+    </select>
+
+    <!-- DELETE (soft delete) -->
+    <update id="deleteItem" parameterType="long">
+        UPDATE items
+        SET status = 'DELETED', updated_at = now()
+        WHERE id = #{id}
+    </update>
+
+    <!-- RESTORE (If soft-delete mechanism exists, adjust accordingly) -->
+    <update id="restore" parameterType="long">
+        UPDATE items SET status = 'ACTIVE', updated_at = now() WHERE id = #{id}
+    </update>
+
+</mapper>
