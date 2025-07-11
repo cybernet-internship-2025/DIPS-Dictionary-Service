@@ -18,4 +18,14 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(InputValueMissingException.class)
+    public ResponseEntity<ErrorResp> handleInputValueMissing(InputValueMissingException ex) {
+        ErrorResp error = new ErrorResp(
+                HttpStatus.NOT_ACCEPTABLE.value(),
+                "Input not Acceptable",
+                ex.getMessage()
+        );
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
 }

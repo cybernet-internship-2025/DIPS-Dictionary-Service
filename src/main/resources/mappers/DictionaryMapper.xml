@@ -8,6 +8,9 @@
     <select id="findByFilters" resultType="az.cybernet.internship.dictionary.entity.Dictionary">
         SELECT * FROM dictionary
         WHERE
+        <where>
+
+        </where>
         <if test="id != null">
             id = #{id} AND
         </if>
@@ -19,5 +22,19 @@
         LIMIT #{limit}
     </select>
 
-
+    <update id="updateDictionary" parameterType="az.cybernet.internship.dictionary.entity.Dictionary">
+        UPDATE dictionary SET
+        <if test="category != null">
+            category = #{category},
+        </if>
+        value = #{value},
+        <if test="description != null">
+            description = #{description},
+        </if>
+        <if test="isActive != null">
+            is_active = #{isActive},
+        </if>
+        update_date = #{updateDate}
+        WHERE id = #{id}::uuid;
+    </update>
 </mapper>
