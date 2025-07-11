@@ -3,10 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryItemMapper">
+<mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
 
-    <!-- Result map -->
-    <resultMap id="DictionaryItemResultMap" type="az.cybernet.internship.dictionary.model.DictionaryItem">
+    <resultMap id="DictionaryResultMap" type="az.cybernet.internship.dictionary.model.Dictionary">
         <id property="id" column="id" javaType="java.util.UUID"/>
         <result property="category" column="category"/>
         <result property="value" column="value"/>
@@ -15,10 +14,18 @@
         <result property="deletedAt" column="deleted_at" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
-    <select id="findAllActiveWithLimit" resultMap="DictionaryItemResultMap" parameterType="int">
-        SELECT * FROM dictionaryItem
+    <select id="findAllActiveDictionaryWithLimit" resultMap="DictionaryResultMap">
+        SELECT *
+        FROM dictionary
+        <where>
+            <if test="value != null and value != ''">
+                AND value LIKE CONCAT('%', #{value}, '%')
+            </if>
+            <if test="isActive != null">
+                AND is_active = #{isActive}
+            </if>
+        </where>
         LIMIT #{limit}
-        WHERE is_active = true
     </select>
 
 </mapper>
