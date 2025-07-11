@@ -1,12 +1,15 @@
 package az.cybernet.internship.dictionary.service.impl;
 
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
+import az.cybernet.internship.dictionary.entity.Dictionary;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
+import az.cybernet.internship.dictionary.exception.InputValueMissingException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
-import az.cybernet.internship.dictionary.mappers.DictionaryMap;
+import az.cybernet.internship.dictionary.mapstruct.DictionaryMap;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,5 +35,20 @@ public class DictionaryServiceImpl implements DictionaryService {
             throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
         }
         return dictionaryMap.toDto(result);
+    }
+
+    @Override
+    public DictionaryResp updateDictionary(Dictionary dictionary) {
+        if (dictionary.getId() == null || dictionary.getValue() == null) {
+            throw new InputValueMissingException("Missing required params:" +
+                    (dictionary.getId() == null ? " Id" : "") +
+                    (dictionary.getValue() == null ? " Value" : ""));
+        }
+        dictionary.setUpdateDate(LocalDateTime.now());
+
+        if (dictionaryMapper.updateDictionary(dictionary) == 0) {
+            throw new DictionaryNotFoundException("Dictionary entry not found for update with id: " + dictionary.getId());
+        }
+        return dictionaryMap.toDto(dictionary);
     }
 }

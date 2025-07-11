@@ -10,4 +10,6 @@ import java.util.UUID;
 public interface DictionaryMapper {
 
     List<Dictionary> findByFilters(UUID id, String value, Boolean isActive, Integer limit);
+
+    int updateDictionary(Dictionary dictionary);
 }

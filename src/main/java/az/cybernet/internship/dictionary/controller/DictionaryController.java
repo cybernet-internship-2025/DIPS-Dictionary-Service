@@ -2,6 +2,7 @@ package az.cybernet.internship.dictionary.controller;
 
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.service.DictionaryService;
+import az.cybernet.internship.dictionary.entity.Dictionary;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,5 +28,14 @@ public class DictionaryController {
     ) {
         List<DictionaryResp> dictionaries = dictionaryService.findDictionaries(id, value, isActive, limit);
         return ResponseEntity.ok(dictionaries);
+    }
+
+    @PutMapping
+    public ResponseEntity<DictionaryResp> updateDictionary(
+            @RequestBody Dictionary dictionary
+    ) {
+        //shouldn't return this but foe testing purposes let it stay
+        DictionaryResp response = dictionaryService.updateDictionary(dictionary);
+        return ResponseEntity.ok(response);
     }
 }
