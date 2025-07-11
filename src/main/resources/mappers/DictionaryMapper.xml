@@ -2,7 +2,7 @@
 
 <mapper namespace="az.cybernet.internship.dictionary.DictionaryMapper">
 
-    <select id="list" resultType="az.cybernet.internship.dictionary.DictionaryEntry">
+    <select id="list" resultType="az.cybernet.internship.dictionary.DictionaryEntity">
         SELECT *
         FROM dictionary
         <where>
@@ -15,11 +15,24 @@
             <if test="is_active != null">
                 AND is_active = #{is_active}
             </if>
+            <choose>
+                <when test="is_active != null">
+                    AND is_active = #{is_active}
+                </when>
+                <otherwise>
+                    AND is_active = true
+                </otherwise>
+            </choose>
         </where>
         ORDER BY id ASC
-        <if test="limit != null">
-            LIMIT #{limit}
-        </if>
+        <choose>
+            <when test="limit != null and limit > 0">
+                LIMIT #{limit}
+            </when>
+            <otherwise>
+                LIMIT 100
+            </otherwise>
+        </choose>
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">

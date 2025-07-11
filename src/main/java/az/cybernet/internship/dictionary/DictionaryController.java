@@ -1,6 +1,7 @@
 package az.cybernet.internship.dictionary;
 
-import jakarta.validation.Valid;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,19 +14,23 @@ public class DictionaryController {
     @Autowired
     private DictionaryService service;
 
+    @Getter
+    @Setter
+    public static class DictionaryFilter {
+        private Long id;
+        private String value;
+        private Boolean isActive;
+        private Integer limit;
+    }
+
     @GetMapping
-    public List<DictionaryEntry> getAllActive(
-            @RequestParam(required = false) Long id,
-            @RequestParam(required = false) String value,
-            @RequestParam(required = false) Boolean isActive,
-            @RequestParam(required = false, defaultValue = "10") Integer limit
-    ) {
-        return service.getList(id, value, isActive, limit);
+    public List<DictionaryEntity> get(DictionaryFilter filter) {
+        return service.getList(filter.id, filter.value, filter.isActive, filter.limit);
     }
 
     @PutMapping
-    public void put(@RequestBody DictionaryEntry entry) {
-        service.saveOrUpdate(entry.getId(), entry.getValue(), entry.getDescription());
+    public void put(@RequestBody DictionaryEntity entity) {
+        service.saveOrUpdate(entity.getId(), entity.getValue(), entity.getDescription());
     }
 
     @DeleteMapping("/{id}")

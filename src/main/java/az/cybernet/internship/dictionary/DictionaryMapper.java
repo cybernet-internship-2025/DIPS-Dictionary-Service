@@ -3,11 +3,11 @@ package az.cybernet.internship.dictionary;
 import java.util.List;
 
 public interface DictionaryMapper {
-    List<DictionaryEntry> list(Long id, String value, Boolean is_active, int limit);
+    List<DictionaryEntity> list(Long id, String value, Boolean is_active, Integer limit);
 
-    void insert(DictionaryEntry entry);
+    void insert(DictionaryEntity entry);
 
-    int update(DictionaryEntry entry);
+    int update(DictionaryEntity entry);
 
     void softDelete(Long id);
 
