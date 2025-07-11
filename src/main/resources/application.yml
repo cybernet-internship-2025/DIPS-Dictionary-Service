@@ -3,7 +3,7 @@ spring:
     driverClassName: org.postgresql.Driver
     url: ${jdbc.url:jdbc:postgresql://localhost:5432/dictionary}
     username: ${jdbc.username:postgres}
-    password: ${jdbc.password:313}
+    password: ${jdbc.password:2005}
 
   jpa:
     hibernate:
