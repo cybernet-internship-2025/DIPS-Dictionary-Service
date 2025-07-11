@@ -11,14 +11,14 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DictionaryEntity {
+public class DictionaryEntry {
     private Long id;
     private String value;
     private String description;
     private Boolean isActive;
     private LocalDateTime deletedAt;
 
-    public DictionaryEntity(Long id, String value, String description) {
+    public DictionaryEntry(Long id, String value, String description) {
         this(id, value, description, true, null);
     }
 }

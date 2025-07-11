@@ -24,13 +24,13 @@ public class DictionaryController {
     }
 
     @GetMapping
-    public List<DictionaryEntity> get(DictionaryFilter filter) {
+    public List<DictionaryEntry> get(DictionaryFilter filter) {
         return service.getList(filter.id, filter.value, filter.isActive, filter.limit);
     }
 
     @PutMapping
-    public void put(@RequestBody DictionaryEntity entity) {
-        service.saveOrUpdate(entity.getId(), entity.getValue(), entity.getDescription());
+    public void put(@RequestBody DictionaryEntry entry) {
+        service.saveOrUpdate(entry.getId(), entry.getValue(), entry.getDescription());
     }
 
     @DeleteMapping("/{id}")

@@ -2,7 +2,7 @@
 
 <mapper namespace="az.cybernet.internship.dictionary.DictionaryMapper">
 
-    <select id="list" resultType="az.cybernet.internship.dictionary.DictionaryEntity">
+    <select id="list" resultType="az.cybernet.internship.dictionary.DictionaryEntry">
         SELECT *
         FROM dictionary
         <where>

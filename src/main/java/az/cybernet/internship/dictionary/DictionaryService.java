@@ -15,7 +15,7 @@ public class DictionaryService {
         this.mapper = mapper;
     }
 
-    public List<DictionaryEntity> getList(Long id, String value, Boolean isActive, Integer limit) {
+    public List<DictionaryEntry> getList(Long id, String value, Boolean isActive, Integer limit) {
         return mapper.list(id, value, isActive, limit);
     }
 
@@ -23,8 +23,8 @@ public class DictionaryService {
         if (value == null || value.trim().isEmpty())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Field 'value' cannot be empty");
         if (id == null || id <= 0)
-            mapper.insert(new DictionaryEntity(id, value, description));
-        else if (mapper.update(new DictionaryEntity(id, value, description)) == 0)
+            mapper.insert(new DictionaryEntry(id, value, description));
+        else if (mapper.update(new DictionaryEntry(id, value, description)) == 0)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry with id " + id + " not found");
     }
 
