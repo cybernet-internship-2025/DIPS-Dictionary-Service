@@ -13,7 +13,7 @@ name: "CodeQL Advanced"
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "main", "team1", "team02", "team-3", "team-0", "team-5", "team-6", "team-7", "Team1/main", "team6", "team4", "team5", "team0" ]
   pull_request:
     branches: [ "master", "main", "team1", "team02", "team-3", "team-0", "team-5", "team-6", "team-7", "Team1/main", "team6", "team4", "team5", "team0" ]
   # schedule:
