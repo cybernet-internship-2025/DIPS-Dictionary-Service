@@ -4,8 +4,6 @@ import az.cybernet.internship.dictionary.entity.DictionaryCategory;
 import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 
-import java.util.stream.Collectors;
-
 public enum CategoryMapper {
     CATEGORY_MAPPER;
 
@@ -32,5 +30,19 @@ public enum CategoryMapper {
 //                                .collect(Collectors.toList())
 //                )
                 .build();
+    }
+
+    public void updateCategory(DictionaryCategory category, CategoryRequest request) {
+        if (request.getName() != null && !request.getName().trim().isEmpty()) {
+            category.setName(request.getName());
+        }
+
+        if (request.getDescription() != null && !request.getDescription().trim().isEmpty()) {
+            category.setDescription(request.getDescription());
+        }
+
+        if (request.getId() != null) {
+            category.setId(request.getId());
+        }
     }
 }
