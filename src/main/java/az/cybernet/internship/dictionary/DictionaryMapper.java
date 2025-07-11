@@ -3,7 +3,7 @@ package az.cybernet.internship.dictionary;
 import java.util.List;
 
 public interface DictionaryMapper {
-    List<DictionaryEntry> list(Long id, String value, Boolean is_active, Integer limit);
+    List<DictionaryEntry> list(Long id, String value, Boolean isActive, Integer limit);
 
     void insert(DictionaryEntry entry);
 
