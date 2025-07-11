@@ -3,6 +3,7 @@ package az.cybernet.internship.dictionary.mapper;
 import az.cybernet.internship.dictionary.entity.DictionaryCategory;
 import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
+import org.apache.commons.lang3.StringUtils;
 
 public enum CategoryMapper {
     CATEGORY_MAPPER;
@@ -33,13 +34,9 @@ public enum CategoryMapper {
     }
 
     public void updateCategory(DictionaryCategory category, CategoryRequest request) {
-        if (request.getName() != null && !request.getName().trim().isEmpty()) {
-            category.setName(request.getName());
-        }
+        StringUtils.isNotEmpty(request.getName());
 
-        if (request.getDescription() != null && !request.getDescription().trim().isEmpty()) {
-            category.setDescription(request.getDescription());
-        }
+        StringUtils.isNotEmpty(request.getDescription());
 
         if (request.getId() != null) {
             category.setId(request.getId());
