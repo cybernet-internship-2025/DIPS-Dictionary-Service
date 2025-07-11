@@ -26,5 +26,5 @@ networks:
       com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
 
 volumes:
-  bookstore-db:
+  dictionary-db:
     name: dictionary-db
