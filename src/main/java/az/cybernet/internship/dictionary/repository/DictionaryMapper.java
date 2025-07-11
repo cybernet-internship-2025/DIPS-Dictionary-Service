@@ -1,5 +1,5 @@
 package az.cybernet.internship.dictionary.repository; // <-- CORRECTED PACKAGE NAME
-
+/*
 import az.cybernet.internship.dictionary.model.DictionaryEntry; // Assuming model package is az.cybernet.internship.dictionary.model
 import org.apache.ibatis.annotations.*;
 
@@ -51,4 +51,4 @@ public interface DictionaryMapper {
 
     @Select("SELECT * FROM dictionaries WHERE value = #{value} LIMIT 1")
     Optional<DictionaryEntry> findByValue(@Param("value") String value);
-}
+}*/

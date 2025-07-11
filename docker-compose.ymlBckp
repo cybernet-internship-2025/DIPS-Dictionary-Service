@@ -10,8 +10,8 @@ services: # Defines the services (containers) that make up your application
       # This allows your Spring Boot application (running directly on your host) to connect to the database.
     environment: # Environment variables passed into the container to configure PostgreSQL
       POSTGRES_DB: dictionary      # Creates a database named 'dictionary'
-      POSTGRES_USER: devuser       # Sets the superuser username to 'devuser'
-      POSTGRES_PASSWORD: devpassword # Sets the password for 'devuser'
+      POSTGRES_USER: postgres       # Sets the superuser username to 'devuser'
+      POSTGRES_PASSWORD: postgres # Sets the password for 'devuser'
     volumes:
       - dips-dictionary-data:/var/lib/postgresql/data # This ensures your database data persists.
       # 'dips-dictionary-data' is a named volume on your host.

@@ -3,7 +3,8 @@ package az.cybernet.internship.dictionary;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
-
+@Entity
+@Table(name = "dictionaries")
 public class dictionaries {
     @Id
     @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
@@ -17,6 +18,10 @@ public class dictionaries {
         this.id = id;
         this.value = value;
         this.isActive = isActive;
+    }
+
+    public dictionaries() {
+
     }
 
     public Integer getId() {
