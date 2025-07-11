@@ -16,8 +16,8 @@
                 <!-- AND LOWER(value) = LOWER(#{value})-->
             </if>
             <choose>
-                <when test="is_active != null">
-                    AND is_active = #{is_active}
+                <when test="isActive != null">
+                    AND is_active = #{isActive}
                 </when>
                 <otherwise>
                     AND is_active = true
