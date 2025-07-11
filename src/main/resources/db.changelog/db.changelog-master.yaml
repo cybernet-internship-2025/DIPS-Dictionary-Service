@@ -35,7 +35,7 @@ databaseChangeLog:
       author: gulnare.islamova
       changes:
         - createTable:
-            tableName: dictionary
+            tableName: dictionaries
             columns:
               - column:
                   name: id
