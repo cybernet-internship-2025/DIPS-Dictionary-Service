@@ -5,16 +5,16 @@ spring:
     username: postgres
     password: 12345
 
+server:
+  servlet:
+    context-path: /api
+
 mybatis:
-  mapperLocations:
-    - classpath:/mappers/*Mapper.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    default-fetch-size: 100
-    default-statement-timeout: 30
+  mapperLocations: classpath:sql/*.xml
+  config-location: classpath:config/mybatis.xml
 
 springdoc:
   api-docs:
-    path: /api/dictionary/api-docs
+    path: /dictionary/api-docs
   swagger-ui:
-    path: /api/dictionary/swagger-ui.html
+    path: /dictionary/swagger-ui.html
