@@ -7,14 +7,12 @@ public interface DictionaryMapper {
 
     void insert(DictionaryEntry entry);
 
-    void update(DictionaryEntry entry);
+    int update(DictionaryEntry entry);
 
     void softDelete(Long id);
 
     void restore(Long id);
 
     Boolean isActive(Long id);
-
-    DictionaryEntry findById(Long id);
 }
 

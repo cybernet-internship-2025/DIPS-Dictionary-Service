@@ -22,19 +22,10 @@ public class DictionaryService {
     public void saveOrUpdate(Long id, String value, String description) {
         if (value == null || value.trim().isEmpty())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Field 'value' cannot be empty");
-        if (id == null || id <= 0) {
-            mapper.insert(new DictionaryEntry(id, value, description, true, null));
-            return;
-        }
-
-        DictionaryEntry existing = mapper.findById(id);
-        if (existing == null)
+        if (id == null || id <= 0)
+            mapper.insert(new DictionaryEntry(id, value, description));
+        else if (mapper.update(new DictionaryEntry(id, value, description)) == 0)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry with id " + id + " not found");
-
-        existing.setValue(value);
-        existing.setDescription(description);
-
-        mapper.update(existing);
     }
 
     public void delete(Long id) {

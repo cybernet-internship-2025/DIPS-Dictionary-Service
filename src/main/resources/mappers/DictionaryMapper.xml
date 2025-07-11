@@ -29,7 +29,7 @@
 
     <update id="update">
         UPDATE dictionary
-        SET value = #{value}, description = #{description}, is_active = #{isActive}, deleted_at = #{deletedAt}
+        SET value = #{value}, description = #{description}
         WHERE id = #{id}
     </update>
 
@@ -47,12 +47,6 @@
 
     <select id="isActive" resultType="boolean">
         SELECT is_active
-        FROM dictionary
-        WHERE id = #{id}
-    </select>
-
-    <select id="findById" resultType="az.cybernet.internship.dictionary.DictionaryEntry">
-        SELECT *
         FROM dictionary
         WHERE id = #{id}
     </select>
