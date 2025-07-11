@@ -29,12 +29,12 @@ public class CategoryServiceImpl implements CategoryService {
             var dictionaryCategory = CATEGORY_MAPPER.buildDictionaryCategory(request);
             categoryMapper.saveCategory(dictionaryCategory);
             log.info("ActionLog.saveCategory.end - request: {}", request);
+        } else {
+            log.info("ActionLog.updateCategory.start - request: {}", request);
+            var dictionaryCategory = fetchDictionaryIfExist(request.getId());
+            categoryMapper.updateCategory(dictionaryCategory);
+            log.info("ActionLog.updateCategory.end - request: {}", request);
         }
-
-        log.info("ActionLog.updateCategory.start - request: {}", request);
-        var dictionaryCategory = fetchDictionaryIfExist(request.getId());
-        categoryMapper.updateCategory(dictionaryCategory);
-        log.info("ActionLog.updateCategory.end - request: {}", request);
     }
 
     @Override
