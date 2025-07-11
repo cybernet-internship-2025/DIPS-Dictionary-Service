@@ -5,6 +5,7 @@
 
 <mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
 
+    <!--    Balash's commit    -->
     <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.Dictionary">
         SELECT *
         FROM dictionary
@@ -30,5 +31,56 @@
     <select id="findById" resultType="az.cybernet.internship.dictionary.model.Dictionary">
         SELECT * FROM dictionary WHERE id = #{id}
     </select>
+
+
+    <!--    Balash committed    -->
+    <!--    Goychek commit    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    Goychek committed    -->
+    <!--    Huseyn commit    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    Huseyn committed    -->
 
 </mapper>

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jdk.jfr.Timestamp;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Table(name = "dictionary")
+@RequiredArgsConstructor
 public class Dictionary implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

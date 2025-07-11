@@ -1,11 +1,9 @@
 package az.cybernet.internship.dictionary.service.impl;
 
-import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.model.Dictionary;
-import az.cybernet.internship.dictionary.repository.DictionaryRepository;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +14,13 @@ import java.util.stream.Collectors;
 @Service
 public class DictionaryServiceImpl implements DictionaryService {
 
-    private final DictionaryRepository repository;
     private final DictionaryMapper mapper;
 
-    public DictionaryServiceImpl(DictionaryRepository repository, DictionaryMapper mapper) {
-        this.repository = repository;
+    public DictionaryServiceImpl(DictionaryMapper mapper) {
         this.mapper = mapper;
     }
 
+    // Balash's commit
     @Override
     public List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive,int limit) {
         List<Dictionary> items = mapper.findAllActiveDictionaryWithLimit(value, isActive, limit);
@@ -44,10 +41,6 @@ public class DictionaryServiceImpl implements DictionaryService {
     public DictionaryResponse restoreDictionary(UUID uuid) {
         mapper.restore(uuid);
 
-//        if (updated.equals(0)) {
-//            throw new DictionaryNotFoundException("Dictionary not found");
-//        }
-
         Dictionary dictionary = mapper.findById(uuid);
 
         DictionaryResponse response = new DictionaryResponse();
@@ -58,4 +51,25 @@ public class DictionaryServiceImpl implements DictionaryService {
 
         return response;
     }
+
+    // Goychek's commit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Huseyn's commit
 }

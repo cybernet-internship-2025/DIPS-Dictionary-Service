@@ -15,11 +15,11 @@ public class DictionaryController {
 
     private final DictionaryService service;
 
-    @Autowired
     public DictionaryController(DictionaryService service) {
         this.service = service;
     }
 
+    // Balash commited
     @GetMapping
     public ResponseEntity<List<DictionaryResponse>> getAllActiveDictionaryWithLimit(
             @RequestParam String value,
@@ -33,4 +33,19 @@ public class DictionaryController {
     public ResponseEntity<DictionaryResponse> restoreDictionary(@PathVariable UUID id) {
         return ResponseEntity.ok(service.restoreDictionary(id));
     }
+
+    //Goychek commited
+
+
+
+
+
+
+    //Huseyn commited
+
+
+
+
+
+
 }
