@@ -1,5 +1,7 @@
 package az.cybernet.internship.dictionary;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDateTime;
 
 public class DictionaryEntry {
@@ -9,7 +11,8 @@ public class DictionaryEntry {
     private Boolean isActive;
     private LocalDateTime deletedAt;
 
-    public DictionaryEntry() {}
+    public DictionaryEntry() {
+    }
 
     public DictionaryEntry(Long id, String value, String description, Boolean is_active, LocalDateTime deletedAt) {
         this.id = id;

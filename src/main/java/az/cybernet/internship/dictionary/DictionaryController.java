@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/dictionaries")
-public class Controller {
+public class DictionaryController {
 
     @Autowired
     private DictionaryService service;
@@ -23,12 +24,8 @@ public class Controller {
     }
 
     @PutMapping
-    public void put(
-            @RequestParam Long id,
-            @RequestParam String value,
-            @RequestParam(required = false) String description
-    ) {
-        service.saveOrUpdate(id, value, description);
+    public void put(@RequestBody DictionaryEntry entry) {
+        service.saveOrUpdate(entry.getId(), entry.getValue(), entry.getDescription());
     }
 
     @DeleteMapping("/{id}")

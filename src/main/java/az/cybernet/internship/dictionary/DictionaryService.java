@@ -1,6 +1,5 @@
 package az.cybernet.internship.dictionary;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,51 +9,47 @@ import java.util.List;
 @Service
 public class DictionaryService {
 
-    @Autowired
-    private DictionaryRepository repository;
+    private final DictionaryMapper mapper;
+
+    public DictionaryService(DictionaryMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public List<DictionaryEntry> getList(Long id, String value, Boolean isActive, Integer limit) {
-        return repository.list(id, value, isActive, limit != null ? limit : 100); // значение по умолчанию
+        return mapper.list(id, value, isActive, limit == null || limit <= 0 ? 100 : limit);
     }
 
     public void saveOrUpdate(Long id, String value, String description) {
-        var entry = new DictionaryEntry(id, value, description, true, null);
-        if (entry.getValue() == null || entry.getValue().trim().isEmpty())
+        if (value == null || value.trim().isEmpty())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Field 'value' cannot be empty");
-
-        DictionaryEntry existing = entry.getId() != null ? repository.findById(entry.getId()) : null;
-
-        if (entry.getId() == null) {
-            // Новый элемент
-            repository.insert(entry);
-        } else if (existing != null) {
-            // Обновляем существующую запись
-            entry.setIsActive(existing.getIsActive()); // чтобы не сбросить isActive
-            entry.setDeletedAt(existing.getDeletedAt());
-            repository.update(entry);
-        } else {
-            // Нет такой записи
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry with id " + entry.getId() + " not found");
+        if (id == null || id <= 0) {
+            mapper.insert(new DictionaryEntry(id, value, description, true, null));
+            return;
         }
+
+        DictionaryEntry existing = mapper.findById(id);
+        if (existing == null)
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry with id " + id + " not found");
+
+        existing.setValue(value);
+        existing.setDescription(description);
+
+        mapper.update(existing);
     }
 
     public void delete(Long id) {
-        DictionaryEntry entry = repository.findById(id);
-        if (entry == null)
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found");
-        if (!Boolean.TRUE.equals(entry.getIsActive()))
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry already inactive");
+        Boolean isActive = mapper.isActive(id);
+        if (isActive == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found");
+        if (!isActive) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry already inactive");
 
-        repository.softDelete(id);
+        mapper.softDelete(id);
     }
 
     public void restore(Long id) {
-        DictionaryEntry entry = repository.findById(id);
-        if (entry == null)
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found");
-        if (Boolean.TRUE.equals(entry.getIsActive()))
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry is already active");
+        Boolean isActive = mapper.isActive(id);
+        if (isActive == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found");
+        if (isActive) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry is already active");
 
-        repository.restore(id);
+        mapper.restore(id);
     }
 }

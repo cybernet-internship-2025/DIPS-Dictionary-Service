@@ -1,11 +1,8 @@
 package az.cybernet.internship.dictionary;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 
-@Mapper
-public interface DictionaryRepository {
+public interface DictionaryMapper {
     List<DictionaryEntry> list(Long id, String value, Boolean is_active, int limit);
 
     void insert(DictionaryEntry entry);
