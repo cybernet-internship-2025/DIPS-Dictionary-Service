@@ -29,7 +29,7 @@ public class CategoryController {
     @PutMapping
     @ResponseStatus(NO_CONTENT)
     public void upsert(@RequestBody @Valid CategoryRequest request) {
-        categoryService.upsert(request);
+        categoryService.saveOrUpdateCategory(request);
     }
 
     @GetMapping("/{id}")

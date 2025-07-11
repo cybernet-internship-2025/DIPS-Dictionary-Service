@@ -23,15 +23,18 @@ public class CategoryServiceImpl implements CategoryService {
     CategoryMapper categoryMapper;
 
     @Override
-    public void upsert(CategoryRequest request) {
-        log.info("ActionLog.createAndUpdateCategory.start - request: {}", request);
-        if (request.getId() != null) {
-            var dictionaryCategory = fetchDictionaryIfExist(request.getId());
+    public void saveOrUpdateCategory(CategoryRequest request) {
+        if (request.getId() == null) {
+            log.info("ActionLog.saveCategory.start - request: {}", request);
+            var dictionaryCategory = CATEGORY_MAPPER.buildDictionaryCategory(request);
+            categoryMapper.saveCategory(dictionaryCategory);
+            log.info("ActionLog.saveCategory.end - request: {}", request);
         }
 
-        var dictionaryCategory = CATEGORY_MAPPER.buildDictionaryCategory(request);
-        categoryMapper.upsert(dictionaryCategory);
-        log.info("ActionLog.createAndUpdateCategory.end - request: {}", request);
+        log.info("ActionLog.updateCategory.start - request: {}", request);
+        var dictionaryCategory = fetchDictionaryIfExist(request.getId());
+        categoryMapper.updateCategory(dictionaryCategory);
+        log.info("ActionLog.updateCategory.end - request: {}", request);
     }
 
     @Override
@@ -52,12 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private DictionaryCategory fetchDictionaryIfExist(Long id) {
-        var category = categoryMapper.findById(id);
-
-        if (category == null) {
-            throw new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage(id));
-        }
-
-        return category;
+        return categoryMapper.findById(id).orElseThrow(() ->
+                new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage(id)));
     }
 }

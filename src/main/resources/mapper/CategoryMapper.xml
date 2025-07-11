@@ -25,31 +25,26 @@
     </resultMap>
 
     <!-- INSERT -->
-    <insert id="upsert" parameterType="az.cybernet.internship.dictionary.entity.DictionaryCategory"
+    <insert id="saveCategory" parameterType="az.cybernet.internship.dictionary.entity.DictionaryCategory"
             useGeneratedKeys="true">
-        <choose>
-            <!-- If ID is null, INSERT -->
-            <when test="id == null">
-                INSERT INTO categories (name, description, is_active, created_at, updated_at)
-                VALUES (#{name}, #{description}, true, now(), null)
-            </when>
-
-            <!-- Else, UPDATE -->
-            <otherwise>
-                UPDATE categories
-                <set>
-                    <if test="name != null">
-                        name = #{name},
-                    </if>
-                    <if test="description != null">
-                        description = #{description},
-                    </if>
-                    updated_at = now()
-                </set>
-                WHERE id = #{id}
-            </otherwise>
-        </choose>
+        INSERT INTO categories (name, description, is_active, created_at, updated_at)
+        VALUES (#{name}, #{description}, true, now(), null)
     </insert>
+
+    <!-- UPDATE -->
+    <update id="updateCategory" parameterType="az.cybernet.internship.dictionary.entity.DictionaryCategory">
+        UPDATE categories
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            updated_at = now()
+        </set>
+        WHERE id = #{id}
+    </update>
 
     <!-- SELECT BY ID -->
     <select id="findById" resultMap="CategoryResultMap" parameterType="long">
