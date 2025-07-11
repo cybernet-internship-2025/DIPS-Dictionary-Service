@@ -32,6 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
         } else {
             log.info("ActionLog.updateCategory.start - request: {}", request);
             var dictionaryCategory = fetchDictionaryIfExist(request.getId());
+            CATEGORY_MAPPER.updateCategory(dictionaryCategory, request);
             categoryMapper.updateCategory(dictionaryCategory);
             log.info("ActionLog.updateCategory.end - request: {}", request);
         }
