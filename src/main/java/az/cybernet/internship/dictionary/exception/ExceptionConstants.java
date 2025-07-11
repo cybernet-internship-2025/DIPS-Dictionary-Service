@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum ExceptionConstants {
+    UNEXPECTED_EXCEPTION("UNEXPECTED_EXCEPTION", "unexpected exception occurred"),
+    HTTP_METHOD_IS_NOT_CORRECT("HTTP_METHOD_IS_NOT_CORRECT", "http method is not correct"),
+    VALIDATION_EXCEPTION("VALIDATION_EXCEPTION", "Validation exception happened"),
     CATEGORY_NOT_FOUND("CATEGORY_NOT_FOUND", "no category with id was found");
 
     private final String code;
