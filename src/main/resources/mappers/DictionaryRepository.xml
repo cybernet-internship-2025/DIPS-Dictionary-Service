@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="az.cybernet.internship.dictionary.Repository">
+<mapper namespace="az.cybernet.internship.dictionary.DictionaryRepository">
 
-    <select id="list" resultType="az.cybernet.internship.dictionary.Entry">
+    <select id="list" resultType="az.cybernet.internship.dictionary.DictionaryEntry">
         SELECT id, value, description, is_active, deleted_at
-        FROM dictionaries
+        FROM dictionary
         WHERE
         <if test="id != null">
             id = #{id}
@@ -22,13 +22,13 @@
         LIMIT #{limit}
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" greatKey="id" keyProperty="id">
-        INSERT INTO dictionaries (value, description, is_active)
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dictionary (value, description, is_active)
         VALUES (#{value}, #{description}, true)
     </insert>
 
     <update id="update">
-        UPDATE dictionaries
+        UPDATE dictionary
         SET value = #{value},
         description = #{description},
         is_active = #{is_active},
@@ -37,27 +37,27 @@
     </update>
 
     <update id="softDelete">
-        UPDATE dictionaries
+        UPDATE dictionary
         SET is_active = false,
         deleted_at = NOW()
         WHERE id = #{id}
     </update>
 
     <update id="restore">
-        UPDATE dictionaries
+        UPDATE dictionary
         SET is_active = true, deleted_at = NULL
         WHERE id = #{id}
     </update>
 
     <select id="isActive" resultType="boolean">
         SELECT is_active
-        FROM dictionaries
+        FROM dictionary
         WHERE id = #{id}
     </select>
 
-    <select id="findById" resultType="az.cybernet.internship.dictionary.Entry">
+    <select id="findById" resultType="az.cybernet.internship.dictionary.DictionaryEntry">
         SELECT *
-        FROM dictionaries
+        FROM dictionary
         WHERE id = #{id}
     </select>
 

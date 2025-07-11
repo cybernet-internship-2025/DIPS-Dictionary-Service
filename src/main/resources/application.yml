@@ -3,8 +3,8 @@ spring:
     import: optional:file:.env[.properties]
 
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: ${POSTGRES_URL}
+    driver-class-name: org.postgresql.Driver
+    url: POSTGRES_URL=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
 
@@ -13,8 +13,8 @@ spring:
     port: ${REDIS_PORT}
 
 mybatis:
-  mapperLocations:
-    - classpath:/mappers/*.xml
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: az.cybernet.internship.dictionary
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100

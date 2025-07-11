@@ -2,16 +2,16 @@ package az.cybernet.internship.dictionary;
 
 import java.time.LocalDateTime;
 
-public class Entry {
+public class DictionaryEntry {
     private Long id;
     private String value;
     private String description;
     private Boolean isActive;
     private LocalDateTime deletedAt;
 
-    public Entry() {}
+    public DictionaryEntry() {}
 
-    public Entry(Long id, String value, String description, Boolean is_active, LocalDateTime deletedAt) {
+    public DictionaryEntry(Long id, String value, String description, Boolean is_active, LocalDateTime deletedAt) {
         this.id = id;
         this.value = value;
         this.description = description;

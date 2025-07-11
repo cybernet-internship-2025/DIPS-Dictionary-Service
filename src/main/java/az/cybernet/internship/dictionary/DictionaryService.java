@@ -11,17 +11,18 @@ import java.util.List;
 public class DictionaryService {
 
     @Autowired
-    private Repository repository;
+    private DictionaryRepository repository;
 
-    public List<Entry> getList(Long id, String value, Boolean isActive, Integer limit) {
+    public List<DictionaryEntry> getList(Long id, String value, Boolean isActive, Integer limit) {
         return repository.list(id, value, isActive, limit != null ? limit : 100); // значение по умолчанию
     }
 
-    public void saveOrUpdate(Entry entry) {
+    public void saveOrUpdate(Long id, String value, String description) {
+        var entry = new DictionaryEntry(id, value, description, true, null);
         if (entry.getValue() == null || entry.getValue().trim().isEmpty())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Field 'value' cannot be empty");
 
-        Entry existing = entry.getId() != null ? repository.findById(entry.getId()) : null;
+        DictionaryEntry existing = entry.getId() != null ? repository.findById(entry.getId()) : null;
 
         if (entry.getId() == null) {
             // Новый элемент
@@ -38,7 +39,7 @@ public class DictionaryService {
     }
 
     public void delete(Long id) {
-        Entry entry = repository.findById(id);
+        DictionaryEntry entry = repository.findById(id);
         if (entry == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found");
         if (!Boolean.TRUE.equals(entry.getIsActive()))
@@ -48,7 +49,7 @@ public class DictionaryService {
     }
 
     public void restore(Long id) {
-        Entry entry = repository.findById(id);
+        DictionaryEntry entry = repository.findById(id);
         if (entry == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found");
         if (Boolean.TRUE.equals(entry.getIsActive()))
