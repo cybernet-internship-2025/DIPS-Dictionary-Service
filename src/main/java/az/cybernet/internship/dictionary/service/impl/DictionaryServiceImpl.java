@@ -10,6 +10,7 @@ import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,7 +41,21 @@ public class DictionaryServiceImpl implements DictionaryService {
     }
 
     @Override
-    public DictionaryResponse createDictionary(DictionaryRequest request) {
-        return null;
+    public DictionaryResponse restoreDictionary(UUID uuid) {
+        mapper.restore(uuid);
+
+//        if (updated.equals(0)) {
+//            throw new DictionaryNotFoundException("Dictionary not found");
+//        }
+
+        Dictionary dictionary = mapper.findById(uuid);
+
+        DictionaryResponse response = new DictionaryResponse();
+        response.setId(dictionary.getId());
+        response.setCategory(dictionary.getCategory());
+        response.setValue(dictionary.getValue());
+        response.setDescription(dictionary.getDescription());
+
+        return response;
     }
 }

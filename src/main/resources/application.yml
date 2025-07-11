@@ -10,7 +10,7 @@ server:
     context-path: /api
 
 mybatis:
-  mapperLocations: classpath:sql/*.xml
+  mapperLocations: classpath:mappers/*.xml
   config-location: classpath:config/mybatis.xml
 
 springdoc:

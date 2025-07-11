@@ -20,4 +20,6 @@ public class DictionaryResponse implements Serializable {
         this.value = value;
         this.description = description;
     }
+
+    public DictionaryResponse() {}
 }
