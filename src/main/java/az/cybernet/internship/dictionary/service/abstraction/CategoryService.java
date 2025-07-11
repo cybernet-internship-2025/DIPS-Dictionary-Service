@@ -5,7 +5,7 @@ import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 
 public interface CategoryService {
 
-    void upsert(CategoryRequest request);
+    void saveOrUpdateCategory(CategoryRequest request);
 
     CategoryResponse findById(Long id);
 
