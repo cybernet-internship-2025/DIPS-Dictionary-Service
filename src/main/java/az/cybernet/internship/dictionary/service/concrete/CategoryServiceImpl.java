@@ -11,6 +11,8 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static az.cybernet.internship.dictionary.exception.ExceptionConstants.CATEGORY_NOT_FOUND;
 import static az.cybernet.internship.dictionary.mapper.CategoryMapper.CATEGORY_MAPPER;
 import static lombok.AccessLevel.PRIVATE;
@@ -39,12 +41,31 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public void restoreCategory(Long id) {
+        log.info("ActionLog.restoreCategory.start - id: {}", id);
+        categoryMapper.restoreCategory(id);
+        log.info("ActionLog.restoreCategory.end - id: {}", id);
+    }
+
+    @Override
     public CategoryResponse findById(Long id) {
         log.info("ActionLog.findByIdCategory.start - id: {}", id);
         var dictionaryCategory = fetchDictionaryIfExist(id);
         var categoryResponse = CATEGORY_MAPPER.buildCategoryResponse(dictionaryCategory);
         log.info("ActionLog.findByIdCategory.end - id: {}, response: {}", id, categoryResponse);
         return categoryResponse;
+    }
+
+    @Override
+    public List<CategoryResponse> findAll(Integer limit) {
+        log.info("ActionLog.findAllCategories.start");
+        var dictionaryCategories = categoryMapper.findAll(limit);
+        var list = dictionaryCategories
+                .stream()
+                .map(CATEGORY_MAPPER::buildCategoryResponse)
+                .toList();
+        log.info("ActionLog.findAllCategories.end");
+        return list;
     }
 
     @Override
