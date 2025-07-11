@@ -5,12 +5,12 @@
 
 <mapper namespace="com.group_one.dictionary.dictionary_service.mapper.CategoryMapper">
 
-    <resultMap id="CategoryWithItemsResultMap" type="com.group_one.dictionary.dictionary_service.dto.CategoryDto">
+    <resultMap id="CategoryWithItemsResultMap" type="az.cybernet.internship.dictionary.model.dictionary.CategoryDto">
         <id column="category_id" property="id"/>
         <result column="category_name" property="name"/>
         <result column="category_description" property="description"/>
 
-        <collection property="items" ofType="com.group_one.dictionary.dictionary_service.model.dictionary.DictionaryResponse">
+        <collection property="items" ofType="az.cybernet.internship.dictionary.model.dictionary.DictionaryResponse">
             <id column="item_id" property="id"/>
             <result column="item_value" property="value"/>
             <result column="item_description" property="description"/>
@@ -19,7 +19,7 @@
     </resultMap>
 
     <!-- getAll -->
-    <select id="getAll" resultType="com.group_one.dictionary.dictionary_service.category.CategoryDto">
+    <select id="getAll" resultType="az.cybernet.internship.dictionary.model.dictionary.Category">
         SELECT id, name, description
         FROM categories
     </select>
