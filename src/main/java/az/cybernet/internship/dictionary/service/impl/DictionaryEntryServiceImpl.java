@@ -1,5 +1,8 @@
 package az.cybernet.internship.dictionary.service.impl;
 
+import az.cybernet.internship.dictionary.converter.DictionaryEntryConverter;
+import az.cybernet.internship.dictionary.dto.request.DictionaryEntryRequestDTO;
+import az.cybernet.internship.dictionary.dto.response.DictionaryEntryResponseDTO;
 import az.cybernet.internship.dictionary.exception.NotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryEntryMapper;
 import az.cybernet.internship.dictionary.model.DictionaryEntry;
@@ -16,10 +19,15 @@ import java.util.UUID;
 public class DictionaryEntryServiceImpl implements DictionaryEntryService {
 
     private final DictionaryEntryMapper dictionaryEntryMapper;
+    private final DictionaryEntryConverter dictionaryEntryConverter;
 
     @Override
-    public List<DictionaryEntry> selectAll() {
-        return dictionaryEntryMapper.selectAll();
+    public List<DictionaryEntryResponseDTO> selectAll() {
+        return dictionaryEntryMapper.selectAll()
+                .stream()
+                .filter(DictionaryEntry::isActive)
+                .map(dictionaryEntry -> dictionaryEntryConverter.convert(dictionaryEntry))
+                .toList();
     }
 
     @Override
@@ -32,15 +40,20 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     }
 
     @Override
-    public void insert(DictionaryEntry entry) {
+    public void insert(DictionaryEntryRequestDTO entryRequestDTO) {
+        DictionaryEntry entry = dictionaryEntryConverter.convert(entryRequestDTO);
+        entry.setId(UUID.randomUUID());
         dictionaryEntryMapper.insert(entry);
     }
 
     @Override
-    public void update(DictionaryEntry entry) {
-        if (dictionaryEntryMapper.selectById(entry.getId()) == null) {
+    public void update(DictionaryEntryRequestDTO entryRequestDTO) {
+        DictionaryEntry entry = dictionaryEntryMapper.selectById(entryRequestDTO.getId());
+        if (entry == null) {
             throw new NotFoundException("Entry not found");
         }
+
+        dictionaryEntryConverter.updateEntryFromDto(entryRequestDTO, entry);
         dictionaryEntryMapper.update(entry);
     }
 
