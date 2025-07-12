@@ -8,6 +8,7 @@ import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.mapstruct.DictionaryMap;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -50,5 +51,15 @@ public class DictionaryServiceImpl implements DictionaryService {
             throw new DictionaryNotFoundException("Dictionary entry not found for update with id: " + dictionary.getId());
         }
         return dictionaryMap.toDto(dictionary);
+    }
+
+    @Override
+    @Transactional
+    public DictionaryResp delete(UUID id) {
+        DictionaryResp deleted = dictionaryMapper.delete(id);
+        if (deleted == null) {
+            throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
+        }
+        return deleted;
     }
 }

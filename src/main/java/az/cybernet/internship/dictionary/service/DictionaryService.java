@@ -12,4 +12,6 @@ public interface DictionaryService {
     List<DictionaryResp> findDictionaries(UUID id, String value, Boolean isActive, Integer limit);
 
     DictionaryResp updateDictionary(Dictionary dictionary);
+
+    DictionaryResp delete(UUID id);
 }
