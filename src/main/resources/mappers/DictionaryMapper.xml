@@ -37,4 +37,12 @@
         update_date = #{updateDate}
         WHERE id = #{id}::uuid;
     </update>
+
+    <select id="delete" parameterType="java.lang.String" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
+        UPDATE dictionary
+        SET is_active = false,
+            update_date = now()
+        WHERE id = #{id}::uuid
+    RETURNING id, category, value, is_active, update_date;
+    </select>
 </mapper>

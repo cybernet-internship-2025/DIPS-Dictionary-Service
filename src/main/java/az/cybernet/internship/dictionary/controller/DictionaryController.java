@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+import static org.springframework.http.ResponseEntity.ok;
+
 @RestController
 @RequestMapping("/api/v1/dictionaries")
 public class DictionaryController {
@@ -27,7 +29,7 @@ public class DictionaryController {
             @RequestParam(required = false, defaultValue = "100") Integer limit
     ) {
         List<DictionaryResp> dictionaries = dictionaryService.findDictionaries(id, value, isActive, limit);
-        return ResponseEntity.ok(dictionaries);
+        return ok(dictionaries);
     }
 
     @PutMapping
@@ -36,6 +38,11 @@ public class DictionaryController {
     ) {
         //shouldn't return this but foe testing purposes let it stay
         DictionaryResp response = dictionaryService.updateDictionary(dictionary);
-        return ResponseEntity.ok(response);
+        return ok(response);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<DictionaryResp> delete(@PathVariable String id) {
+        return ok(dictionaryService.delete(id));
     }
 }
