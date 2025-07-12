@@ -77,7 +77,8 @@ public class CategoryServiceImpl implements CategoryService {
         log.info("ActionLog.deleteCategory.end - id: {}", id);
     }
 
-    private DictionaryCategory fetchDictionaryIfExist(Long id) {
+    @Override
+    public DictionaryCategory fetchDictionaryIfExist(Long id) {
         return categoryMapper.findById(id).orElseThrow(() ->
                 new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage(id)));
     }
