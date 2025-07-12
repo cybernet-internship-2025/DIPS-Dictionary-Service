@@ -3,6 +3,7 @@ package az.cybernet.internship.dictionary.mapper;
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.entity.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,5 +15,5 @@ public interface DictionaryMapper {
 
     int updateDictionary(Dictionary dictionary);
 
-    DictionaryResp delete(String id);
+    DictionaryResp delete(@Param("uuid") UUID id);
 }

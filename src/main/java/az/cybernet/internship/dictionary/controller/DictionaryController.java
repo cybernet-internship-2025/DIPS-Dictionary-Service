@@ -3,9 +3,7 @@ package az.cybernet.internship.dictionary.controller;
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import az.cybernet.internship.dictionary.entity.Dictionary;
-import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +13,6 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api/v1/dictionaries")
-@Validated
 public class DictionaryController {
 
     private final DictionaryService dictionaryService;
@@ -45,7 +42,7 @@ public class DictionaryController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<DictionaryResp> delete(@PathVariable @NotBlank String id) {
+    public ResponseEntity<DictionaryResp> delete(@PathVariable UUID id) {
         return ok(dictionaryService.delete(id));
     }
 }

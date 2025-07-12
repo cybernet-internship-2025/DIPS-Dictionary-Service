@@ -13,5 +13,5 @@ public interface DictionaryService {
 
     DictionaryResp updateDictionary(Dictionary dictionary);
 
-    DictionaryResp delete(String id);
+    DictionaryResp delete(UUID id);
 }
