@@ -18,7 +18,7 @@
 
   <properties>
     <groovy.version>4.0.0</groovy.version>
-    <spock.version>2.2-M1-groovy-4.0</spock.version>
+    <spock.version>2.3-groovy-4.0</spock.version>
     <random.beans.version>3.9.0</random.beans.version>
 
     <java.version>17</java.version>
