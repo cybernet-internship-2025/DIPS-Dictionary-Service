@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.service.abstraction;
 
+import az.cybernet.internship.dictionary.entity.DictionaryCategory;
 import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 
@@ -16,4 +17,6 @@ public interface CategoryService {
     List<CategoryResponse> findAll(Integer limit);
 
     void restoreCategory (Long id);
+
+    DictionaryCategory fetchDictionaryIfExist(Long id);
 }

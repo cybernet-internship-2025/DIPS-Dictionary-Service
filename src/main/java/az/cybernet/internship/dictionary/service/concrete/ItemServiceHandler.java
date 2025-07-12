@@ -4,15 +4,15 @@ import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.exception.NotFoundException;
 import az.cybernet.internship.dictionary.model.request.ItemRequest;
 import az.cybernet.internship.dictionary.model.response.ItemResponse;
-import az.cybernet.internship.dictionary.repository.CategoryMapper;
 import az.cybernet.internship.dictionary.repository.ItemMapper;
+import az.cybernet.internship.dictionary.service.abstraction.CategoryService;
 import az.cybernet.internship.dictionary.service.abstraction.ItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import static az.cybernet.internship.dictionary.exception.ExceptionConstants.CATEGORY_NOT_FOUND;
 import static az.cybernet.internship.dictionary.exception.ExceptionConstants.ITEM_NOT_FOUND;
 import static az.cybernet.internship.dictionary.mapper.ItemMapper.ITEM_MAPPER;
 import static lombok.AccessLevel.PRIVATE;
@@ -23,16 +23,16 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class ItemServiceHandler implements ItemService {
     ItemMapper itemMapper;
-    CategoryMapper categoryMapper;
+    CategoryService categoryService;
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void updateItem(Long id, ItemRequest request) {
         log.info("ActionLog.updateItem.start - id: {},  request: {}", id, request);
         var dictionaryItem = fetchDictionaryIfExist(id);
 
         if (request.getCategoryId() != null) {
-            var dictionaryCategory = categoryMapper.findById(request.getCategoryId()).orElseThrow(() ->
-                    new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage()));
+            var dictionaryCategory = categoryService.fetchDictionaryIfExist(request.getCategoryId());
         }
 
         ITEM_MAPPER.updateItem(dictionaryItem, request);
