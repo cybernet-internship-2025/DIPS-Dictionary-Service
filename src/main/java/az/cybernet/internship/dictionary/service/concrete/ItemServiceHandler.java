@@ -81,6 +81,7 @@ public class ItemServiceHandler implements ItemService {
         log.info("ActionLog.deleteItem.end - id: {}", id);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void saveItem(ItemRequest request) {
         log.info("ActionLog.saveItem.start - request: {}", request);
