@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.controller;
 
+import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ public class DictionaryController {
         this.service = service;
     }
 
-    // Balash commited
     @GetMapping
     public ResponseEntity<List<DictionaryResponse>> getAllActiveDictionaryWithLimit(
             @RequestParam String value,
@@ -34,18 +34,13 @@ public class DictionaryController {
         return ResponseEntity.ok(service.restoreDictionary(id));
     }
 
-    //Goychek commited
+    @PutMapping
+    private ResponseEntity<DictionaryResponse> updateOrInsertDictionary(@RequestBody DictionaryRequest request) {
+        return ResponseEntity.ok(service.updateOrInsert(request));
+    }
 
-
-
-
-
-
-    //Huseyn commited
-
-
-
-
-
-
+    @DeleteMapping("/{id}")
+    private ResponseEntity<DictionaryResponse> softDelete(@PathVariable UUID id) {
+        return ResponseEntity.ok(service.softDelete(id));
+    }
 }

@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.mapper;
 
+import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -9,7 +10,7 @@ import java.util.UUID;
 
 @Mapper
 public interface DictionaryMapper {
-    // Balash's commit
+
     Dictionary findById(@Param("id") UUID id);
     List<Dictionary> findAllActiveDictionaryWithLimit(@Param("value") String value,
                                                       @Param("isActive") Boolean isActive,
@@ -17,20 +18,8 @@ public interface DictionaryMapper {
 
     void restore(@Param("id") UUID id);
 
-    // Goychek's commit
+    void update(Dictionary dictionary);
+    void insert(Dictionary dictionary);
 
-
-
-
-
-
-
-
-    // Huseyn's commit
-
-
-
-
-
-
+    void updateForSoftDelete(UUID uuid);
 }
