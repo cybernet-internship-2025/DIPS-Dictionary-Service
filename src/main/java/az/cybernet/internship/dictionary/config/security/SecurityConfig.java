@@ -1,4 +1,4 @@
-package az.cybernet.internship.dictionary.config;
+package az.cybernet.internship.dictionary.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

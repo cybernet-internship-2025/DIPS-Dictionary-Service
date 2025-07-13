@@ -7,14 +7,17 @@ import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 import az.cybernet.internship.dictionary.repository.CategoryRepository;
 import az.cybernet.internship.dictionary.service.abstraction.CategoryService;
+import az.cybernet.internship.dictionary.util.CacheUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static az.cybernet.internship.dictionary.exception.ExceptionConstants.CATEGORY_NOT_FOUND;
+import static java.time.temporal.ChronoUnit.HOURS;
 import static lombok.AccessLevel.PRIVATE;
 
 @Slf4j
@@ -24,6 +27,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class CategoryServiceImpl implements CategoryService {
     CategoryRepository categoryRepository;
     CategoryMapper categoryMapper;
+    CacheUtil cacheUtil;
 
 
     @Override
@@ -53,8 +57,18 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryResponse findById(Long id) {
         log.info("ActionLog.findByIdCategory.start - id: {}", id);
+
+        var cached = cacheUtil.getBucket("category:" + id);
+        if (cached != null) {
+            log.info("ActionLog.findByIdCategory.cached - id: {}", id);
+            return (CategoryResponse) cached;
+        }
+
         var dictionaryCategory = fetchDictionaryIfExist(id);
         var categoryResponse = categoryMapper.buildCategoryResponse(dictionaryCategory);
+
+        cacheUtil.saveToCache("category:" + id, categoryResponse, 1L, HOURS);
+
         log.info("ActionLog.findByIdCategory.end - id: {}, response: {}", id, categoryResponse);
         return categoryResponse;
     }
@@ -62,12 +76,30 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<CategoryResponse> findAll(Integer limit) {
         log.info("ActionLog.findAllCategories.start");
+
+        List<CategoryResponse> result = new ArrayList<>();
+        for (int i = 0; ; i++) {
+            var item = cacheUtil.getBucket("category:all:" + limit + ":" + i);
+            if (item == null) break;
+            result.add((CategoryResponse) item);
+        }
+
+        if (!result.isEmpty()) {
+            log.info("ActionLog.findAllCategories.cached - limit: {}", limit);
+            return result;
+        }
+
         var dictionaryCategories = categoryRepository.findAll(limit);
         var list = dictionaryCategories
                 .stream()
                 .map(categoryMapper::buildCategoryResponse)
                 .toList();
-        log.info("ActionLog.findAllCategories.end");
+
+        for (int i = 0; i < list.size(); i++) {
+            cacheUtil.saveToCache("category:all:" + limit + ":" + i, list.get(i), 1L, HOURS);
+        }
+
+        log.info("ActionLog.findAllCategories.end - limit: {}", limit);
         return list;
     }
 
