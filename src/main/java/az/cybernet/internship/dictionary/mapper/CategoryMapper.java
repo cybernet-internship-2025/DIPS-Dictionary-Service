@@ -6,6 +6,8 @@ import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 import org.apache.commons.lang3.StringUtils;
 
+import static az.cybernet.internship.dictionary.mapper.ItemMapper.ITEM_MAPPER;
+
 public enum CategoryMapper {
     CATEGORY_MAPPER;
 
@@ -30,7 +32,7 @@ public enum CategoryMapper {
                         category.getItems()
                                 .stream()
                                 .filter(DictionaryItem::getIsActive)
-                                .map(ItemMapper.ITEM_MAPPER::buildItemResponse)
+                                .map(ITEM_MAPPER::buildItemResponse)
                                 .toList()
                 )
                 .build();
