@@ -1,47 +1,38 @@
 package az.cybernet.internship.dictionary.controller;
 
-import az.cybernet.internship.dictionary.dto.DictionaryResponse;
-
-
-import org.springframework.http.ResponseEntity;
+import az.cybernet.internship.dictionary.dto.*;
+import az.cybernet.internship.dictionary.service.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import az.cybernet.internship.dictionary.service.DictionaryService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/dictionary")
+@RequiredArgsConstructor
 public class DictionaryController {
+
     private final DictionaryService service;
 
-    public DictionaryController(DictionaryService service) {
-        this.service = service;
+    @GetMapping
+    public List<DictionaryResponse> getAll(@RequestParam(required = false) String id,
+                                           @RequestParam(required = false) String value,
+                                           @RequestParam(required = false, defaultValue = "true") Boolean isActive) {
+        return service.getAll(id, value, isActive);
     }
 
-    @GetMapping("/dictionaries")
-    public ResponseEntity<List<DictionaryResponse>> getAll(
-            @RequestParam(required = false) String id,
-            @RequestParam(required = false) String value,
-            @RequestParam(required = false) Boolean isActive,
-            @RequestParam(required = false) Integer limit) {
-        return ResponseEntity.ok(service.getDictionaries(id, value, isActive, limit));
+    @PutMapping("/{id}")
+    public void createOrUpdate(@PathVariable String id, @RequestBody DictionaryRequest request) {
+        service.createOrUpdate(id, request);
     }
 
-//    @PutMapping
-//    public ResponseEntity<Void> saveOrUpdate(@RequestBody DictionaryRequest request) {
-//        az.cybernet.internship.dictionary.service.saveOrUpdate(request);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> softDelete(@PathVariable String id) {
-//        az.cybernet.internship.dictionary.service.softDelete(id);
-//        return ResponseEntity.ok().build();
-//    }
-//
-//    @PostMapping("/{id}/restore")
-//    public ResponseEntity<Void> restore(@PathVariable String id) {
-//        az.cybernet.internship.dictionary.service.restore(id);
-//        return ResponseEntity.ok().build();
-//    }
+    @DeleteMapping("/{id}")
+    public void softDelete(@PathVariable String id) {
+        service.softDelete(id);
+    }
+
+    @PostMapping("/{id}/restore")
+    public void restore(@PathVariable String id) {
+        service.restore(id);
+    }
 }

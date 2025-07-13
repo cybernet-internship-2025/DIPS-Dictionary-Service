@@ -1,41 +1,23 @@
 package az.cybernet.internship.dictionary.repository;
 
-
-import az.cybernet.internship.dictionary.mapper.IDictionaryMapper;
 import az.cybernet.internship.dictionary.model.DictionaryEntity;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.UUID;
 
-//@Repository
-public class DictionaryRepository {
-    private final IDictionaryMapper mapper;
+@Mapper
+public interface DictionaryRepository {
+    List<DictionaryEntity> getAll(@Param("id") String id, @Param("value") String value, @Param("isActive") Boolean isActive);
 
-    public DictionaryRepository(IDictionaryMapper mapper) {
-        this.mapper = mapper;
-    }
+    DictionaryEntity getById(@Param("id") String id);
 
-    public List<DictionaryEntity> getDictionaries(String id, String value, Boolean isActive, Integer limit) {
-        return mapper.getDictionaries(id, value, isActive, limit);
-    }
-//
-//    public DictionaryEntity findById(String id) {
-//        return az.cybernet.internship.dictionary.mapper.findById(id);
-//    }
-//
-//    public void insert(DictionaryEntity dictionaryEntity) {
-//        az.cybernet.internship.dictionary.mapper.insert(dictionaryEntity);
-//    }
-//
-//    public void update(DictionaryEntity dictionaryEntity) {
-//        az.cybernet.internship.dictionary.mapper.update(dictionaryEntity);
-//    }
-//
-//    public void softDelete(String id, String timestamp) {
-//        az.cybernet.internship.dictionary.mapper.softDelete(id, timestamp);
-//    }
-//
-//    public void restore(String id) {
-//        az.cybernet.internship.dictionary.mapper.restore(id);
-//    }
+    void insert(DictionaryEntity entity);
+
+    void update(DictionaryEntity entity);
+
+    void softDelete(@Param("id") String id);
+
+    void restore(@Param("id") String id);
 }

@@ -3,42 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="az.cybernet.internship.dictionaryEntity.az.cybernet.internship.dictionary.mapper.IDictionaryMapper">
-
-    <select id="getDictionaries" resultType="az.cybernet.internship.dictionaryEntity.az.cybernet.internship.dictionary.model.DictionaryEntity">
-        SELECT * FROM dictionaryEntity
-        WHERE 1=1
-        <if test="id != null">AND id = #{id}</if>
-        <if test="value != null">AND LOWER(value) LIKE CONCAT('%', LOWER(#{value}), '%')</if>
-        <if test="isActive != null">AND is_active = #{isActive}</if>
-        <if test="limit != null">LIMIT #{limit}</if>
+<mapper namespace="az.cybernet.internship.dictionary.repository.DictionaryRepository">
+    <select id="getAll" resultType="az.cybernet.internship.dictionary.model.DictionaryEntity">
+        SELECT * FROM dictionary
+        WHERE (#{id} IS NULL OR LOWER(id) LIKE CONCAT('%', LOWER(#{id}), '%'))
+        AND (#{value} IS NULL OR LOWER(value) LIKE CONCAT('%', LOWER(#{value}), '%'))
+        AND (#{isActive} IS NULL OR is_active = #{isActive})
     </select>
 
-    <select id="findById" resultType="az.cybernet.internship.dictionaryEntity.az.cybernet.internship.dictionary.model.DictionaryEntity">
-        SELECT * FROM dictionaryEntity WHERE id = #{id}
+    <select id="getById" resultType="az.cybernet.internship.dictionary.model.DictionaryEntity">
+        SELECT * FROM dictionary WHERE id = #{id}
     </select>
 
     <insert id="insert">
-        INSERT INTO dictionaryEntity (id, category, value, description, is_active)
+        INSERT INTO dictionary (id, category, value, description, is_active)
         VALUES (#{id}, #{category}, #{value}, #{description}, #{isActive})
     </insert>
 
     <update id="update">
-        UPDATE dictionaryEntity
-        SET category = #{category}, value = #{value}, description = #{description}, is_active = #{isActive}
+        UPDATE dictionary
+        SET value = #{value}, description = #{description}, is_active = true, deleted_at = NULL
         WHERE id = #{id}
     </update>
 
     <update id="softDelete">
-        UPDATE dictionaryEntity
-        SET is_active = false, deleted_at = #{timestamp}
-        WHERE id = #{id}
+        UPDATE dictionary SET is_active = false, deleted_at = NOW() WHERE id = #{id}
     </update>
 
     <update id="restore">
-        UPDATE dictionaryEntity
-        SET is_active = true, deleted_at = null
-        WHERE id = #{id}
+        UPDATE dictionary SET is_active = true, deleted_at = NULL WHERE id = #{id}
     </update>
-
 </mapper>
