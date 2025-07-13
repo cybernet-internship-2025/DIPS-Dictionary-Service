@@ -1,4 +1,4 @@
-package DictionaryDto;
+package az.cybernet.internship.dictionary.dto;
 
 import lombok.Data;
 

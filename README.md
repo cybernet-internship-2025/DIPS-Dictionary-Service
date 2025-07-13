@@ -1,6 +1,6 @@
 # Digital Invoice Processing Dictionary Service
 
-This lightweight REST service manages lookup ("dictionary") data for the Digital Invoice Processing system. You can retrieve, create/update, soft-delete, and restore dictionary entries via simple HTTP endpoints.
+This lightweight REST az.cybernet.internship.dictionary.service manages lookup ("dictionaryEntity") data for the Digital Invoice Processing system. You can retrieve, create/update, soft-delete, and restore dictionaryEntity entries via simple HTTP endpoints.
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ This lightweight REST service manages lookup ("dictionary") data for the Digital
 
 ## Features
 
-* Retrieve all or filtered dictionary entries
+* Retrieve all or filtered dictionaryEntity entries
 * Create new entries or update existing ones
 * Soft-delete entries (mark inactive)
 * Restore soft-deleted entries
@@ -34,7 +34,7 @@ This lightweight REST service manages lookup ("dictionary") data for the Digital
 
 ### GET /api/v1/dictionaries
 
-Retrieve all active dictionary entries by default.
+Retrieve all active dictionaryEntity entries by default.
 
 **Query Parameters** (all optional):
 
@@ -45,7 +45,7 @@ Retrieve all active dictionary entries by default.
 
 **Response**
 
-* **200 OK**: JSON array of dictionary entry objects.
+* **200 OK**: JSON array of dictionaryEntity entry objects.
 
 ### PUT /api/v1/dictionaries
 
@@ -139,6 +139,6 @@ Error responses return a JSON object:
 
 ## Architecture
 
-* **Controller Layer**: Handles HTTP requests, maps to service methods
+* **Controller Layer**: Handles HTTP requests, maps to az.cybernet.internship.dictionary.service methods
 * **Service Layer**: Business logic and validation
 * **Repository Layer**: MyBatis mappers for database interactions
