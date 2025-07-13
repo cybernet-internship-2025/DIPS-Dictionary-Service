@@ -1,7 +1,10 @@
 package az.cybernet.internship.dictionary.service.abstraction;
 
+import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.model.request.ItemRequest;
 import az.cybernet.internship.dictionary.model.response.ItemResponse;
+
+import java.util.List;
 
 public interface ItemService {
 
@@ -11,4 +14,9 @@ public interface ItemService {
 
     void restore(Long id);
 
+    void deleteItem(Long id);
+
+    List<ItemResponse> findAll(Integer limit);
+
+    void saveItem(ItemRequest request);
 }

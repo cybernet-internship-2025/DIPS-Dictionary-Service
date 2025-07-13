@@ -58,4 +58,36 @@
         WHERE id = #{id}
     </update>
 
+    <!-- SAVE -->
+    <insert id="saveItem" parameterType="az.cybernet.internship.dictionary.entity.DictionaryItem"
+            useGeneratedKeys="true">
+        INSERT INTO items (value, description, is_active, created_at, updated_at, category_id)
+        VALUES (#{value}, #{description} ,true, now(), null, #{category.id})
+    </insert>
+
+    <!--  FIND ALL ITEMS  -->
+    <select id="findAll" resultMap="ItemResultMap" parameterType="Integer">
+        SELECT  i.id,
+                i.value,
+                i.description,
+                i.is_active,
+                i.created_at,
+                i.updated_at,
+                i.category_id
+        FROM items i
+        WHERE i.is_active != false
+        ORDER BY i.id ASC
+        <if test="limit != null">
+            LIMIT #{limit}
+        </if>
+    </select>
+
+    <!--  DELETE  -->
+    <update id="deleteItem" parameterType="Long">
+        UPDATE items
+        SET is_active = false,
+            updated_at = null
+        Where id = #{id}
+    </update>
+
 </mapper>

@@ -1,6 +1,7 @@
 package az.cybernet.internship.dictionary.mapper;
 
 import az.cybernet.internship.dictionary.entity.DictionaryCategory;
+import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 import org.apache.commons.lang3.StringUtils;
@@ -25,11 +26,13 @@ public enum CategoryMapper {
                 .createdAt(category.getCreatedAt())
                 .updatedAt(category.getUpdatedAt())
                 .isActive(category.getIsActive())
-//                .items(
-//                        category.getItems().stream()
-//                                .map(ITEM_MAPPER::buildItemResponse)
-//                                .collect(Collectors.toList())
-//                )
+                .items(
+                        category.getItems()
+                                .stream()
+                                .filter(DictionaryItem::getIsActive)
+                                .map(ItemMapper.ITEM_MAPPER::buildItemResponse)
+                                .toList()
+                )
                 .build();
     }
 

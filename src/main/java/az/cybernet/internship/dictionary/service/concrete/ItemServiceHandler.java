@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.service.concrete;
 
+import az.cybernet.internship.dictionary.entity.DictionaryCategory;
 import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.exception.NotFoundException;
 import az.cybernet.internship.dictionary.model.request.ItemRequest;
@@ -13,6 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
+import static az.cybernet.internship.dictionary.exception.ExceptionConstants.CATEGORY_NOT_FOUND;
 import static az.cybernet.internship.dictionary.exception.ExceptionConstants.ITEM_NOT_FOUND;
 import static az.cybernet.internship.dictionary.mapper.ItemMapper.ITEM_MAPPER;
 import static lombok.AccessLevel.PRIVATE;
@@ -55,6 +59,39 @@ public class ItemServiceHandler implements ItemService {
         var dictionaryItem = fetchDictionaryIfExist(id);
         itemMapper.restore(dictionaryItem.getId());
         log.info("ActionLog.restoreItem.end - id: {}", id);
+    }
+
+    @Override
+    public List<ItemResponse> findAll(Integer limit) {
+        log.info("ActionLog.findAllItems.start");
+        var dictionaryItems = itemMapper.findAll(limit);
+        var list = dictionaryItems
+                .stream()
+                .map(ITEM_MAPPER::buildItemResponse)
+                .toList();
+        log.info("ActionLog.findAllItems.end");
+        return list;
+    }
+
+    @Override
+    public void deleteItem(Long id) {
+        log.info("ActionLog.deleteItem.start - id: {}", id);
+        var dictionaryItem = fetchDictionaryIfExist(id);
+        itemMapper.deleteItem(dictionaryItem.getId());
+        log.info("ActionLog.deleteItem.end - id: {}", id);
+    }
+
+    @Override
+    public void saveItem(ItemRequest request) {
+        log.info("ActionLog.saveItem.start - request: {}", request);
+        DictionaryCategory dictionaryCategory = categoryService
+                .fetchDictionaryIfExist(request.getCategoryId());
+        if (!dictionaryCategory.getIsActive()) {
+            throw new NotFoundException(CATEGORY_NOT_FOUND.getCode(), ITEM_NOT_FOUND.getMessage());
+        }
+        var dictionaryItem = ITEM_MAPPER.buildDictionaryItem(request, dictionaryCategory);
+        itemMapper.saveItem(dictionaryItem);
+        log.info("ActionLog.saveItem.end - request: {}", request);
     }
 
     private DictionaryItem fetchDictionaryIfExist(Long id) {

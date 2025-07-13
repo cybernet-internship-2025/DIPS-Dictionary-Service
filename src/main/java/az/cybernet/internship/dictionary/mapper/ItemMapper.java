@@ -1,12 +1,17 @@
 package az.cybernet.internship.dictionary.mapper;
 
+import az.cybernet.internship.dictionary.entity.DictionaryCategory;
 import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.model.request.ItemRequest;
 import az.cybernet.internship.dictionary.model.response.ItemResponse;
 import org.apache.commons.lang3.StringUtils;
 
+import java.time.LocalDateTime;
+
 public enum ItemMapper {
     ITEM_MAPPER;
+
+
 
     public ItemResponse buildItemResponse(DictionaryItem item) {
         return ItemResponse.builder()
@@ -16,6 +21,16 @@ public enum ItemMapper {
                 .isActive(item.getIsActive())
                 .createdAt(item.getCreatedAt())
                 .updatedAt(item.getUpdatedAt())
+                .build();
+    }
+
+    public DictionaryItem buildDictionaryItem(ItemRequest request, DictionaryCategory category) {
+        return DictionaryItem.builder()
+                .value(request.getValue())
+                .description(request.getDescription())
+                .isActive(true)
+                .createdAt(LocalDateTime.now())
+                .category(category)
                 .build();
     }
 
