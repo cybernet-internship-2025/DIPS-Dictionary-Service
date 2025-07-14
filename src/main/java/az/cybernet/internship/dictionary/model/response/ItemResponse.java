@@ -1,21 +1,18 @@
 package az.cybernet.internship.dictionary.model.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class ItemResponse implements Serializable {
-    static final long serialVersionUID = 1L;
+import static lombok.AccessLevel.PRIVATE;
 
+@Data
+@Builder
+@FieldDefaults(level = PRIVATE, makeFinal = true)
+public class ItemResponse {
     Long id;
 
     String value;

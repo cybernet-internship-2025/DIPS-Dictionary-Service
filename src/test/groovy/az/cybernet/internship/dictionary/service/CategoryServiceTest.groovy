@@ -8,22 +8,27 @@ import az.cybernet.internship.dictionary.model.response.CategoryResponse
 import az.cybernet.internship.dictionary.repository.CategoryRepository
 import az.cybernet.internship.dictionary.service.abstraction.CategoryService
 import az.cybernet.internship.dictionary.service.concrete.CategoryServiceImpl
+import az.cybernet.internship.dictionary.util.CacheUtil
 import io.github.benas.randombeans.EnhancedRandomBuilder
 import io.github.benas.randombeans.api.EnhancedRandom
 import spock.lang.Specification
 
 import java.time.LocalDateTime
 
+import static java.time.temporal.ChronoUnit.HOURS
+
 class CategoryServiceTest extends Specification {
     EnhancedRandom random = EnhancedRandomBuilder.aNewEnhancedRandom()
     CategoryService categoryService
     CategoryMapper categoryMapper
     CategoryRepository categoryRepository
+    CacheUtil cacheUtil
 
     def setup() {
         categoryMapper = Mock()
         categoryRepository = Mock()
-        categoryService = new CategoryServiceImpl(categoryRepository, categoryMapper)
+        cacheUtil = Mock()
+        categoryService = new CategoryServiceImpl(categoryRepository, categoryMapper, cacheUtil)
     }
 
     // saveOrUpdateCategory
@@ -119,7 +124,7 @@ class CategoryServiceTest extends Specification {
     }
 
     // findById
-    def "TestFindById success case"() {
+    def "TestFindById cache miss with DB fallback"() {
         given:
         def id = random.nextObject(Long)
         def dictionaryCategory = random.nextObject(DictionaryCategory)
@@ -132,13 +137,17 @@ class CategoryServiceTest extends Specification {
                 .updatedAt(dictionaryCategory.updatedAt)
                 .build()
 
+        cacheUtil.getBucket("category:" + id) >> null
         categoryMapper.buildCategoryResponse(dictionaryCategory) >> categoryResponse
 
         when:
         def result = categoryService.findById(id)
 
         then:
+        1 * cacheUtil.getBucket("category:" + id)
         1 * categoryRepository.findById(id) >> Optional.of(dictionaryCategory)
+        1 * cacheUtil.saveToCache("category:" + id, categoryResponse, 1L, HOURS)
+        result == categoryResponse
         result.id == dictionaryCategory.id
         result.name == dictionaryCategory.name
         result.description == dictionaryCategory.description
@@ -147,14 +156,48 @@ class CategoryServiceTest extends Specification {
         result.updatedAt == dictionaryCategory.updatedAt
     }
 
+    def "TestFindById cache hit case"() {
+        given:
+        def id = random.nextObject(Long)
+        def cachedResponse = CategoryResponse.builder()
+                .id(id)
+                .name("Test Name")
+                .description("Test Description")
+                .isActive(true)
+                .createdAt(LocalDateTime.now())
+                .updatedAt(null)
+                .build()
+
+
+        cacheUtil.getBucket("category:" + id) >> cachedResponse
+
+        when:
+        def result = categoryService.findById(id)
+
+        then:
+        1 * cacheUtil.getBucket("category:" + id) >> cachedResponse
+        0 * categoryRepository.findById(_)
+        0 * cacheUtil.saveToCache(_, _, _, _)
+        result == cachedResponse
+        result.id == cachedResponse.id
+        result.name == cachedResponse.name
+        result.description == cachedResponse.description
+        result.isActive == cachedResponse.isActive
+        result.createdAt == cachedResponse.createdAt
+        result.updatedAt == cachedResponse.updatedAt
+    }
+
+
     def "TestFindById NotFoundException case"() {
         given:
         def id = random.nextObject(Long)
+        cacheUtil.getBucket("category:" + id) >> null
 
         when:
         categoryService.findById(id)
 
         then:
+        1 * cacheUtil.getBucket("category:" + id)
         1 * categoryRepository.findById(id) >> Optional.empty()
         NotFoundException ex = thrown()
         ex.code == "CATEGORY_NOT_FOUND"
@@ -162,7 +205,7 @@ class CategoryServiceTest extends Specification {
     }
 
     // findAll
-    def "TestFindAll"() {
+    def "TestFindAll cache miss with DB fallback"() {
         given:
         def limit = random.nextObject(Integer)
         def dictionaryCategory = random.nextObject(DictionaryCategory)
@@ -175,13 +218,16 @@ class CategoryServiceTest extends Specification {
                 .updatedAt(dictionaryCategory.updatedAt)
                 .build()
 
+        cacheUtil.getBucket("category:all:$limit:0") >> null
         categoryMapper.buildCategoryResponse(dictionaryCategory) >> categoryResponse
 
         when:
         def categoryResponses = categoryService.findAll(limit)
 
         then:
+        1 * cacheUtil.getBucket("category:all:$limit:0")
         1 * categoryRepository.findAll(limit) >> [dictionaryCategory]
+        1 * cacheUtil.saveToCache("category:all:$limit:0", categoryResponse, 1L, HOURS)
         categoryResponse.id == dictionaryCategory.id
         categoryResponse.name == dictionaryCategory.name
         categoryResponse.description == dictionaryCategory.description
@@ -190,6 +236,32 @@ class CategoryServiceTest extends Specification {
         categoryResponse.updatedAt == dictionaryCategory.updatedAt
         categoryResponses == [categoryResponse]
     }
+
+    def "TestFindAll cache hit case"() {
+        given:
+        def limit = random.nextObject(Integer)
+        def dictionaryCategory = random.nextObject(DictionaryCategory)
+        def categoryResponse = CategoryResponse.builder()
+                .id(dictionaryCategory.id)
+                .name(dictionaryCategory.name)
+                .description(dictionaryCategory.description)
+                .isActive(dictionaryCategory.isActive)
+                .createdAt(dictionaryCategory.createdAt)
+                .updatedAt(dictionaryCategory.updatedAt)
+                .build()
+
+        cacheUtil.getBucket("category:all:$limit:0") >> categoryResponse
+
+        when:
+        def result = categoryService.findAll(limit)
+
+        then:
+        1 * cacheUtil.getBucket("category:all:$limit:0") >> categoryResponse
+        0 * categoryRepository.findAll(_)
+        0 * cacheUtil.saveToCache(_, _, _, _)
+        result == [categoryResponse]
+    }
+
 
     // deleteCategory
     def "TestDeleteCategory success case"() {
