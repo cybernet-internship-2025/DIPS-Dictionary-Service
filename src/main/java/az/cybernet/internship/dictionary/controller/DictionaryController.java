@@ -4,24 +4,21 @@ import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/dictionary")
-@RequiredArgsConstructor
+@RequestMapping("/api/v1")
 public class DictionaryController {
 
     private final DictionaryService service;
-
-    @GetMapping
-    public List<DictionaryResponse> getAll(@RequestParam(required = false) UUID id,
-                                           @RequestParam(required = false) String value,
-                                           @RequestParam(required = false, defaultValue = "true") Boolean isActive) {
-        return service.getAll(id, value, isActive);
+    public DictionaryController(DictionaryService service) {
+        this.service = service;
     }
+
 
     @PutMapping("/{id}")
     public void createOrUpdate(@PathVariable UUID id, @RequestBody DictionaryRequest request) {

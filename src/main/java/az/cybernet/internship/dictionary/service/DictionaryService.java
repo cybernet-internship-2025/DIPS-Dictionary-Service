@@ -4,36 +4,27 @@ import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.model.DictionaryEntity;
 import az.cybernet.internship.dictionary.repository.DictionaryRepository;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
 public class DictionaryService {
 
-    private final DictionaryRepository repository;
 
-    public List<DictionaryResponse> getAll(UUID id, String value, Boolean isActive) {
-        List<DictionaryEntity> entities = repository.getAll(id, value, isActive);
-        List<DictionaryResponse> responses = new ArrayList<>();
+    private final  DictionaryRepository repository;
 
-        for (DictionaryEntity entity : entities) {
-            DictionaryResponse response = new DictionaryResponse();
-            response.setId(entity.getId());
-            response.setValue(entity.getValue());
-            response.setDescription(entity.getDescription());
-            response.setIsActive(entity.getIsActive());
-            responses.add(response);
-        }
 
-        return responses;
+    public DictionaryService(DictionaryRepository repository) {
+        this.repository = repository;
     }
+
+
 
     public void createOrUpdate(UUID id, DictionaryRequest request) {
         if (request.getValue() == null || request.getValue().trim().isEmpty()) {

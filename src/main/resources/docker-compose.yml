@@ -3,13 +3,13 @@ services:
     image: postgres:latest
     restart: on-failure
     environment:
-      - POSTGRES_DB=dictionary1
-      - POSTGRES_PASSWORD=postgres1
-      - POSTGRES_USER=postgres1
+      - POSTGRES_DB=dictionary
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
     networks:
       - dictionary-network
     ports:
-      - 5437:5432
+      - 5433:5432
     volumes:
       - dictionary-db:/var/lib/postgresql/data
 
