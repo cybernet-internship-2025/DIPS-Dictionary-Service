@@ -2,7 +2,6 @@ package az.cybernet.internship.dictionary.dto.resp;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import java.time.Instant;
 
 @Data

@@ -7,6 +7,7 @@ import az.cybernet.internship.dictionary.exception.InputValueMissingException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.mapstruct.DictionaryMap;
 import az.cybernet.internship.dictionary.service.DictionaryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class DictionaryServiceImpl implements DictionaryService {
 
     private final DictionaryMapper dictionaryMapper;
@@ -28,14 +30,19 @@ public class DictionaryServiceImpl implements DictionaryService {
 
     @Override
     public List<DictionaryResp> findDictionaries(UUID id, String value, Boolean isActive, Integer limit) {
+        log.info("Finding dictionaries with filters - id: {}, value: {}, isActive: {}, limit: {}"
+                , id, value, isActive, limit);
         if (isActive == null) {
             isActive = true;
         }
         var result = dictionaryMapper.findByFilters(id, value, isActive, limit);
         if (id != null && result.isEmpty()) {
+            log.warn("No dictionary entry found for id: {}", id);
             throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
         }
-        return dictionaryMap.toDto(result);
+        var resp = dictionaryMap.toDto(result);
+        log.info("Found dictionary entries: {}", resp);
+        return resp;
     }
 
     @Override
@@ -48,7 +55,8 @@ public class DictionaryServiceImpl implements DictionaryService {
         dictionary.setUpdateDate(LocalDateTime.now());
 
         if (dictionaryMapper.updateDictionary(dictionary) == 0) {
-            throw new DictionaryNotFoundException("Dictionary entry not found for update with id: " + dictionary.getId());
+            throw new DictionaryNotFoundException("Dictionary entry not found for update with id: "
+                    + dictionary.getId());
         }
         return dictionaryMap.toDto(dictionary);
     }
@@ -56,10 +64,13 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     @Transactional
     public DictionaryResp delete(UUID id) {
+        log.info("Deleting dictionary with id: {}", id);
         DictionaryResp deleted = dictionaryMapper.delete(id);
         if (deleted == null) {
+            log.warn("Dictionary entry not found for deletion with id: {}", id);
             throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
         }
+        log.info("Successfully deleted dictionary with id: {}", id);
         return deleted;
     }
 }
