@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Mapper
-public interface CategoryMapper {
+public interface CategoryRepository {
 
     void saveCategory(DictionaryCategory category);
 

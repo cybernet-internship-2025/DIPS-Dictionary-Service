@@ -17,6 +17,10 @@
   </parent>
 
   <properties>
+    <groovy.version>4.0.0</groovy.version>
+    <spock.version>2.3-groovy-4.0</spock.version>
+    <random.beans.version>3.9.0</random.beans.version>
+
     <java.version>17</java.version>
     <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 
@@ -37,6 +41,27 @@
     <dependency>
       <groupId>org.liquibase</groupId>
       <artifactId>liquibase-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.groovy</groupId>
+      <artifactId>groovy</artifactId>
+      <version>${groovy.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.spockframework</groupId>
+      <artifactId>spock-spring</artifactId>
+      <version>${spock.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.github.benas</groupId>
+      <artifactId>random-beans</artifactId>
+      <version>${random.beans.version}</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -74,6 +99,22 @@
       <groupId>org.mapstruct</groupId>
       <artifactId>mapstruct</artifactId>
       <version>${mapstruct.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.redisson</groupId>
+      <artifactId>redisson-spring-boot-starter</artifactId>
+      <version>3.27.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
     </dependency>
 
     <dependency>
