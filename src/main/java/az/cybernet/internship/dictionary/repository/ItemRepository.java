@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Mapper
-public interface ItemMapper {
+public interface ItemRepository {
 
     void updateItem(@Param("id") Long id, @Param("item") DictionaryItem item);
 

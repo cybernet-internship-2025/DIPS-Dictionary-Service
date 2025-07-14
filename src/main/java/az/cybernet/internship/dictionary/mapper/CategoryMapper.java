@@ -1,12 +1,22 @@
 package az.cybernet.internship.dictionary.mapper;
 
 import az.cybernet.internship.dictionary.entity.DictionaryCategory;
+import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
-public enum CategoryMapper {
-    CATEGORY_MAPPER;
+import static lombok.AccessLevel.PRIVATE;
+
+@Component
+@RequiredArgsConstructor
+@FieldDefaults(level = PRIVATE, makeFinal = true)
+public class CategoryMapper {
+
+    ItemMapper itemMapper;
 
     public DictionaryCategory buildDictionaryCategory(CategoryRequest request) {
         return DictionaryCategory.builder()
@@ -25,11 +35,11 @@ public enum CategoryMapper {
                 .createdAt(category.getCreatedAt())
                 .updatedAt(category.getUpdatedAt())
                 .isActive(category.getIsActive())
-//                .items(
-//                        category.getItems().stream()
-//                                .map(ITEM_MAPPER::buildItemResponse)
-//                                .collect(Collectors.toList())
-//                )
+                .items(category.getItems()
+                        .stream()
+                        .filter(DictionaryItem::getIsActive)
+                        .map(itemMapper::buildItemResponse)
+                        .toList())
                 .build();
     }
 

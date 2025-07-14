@@ -5,13 +5,12 @@ import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.model.request.ItemRequest;
 import az.cybernet.internship.dictionary.model.response.ItemResponse;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-public enum ItemMapper {
-    ITEM_MAPPER;
-
-
+@Component
+public class ItemMapper {
 
     public ItemResponse buildItemResponse(DictionaryItem item) {
         return ItemResponse.builder()

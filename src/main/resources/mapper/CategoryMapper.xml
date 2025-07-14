@@ -68,7 +68,7 @@
     </select>
 
     <!--  SELECT ALL  -->
-    <select id="findAll" resultMap="CategoryResultMap" parameterType="Integer">
+    <select id="findAll" resultMap="CategoryResultMap">
         SELECT
         c.id          AS c_id,
         c.name        AS c_name,
