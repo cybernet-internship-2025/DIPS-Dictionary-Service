@@ -9,4 +9,5 @@ public class DictionaryRequest {
     private UUID id;
     private String value;
     private String description;
+    private Boolean isActive;
 }

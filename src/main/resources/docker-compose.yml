@@ -9,7 +9,7 @@ services:
     networks:
       - dictionary-network
     ports:
-      - 5433:5432
+      - 5477:5432
     volumes:
       - dictionary-db:/var/lib/postgresql/data
 
