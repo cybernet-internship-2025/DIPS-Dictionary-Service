@@ -32,7 +32,7 @@ public class ItemController {
         return itemService.findById(id);
     }
 
-    @PutMapping("/{id}/restoreItem")
+    @PutMapping("/{id}/restore")
     @ResponseStatus(NO_CONTENT)
     public void restore(@PathVariable Long id) {
         itemService.restoreItem(id);
