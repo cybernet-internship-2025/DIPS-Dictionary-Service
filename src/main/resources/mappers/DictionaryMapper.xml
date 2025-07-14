@@ -6,7 +6,7 @@
 <mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
 
     <!--    Balash's commit    -->
-    <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.Dictionary">
+    <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.DictionaryEntry">
         SELECT *
         FROM dictionary
         <where>
@@ -25,15 +25,25 @@
         SET
             is_active = TRUE,
             deleted_at = NULL
-        WHERE id = #{id}
+        WHERE id = #{id}::uuid
     </update>
 
-    <select id="findById" resultType="az.cybernet.internship.dictionary.model.Dictionary">
-        SELECT * FROM dictionary WHERE id = #{id}
+    <select id="findById" resultType="az.cybernet.internship.dictionary.model.DictionaryEntry">
+        SELECT * FROM dictionary WHERE id = #{id}::uuid
     </select>
 
+    <!--  Кажется я знаю, где это написано лучше ༼ つ ◕_◕ ༽つ  -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dictionary (value, description, is_active)
+        VALUES (#{value}, #{description}, true)
+    </insert>
 
-    <!--    Balash committed    -->
+    <update id="update">
+        UPDATE dictionary
+        SET value = #{value}, description = #{description}
+        WHERE id = #{id}::uuid
+    </update>
+
     <!--    Goychek commit    -->
 
 
