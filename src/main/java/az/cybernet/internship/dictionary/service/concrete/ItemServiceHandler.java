@@ -33,6 +33,7 @@ public class ItemServiceHandler implements ItemService {
 
         if (request.getCategoryId() != null) {
             var dictionaryCategory = categoryService.fetchDictionaryIfExist(request.getCategoryId());
+            dictionaryItem.setCategory(dictionaryCategory);
         }
 
         ITEM_MAPPER.updateItem(dictionaryItem, request);
