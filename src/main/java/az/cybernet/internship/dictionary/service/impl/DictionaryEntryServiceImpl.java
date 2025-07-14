@@ -3,7 +3,9 @@ package az.cybernet.internship.dictionary.service.impl;
 import az.cybernet.internship.dictionary.converter.DictionaryEntryConverter;
 import az.cybernet.internship.dictionary.dto.request.DictionaryEntryRequestDTO;
 import az.cybernet.internship.dictionary.dto.response.DictionaryEntryResponseDTO;
-import az.cybernet.internship.dictionary.exception.NotFoundException;
+import az.cybernet.internship.dictionary.exception.model.ConflictException;
+import az.cybernet.internship.dictionary.exception.type.ExceptionType;
+import az.cybernet.internship.dictionary.exception.model.NotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryEntryMapper;
 import az.cybernet.internship.dictionary.model.DictionaryEntry;
 import az.cybernet.internship.dictionary.service.DictionaryEntryService;
@@ -31,56 +33,53 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     }
 
     @Override
-    public DictionaryEntry selectById(UUID id) {
-        DictionaryEntry entry = dictionaryEntryMapper.selectById(id);
-        if (entry == null) {
-            throw new NotFoundException("Entry not found");
-        }
-        return entry;
-    }
-
-    @Override
-    public void insert(DictionaryEntryRequestDTO entryRequestDTO) {
+    public DictionaryEntryResponseDTO insert(DictionaryEntryRequestDTO entryRequestDTO) {
         DictionaryEntry entry = dictionaryEntryConverter.convert(entryRequestDTO);
+
         entry.setId(UUID.randomUUID());
         dictionaryEntryMapper.insert(entry);
+
+        return dictionaryEntryConverter.convert(entry);
     }
 
     @Override
-    public void update(DictionaryEntryRequestDTO entryRequestDTO) {
-        DictionaryEntry entry = dictionaryEntryMapper.selectById(entryRequestDTO.getId());
-        if (entry == null) {
-            throw new NotFoundException("Entry not found");
-        }
+    public DictionaryEntryResponseDTO update(DictionaryEntryRequestDTO entryRequestDTO) {
+        DictionaryEntry entry = selectEntryOrThrow(entryRequestDTO.getId());
 
         dictionaryEntryConverter.updateEntryFromDto(entryRequestDTO, entry);
         dictionaryEntryMapper.update(entry);
+
+        return dictionaryEntryConverter.convert(entry);
     }
 
     @Override
     public void delete(UUID id) {
-        DictionaryEntry entry = dictionaryEntryMapper.selectById(id);
-        if (entry == null) {
-            throw new NotFoundException("Entry not found");
-        }
+        DictionaryEntry entry = selectEntryOrThrow(id);
 
         entry.setActive(false);
         entry.setDeletedAt(LocalDateTime.now());
         dictionaryEntryMapper.update(entry);
     }
 
-    public void restore(UUID id) {
-        DictionaryEntry entry = dictionaryEntryMapper.selectById(id);
-        if (entry == null) {
-            throw new NotFoundException("Entry not found");
-        }
+    public DictionaryEntryResponseDTO restore(UUID id) {
+        DictionaryEntry entry = selectEntryOrThrow(id);
 
         if (entry.isActive()) {
-            throw new IllegalStateException("Entry is already active");
+            throw new ConflictException(ExceptionType.ENTRY_ALREADY_ACTIVE);
         }
 
         entry.setActive(true);
         entry.setDeletedAt(null);
         dictionaryEntryMapper.update(entry);
+
+        return dictionaryEntryConverter.convert(entry);
+    }
+
+    private DictionaryEntry selectEntryOrThrow(UUID id) {
+        DictionaryEntry entry = dictionaryEntryMapper.selectById(id);
+        if (entry == null) {
+            throw new NotFoundException(ExceptionType.ENTRY_NOT_FOUND);
+        }
+        return entry;
     }
 }
