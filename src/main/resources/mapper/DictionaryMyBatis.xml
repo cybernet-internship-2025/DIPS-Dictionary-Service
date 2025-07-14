@@ -9,7 +9,7 @@
             parameterType="map"
             resultType="az.cybernet.internship.dictionary.model.DictionaryEntity">
 
-    SELECT * FROM dictionary
+        SELECT * FROM dictionary
         WHERE (#{id} IS NULL OR LOWER(id::text) LIKE CONCAT('%', LOWER(#{id}), '%'))
         AND (#{value} IS NULL OR LOWER(value) LIKE CONCAT('%', LOWER(#{value}), '%'))
         AND (#{isActive} IS NULL OR is_active = #{isActive})

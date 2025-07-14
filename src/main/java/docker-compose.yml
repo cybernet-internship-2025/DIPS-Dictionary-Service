@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: on-failure
+    environment:
+      - POSTGRES_DB=dictionary1
+      - POSTGRES_PASSWORD=postgres1
+      - POSTGRES_USER=postgres1
+    networks:
+      - dictionary-network
+    ports:
+      - 5437:5432
+    volumes:
+      - dictionary-db:/var/lib/postgresql/data
+
+
+networks:
+  dictionary-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
+
+volumes:
+  dictionary-db:
+    name: dictionary-db
