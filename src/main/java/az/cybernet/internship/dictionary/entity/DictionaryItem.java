@@ -1,7 +1,9 @@
 package az.cybernet.internship.dictionary.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
@@ -12,6 +14,8 @@ import static lombok.AccessLevel.PRIVATE;
 @Data
 @ToString(exclude = "category")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class DictionaryItem {
     Long id;

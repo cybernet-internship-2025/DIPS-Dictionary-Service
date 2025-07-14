@@ -29,10 +29,10 @@ public class ItemServiceHandler implements ItemService {
     @Override
     public void updateItem(Long id, ItemRequest request) {
         log.info("ActionLog.updateItem.start - id: {},  request: {}", id, request);
-        var dictionaryItem = fetchDictionaryIfExist(id);
+        var dictionaryItem = fetchItemIfExist(id);
 
         if (request.getCategoryId() != null) {
-            var dictionaryCategory = categoryService.fetchDictionaryIfExist(request.getCategoryId());
+            var dictionaryCategory = categoryService.fetchCategoryIfExist(request.getCategoryId());
             dictionaryItem.setCategory(dictionaryCategory);
         }
 
@@ -44,7 +44,7 @@ public class ItemServiceHandler implements ItemService {
     @Override
     public ItemResponse findById(Long id) {
         log.info("ActionLog.findByIdItem.start - id: {}", id);
-        var dictionaryItem = fetchDictionaryIfExist(id);
+        var dictionaryItem = fetchItemIfExist(id);
         var itemResponse = ITEM_MAPPER.buildItemResponse(dictionaryItem);
         log.info("ActionLog.findByIdItem.end - id: {}, response: {}", id, itemResponse);
         return itemResponse;
@@ -53,12 +53,12 @@ public class ItemServiceHandler implements ItemService {
     @Override
     public void restore(Long id) {
         log.info("ActionLog.restoreItem.start - id: {}", id);
-        var dictionaryItem = fetchDictionaryIfExist(id);
+        var dictionaryItem = fetchItemIfExist(id);
         itemMapper.restore(dictionaryItem.getId());
         log.info("ActionLog.restoreItem.end - id: {}", id);
     }
 
-    private DictionaryItem fetchDictionaryIfExist(Long id) {
+    private DictionaryItem fetchItemIfExist(Long id) {
         return itemMapper.findById(id).orElseThrow(() ->
                 new NotFoundException(ITEM_NOT_FOUND.getCode(), ITEM_NOT_FOUND.getMessage(id)));
     }

@@ -18,5 +18,5 @@ public interface CategoryService {
 
     void restoreCategory (Long id);
 
-    DictionaryCategory fetchDictionaryIfExist(Long id);
+    DictionaryCategory fetchCategoryIfExist(Long id);
 }
