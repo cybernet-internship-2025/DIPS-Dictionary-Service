@@ -13,7 +13,9 @@ public interface DictionaryMapper {
 
     List<Dictionary> findByFilters(UUID id, String value, Boolean isActive, Integer limit);
 
-    int updateDictionary(Dictionary dictionary);
+    DictionaryResp updateDictionary(Dictionary dictionary);
+
+    DictionaryResp restoreDictionary(@Param("uuid") UUID id);
 
     DictionaryResp delete(@Param("uuid") UUID id);
 }

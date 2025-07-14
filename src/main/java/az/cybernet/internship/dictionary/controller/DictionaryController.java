@@ -36,8 +36,15 @@ public class DictionaryController {
     public ResponseEntity<DictionaryResp> updateDictionary(
             @RequestBody Dictionary dictionary
     ) {
-        //shouldn't return this but foe testing purposes let it stay
         DictionaryResp response = dictionaryService.updateDictionary(dictionary);
+        return ok(response);
+    }
+
+    @PutMapping("/{id}/restore")
+    public ResponseEntity<DictionaryResp> restoreDictionary(
+            @PathVariable UUID id
+    ) {
+        DictionaryResp response = dictionaryService.restoreDictionary(id);
         return ok(response);
     }
 
