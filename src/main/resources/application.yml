@@ -15,8 +15,6 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.xml
 
 mybatis:
-  mapperLocations:
-    - classpath:/mappers/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100

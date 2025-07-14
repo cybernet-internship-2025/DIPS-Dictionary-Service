@@ -19,7 +19,6 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class DictionaryEntryServiceImpl implements DictionaryEntryService {
-
     private final DictionaryEntryMapper dictionaryEntryMapper;
     private final DictionaryEntryConverter dictionaryEntryConverter;
 
@@ -58,7 +57,8 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
 
         entry.setActive(false);
         entry.setDeletedAt(LocalDateTime.now());
-        dictionaryEntryMapper.update(entry);
+
+        dictionaryEntryMapper.delete(entry);
     }
 
     public DictionaryEntryResponseDTO restore(UUID id) {

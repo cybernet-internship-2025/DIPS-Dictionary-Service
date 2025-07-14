@@ -8,12 +8,11 @@ import java.util.UUID;
 
 @Mapper
 public interface DictionaryCategoryMapper {
-
     @Select("SELECT * FROM dictionary_category")
-    List<DictionaryCategory> getAll();
+    List<DictionaryCategory> selectAll();
 
     @Select("SELECT * FROM dictionary_category WHERE id = #{id, jdbcType=OTHER}")
-    DictionaryCategory getById(@Param("id") UUID id);
+    DictionaryCategory selectById(UUID id);
 
     @Insert("INSERT INTO dictionary_category(id, name) VALUES(#{id, jdbcType=OTHER}, #{name})")
     void insert(DictionaryCategory dictionaryCategory);
@@ -22,5 +21,5 @@ public interface DictionaryCategoryMapper {
     void update(DictionaryCategory dictionaryCategory);
 
     @Delete("DELETE FROM dictionary_category WHERE id = #{id, jdbcType=OTHER}")
-    void delete(@Param("id") UUID id);
+    void delete(UUID id);
 }

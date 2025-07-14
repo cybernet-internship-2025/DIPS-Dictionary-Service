@@ -16,7 +16,6 @@ import java.util.UUID;
 @RequestMapping("/api/v1/dictionaries")
 @RequiredArgsConstructor
 public class DictionaryEntryController {
-
     private final DictionaryEntryService dictionaryEntryService;
 
     @GetMapping

@@ -11,12 +11,12 @@ public interface DictionaryEntryMapper {
     @Select("SELECT * FROM dictionary_entry")
     List<DictionaryEntry> selectAll();
 
-    @Select("SELECT * FROM dictionary_entry WHERE id=#{id}")
+    @Select("SELECT * FROM dictionary_entry WHERE id=#{id, jdbcType=OTHER}")
     DictionaryEntry selectById(UUID id);
 
     @Insert("""
             INSERT INTO dictionary_entry(id, value, description, is_active, deleted_at, category_id)
-            VALUES(#{id}, #{value}, #{description}, #{isActive}, #{deletedAt}, #{categoryId})
+            VALUES(#{id, jdbcType=OTHER}, #{value}, #{description}, #{isActive}, #{deletedAt}, #{categoryId})
             """)
     void insert(DictionaryEntry entry);
 
@@ -24,7 +24,15 @@ public interface DictionaryEntryMapper {
             UPDATE dictionary_entry
             SET value=#{value}, description=#{description}, is_active=#{isActive},
                 deleted_at=#{deletedAt}, category_id=#{categoryId}
-            WHERE id=#{id}
+            WHERE id=#{id, jdbcType=OTHER}
             """)
     void update(DictionaryEntry entry);
+
+    @Update("""
+            UPDATE dictionary_entry
+            SET value=#{value}, description=#{description}, is_active=#{isActive},
+                deleted_at=#{deletedAt}, category_id=#{categoryId}
+            WHERE id=#{id, jdbcType=OTHER}
+            """)
+    void delete(DictionaryEntry entry);
 }
