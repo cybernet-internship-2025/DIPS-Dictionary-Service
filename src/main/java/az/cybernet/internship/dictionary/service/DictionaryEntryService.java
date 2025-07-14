@@ -4,7 +4,6 @@ import az.cybernet.internship.dictionary.dto.request.DictionaryEntryRequestDTO;
 import az.cybernet.internship.dictionary.dto.response.DictionaryEntryResponseDTO;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface DictionaryEntryService {
     List<DictionaryEntryResponseDTO> selectAll();
@@ -13,7 +12,7 @@ public interface DictionaryEntryService {
 
     DictionaryEntryResponseDTO update(DictionaryEntryRequestDTO entryRequestDTO);
 
-    void delete(UUID id);
+    void delete(String id);
 
-    DictionaryEntryResponseDTO restore(UUID id);
+    DictionaryEntryResponseDTO restore(String id);
 }

@@ -7,14 +7,14 @@
 
     <changeSet id="2" author="mehdi">
         <createTable tableName="dictionary_entry">
-            <column name="id" type="uuid">
+            <column name="id" type="varchar(36)">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="value" type="varchar(100)"/>
             <column name="description" type="varchar(255)"/>
             <column name="is_active" type="boolean" defaultValueBoolean="true"/>
             <column name="deleted_at" type="timestamp"/>
-            <column name="category_id" type="uuid">
+            <column name="category_id" type="varchar(36)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
