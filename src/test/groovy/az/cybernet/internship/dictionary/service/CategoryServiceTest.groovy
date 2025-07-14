@@ -34,7 +34,11 @@ class CategoryServiceTest extends Specification {
     // saveOrUpdateCategory
     def "TestSaveOrUpdateCategory id is null case"() {
         given:
-        def categoryRequest = new CategoryRequest(null, "TestName", "TestDescription")
+        def categoryRequest = CategoryRequest.builder()
+                .id(null)
+                .name("TestName")
+                .description("TestDescription")
+                .build()
         def dictionaryCategory = DictionaryCategory.builder()
                 .id(1L)
                 .name(categoryRequest.getName())
