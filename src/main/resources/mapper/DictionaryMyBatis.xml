@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="az.cybernet.internship.dictionary.repository.DictionaryRepository">
+
+    <select id="getAll"
+            parameterType="map"
+            resultType="az.cybernet.internship.dictionary.model.DictionaryEntity">
+
+    SELECT * FROM dictionary
+        WHERE (#{id} IS NULL OR LOWER(id::text) LIKE CONCAT('%', LOWER(#{id}), '%'))
+        AND (#{value} IS NULL OR LOWER(value) LIKE CONCAT('%', LOWER(#{value}), '%'))
+        AND (#{isActive} IS NULL OR is_active = #{isActive})
+    </select>
+
+    <select id="getById" resultType="az.cybernet.internship.dictionary.model.DictionaryEntity" parameterType="java.util.UUID">
+        SELECT * FROM dictionary WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="az.cybernet.internship.dictionary.model.DictionaryEntity">
+        INSERT INTO dictionary (id, category, value, description, is_active)
+        VALUES (#{id}, #{category}, #{value}, #{description}, #{isActive})
+    </insert>
+
+    <update id="update" parameterType="az.cybernet.internship.dictionary.model.DictionaryEntity">
+        UPDATE dictionary
+        SET value = #{value}, description = #{description}, is_active = true, deleted_at = NULL
+        WHERE id = #{id}
+    </update>
+
+    <update id="softDelete" parameterType="java.util.UUID">
+        UPDATE dictionary SET is_active = false, deleted_at = NOW() WHERE id = #{id}
+    </update>
+
+    <update id="restore" parameterType="java.util.UUID">
+        UPDATE dictionary SET is_active = true, deleted_at = NULL WHERE id = #{id}
+    </update>
+</mapper>

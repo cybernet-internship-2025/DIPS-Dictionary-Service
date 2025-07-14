@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file:resources/changelog/changelog-master.yml
