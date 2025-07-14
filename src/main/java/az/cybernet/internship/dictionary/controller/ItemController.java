@@ -6,7 +6,6 @@ import az.cybernet.internship.dictionary.service.abstraction.ItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,16 +32,16 @@ public class ItemController {
         return itemService.findById(id);
     }
 
-    @PutMapping("/{id}/restore")
+    @PutMapping("/{id}/restoreItem")
     @ResponseStatus(NO_CONTENT)
     public void restore(@PathVariable Long id) {
-        itemService.restore(id);
+        itemService.restoreItem(id);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(OK)
     public void deleteItem(@PathVariable Long id) {
-        itemService.deleteItem(id);
+        itemService.deleteItemById(id);
     }
 
     @PostMapping
@@ -54,6 +53,6 @@ public class ItemController {
     @GetMapping
     @ResponseStatus(OK)
     public List<ItemResponse> findAll(@RequestParam(required = false) Integer limit) {
-        return itemService.findAll(limit);
+        return itemService.findAllActiveItems(limit);
     }
 }

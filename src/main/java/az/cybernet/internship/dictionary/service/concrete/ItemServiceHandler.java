@@ -55,7 +55,7 @@ public class ItemServiceHandler implements ItemService {
     }
 
     @Override
-    public void restore(Long id) {
+    public void restoreItem(Long id) {
         log.info("ActionLog.restoreItem.start - id: {}", id);
         var dictionaryItem = fetchDictionaryIfExist(id);
         itemRepository.restore(dictionaryItem.getId());
@@ -63,7 +63,7 @@ public class ItemServiceHandler implements ItemService {
     }
 
     @Override
-    public List<ItemResponse> findAll(Integer limit) {
+    public List<ItemResponse> findAllActiveItems(Integer limit) {
         log.info("ActionLog.findAllItems.start");
         var dictionaryItems = itemRepository.findAll(limit);
         var list = dictionaryItems
@@ -75,7 +75,7 @@ public class ItemServiceHandler implements ItemService {
     }
 
     @Override
-    public void deleteItem(Long id) {
+    public void deleteItemById(Long id) {
         log.info("ActionLog.deleteItem.start - id: {}", id);
         var dictionaryItem = fetchDictionaryIfExist(id);
         itemRepository.deleteItem(dictionaryItem.getId());

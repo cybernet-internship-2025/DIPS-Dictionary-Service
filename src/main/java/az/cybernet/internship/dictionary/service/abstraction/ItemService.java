@@ -1,6 +1,5 @@
 package az.cybernet.internship.dictionary.service.abstraction;
 
-import az.cybernet.internship.dictionary.entity.DictionaryItem;
 import az.cybernet.internship.dictionary.model.request.ItemRequest;
 import az.cybernet.internship.dictionary.model.response.ItemResponse;
 
@@ -12,11 +11,11 @@ public interface ItemService {
 
     ItemResponse findById(Long id);
 
-    void restore(Long id);
+    void restoreItem(Long id);
 
-    void deleteItem(Long id);
+    void deleteItemById(Long id);
 
-    List<ItemResponse> findAll(Integer limit);
+    List<ItemResponse> findAllActiveItems(Integer limit);
 
     void saveItem(ItemRequest request);
 }
