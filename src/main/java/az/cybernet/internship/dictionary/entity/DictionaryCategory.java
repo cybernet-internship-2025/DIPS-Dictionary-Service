@@ -13,10 +13,10 @@ import java.util.List;
 import static lombok.AccessLevel.PRIVATE;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString(exclude = "items")
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class DictionaryCategory {
     Long id;
