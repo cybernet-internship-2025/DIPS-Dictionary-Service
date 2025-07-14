@@ -3,7 +3,7 @@ package az.cybernet.internship.dictionary.controller;
 import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.service.DictionaryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +35,7 @@ public class DictionaryController {
     }
 
     @PutMapping
-    private ResponseEntity<DictionaryResponse> updateOrInsertDictionary(@RequestBody DictionaryRequest request) {
+    private ResponseEntity<DictionaryResponse> updateOrInsertDictionary(@Valid @RequestBody DictionaryRequest request) {
         return ResponseEntity.ok(service.updateOrInsert(request));
     }
 

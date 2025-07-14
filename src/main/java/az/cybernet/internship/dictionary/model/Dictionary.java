@@ -1,7 +1,7 @@
 package az.cybernet.internship.dictionary.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jdk.jfr.Timestamp;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class Dictionary implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String category;
-    @NotNull
+    @NotBlank(message = "Value must not be empty")
     private String value;
     private String description;
 

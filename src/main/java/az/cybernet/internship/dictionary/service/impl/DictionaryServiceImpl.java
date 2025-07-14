@@ -2,12 +2,12 @@ package az.cybernet.internship.dictionary.service.impl;
 
 import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.exception.AlreadyActiveException;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import jakarta.transaction.Transactional;
-import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -28,7 +28,7 @@ public class DictionaryServiceImpl implements DictionaryService {
     public List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive,int limit) {
         List<Dictionary> items = mapper.findAllActiveDictionaryWithLimit(value, isActive, limit);
 
-        if (items.isEmpty()) throw new DictionaryNotFoundException("Dictionay not found");
+        if (items.isEmpty()) throw new DictionaryNotFoundException("Dictionary not found");
 
         return items.stream()
                 .map(item -> new DictionaryResponse(
@@ -43,9 +43,12 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     @Transactional
     public DictionaryResponse restoreDictionary(UUID uuid) {
-        mapper.restore(uuid);
-
         Dictionary dictionary = mapper.findById(uuid);
+
+        if (dictionary == null) throw new DictionaryNotFoundException("Dictionary not found");
+        if (dictionary.getIsActive().equals(true)) throw new AlreadyActiveException("Entry is already active");
+
+        mapper.restore(uuid);
 
         DictionaryResponse response = new DictionaryResponse();
         response.setId(dictionary.getId());
@@ -90,7 +93,7 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     public DictionaryResponse softDelete(UUID uuid) {
         Dictionary dictionary = mapper.findById(uuid);
-        if (dictionary == null) throw new DictionaryNotFoundException("Dictionay not found");
+        if (dictionary == null) throw new DictionaryNotFoundException("Dictionary not found");
 
         dictionary.setIsActive(false);
         dictionary.setDeletedAt(LocalDateTime.now());

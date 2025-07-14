@@ -3,10 +3,9 @@ package az.cybernet.internship.dictionary.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
-public class DictionaryNotFoundException extends RuntimeException {
-
-    public DictionaryNotFoundException(String message) {
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+public class AlreadyActiveException extends RuntimeException {
+    public AlreadyActiveException(String message) {
         super(message);
     }
 }

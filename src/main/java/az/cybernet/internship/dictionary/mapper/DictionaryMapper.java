@@ -1,6 +1,5 @@
 package az.cybernet.internship.dictionary.mapper;
 
-import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,5 +20,5 @@ public interface DictionaryMapper {
     void update(Dictionary dictionary);
     void insert(Dictionary dictionary);
 
-    void updateForSoftDelete(UUID uuid);
+    void updateForSoftDelete(@Param("id") UUID id);
 }
