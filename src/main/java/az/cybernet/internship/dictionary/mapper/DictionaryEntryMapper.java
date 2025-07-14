@@ -15,19 +15,16 @@ public interface DictionaryEntryMapper {
     DictionaryEntry selectById(UUID id);
 
     @Insert("""
-        INSERT INTO dictionary_entry(id, value, description, is_active, deleted_at, category_id)
-        VALUES(#{id}, #{value}, #{description}, #{isActive}, #{deletedAt}, #{categoryId})
-        """)
+            INSERT INTO dictionary_entry(id, value, description, is_active, deleted_at, category_id)
+            VALUES(#{id}, #{value}, #{description}, #{isActive}, #{deletedAt}, #{categoryId})
+            """)
     void insert(DictionaryEntry entry);
 
     @Update("""
-        UPDATE dictionary_entry
-        SET value = #{value}, description = #{description}, is_active = #{isActive},
-            deleted_at = #{deletedAt}, category_id = #{categoryId}
-        WHERE id = #{id}
-        """)
+            UPDATE dictionary_entry
+            SET value=#{value}, description=#{description}, is_active=#{isActive},
+                deleted_at=#{deletedAt}, category_id=#{categoryId}
+            WHERE id=#{id}
+            """)
     void update(DictionaryEntry entry);
-
-    @Delete("DELETE FROM dictionary_entry WHERE id=#{id}")
-    void delete(UUID id);
 }

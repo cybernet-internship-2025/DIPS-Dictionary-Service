@@ -10,7 +10,8 @@ public class DictionaryEntry {
     private UUID id;
     private String value;
     private String description;
+    private String categoryName;
+
     private boolean isActive;
     private LocalDateTime deletedAt;
-    private UUID categoryId;
 }
