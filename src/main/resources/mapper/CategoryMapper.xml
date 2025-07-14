@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="az.cybernet.internship.dictionary.repository.CategoryMapper">
+<mapper namespace="az.cybernet.internship.dictionary.repository.CategoryRepository">
 
     <!-- RESULT MAPS -->
     <resultMap id="CategoryResultMap" type="az.cybernet.internship.dictionary.entity.DictionaryCategory">

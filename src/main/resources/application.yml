@@ -13,6 +13,9 @@ spring:
     user:
       name: ${USER_NAME}
       password: ${USER_PASSWORD}
+  cache:
+    redis:
+      time-to-live: 3600000    # 1 hour
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
@@ -27,3 +30,7 @@ springdoc:
     path: /api/dictionary/api-docs
   swagger-ui:
     path: /api/dictionary/swagger-ui.html
+
+redis:
+  server:
+    url: redis://localhost:6379

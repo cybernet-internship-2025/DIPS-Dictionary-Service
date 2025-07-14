@@ -4,10 +4,10 @@ import az.cybernet.internship.dictionary.entity.DictionaryCategory;
 import az.cybernet.internship.dictionary.model.request.CategoryRequest;
 import az.cybernet.internship.dictionary.model.response.CategoryResponse;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
-public enum CategoryMapper {
-    CATEGORY_MAPPER;
-
+@Component
+public class CategoryMapper {
     public DictionaryCategory buildDictionaryCategory(CategoryRequest request) {
         return DictionaryCategory.builder()
                 .id(request.getId())
