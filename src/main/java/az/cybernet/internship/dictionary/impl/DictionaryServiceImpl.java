@@ -1,11 +1,17 @@
+
 package az.cybernet.internship.dictionary.impl;
 
-import az.cybernet.internship.dictionary.dto.*;
-import az.cybernet.internship.dictionary.model.*;
-import az.cybernet.internship.dictionary.repository.*;
+import az.cybernet.internship.dictionary.dto.DictionaryRequest;
+import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.model.DictionaryEntity;
+import az.cybernet.internship.dictionary.repository.DictionaryRepository;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -13,39 +19,75 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class DictionaryServiceImpl implements DictionaryService {
+
     private final DictionaryRepository repository;
 
     @Override
     public List<DictionaryResponse> getAll(String id, String value, Boolean isActive) {
-        return repository.getAll(id, value, isActive).stream().map(this::toResponse).collect(Collectors.toList());
+        List<DictionaryEntity> entities = repository.getAll(id, value, isActive);
+        List<DictionaryResponse> responses = new ArrayList<>();
+
+        for (DictionaryEntity entity : entities) {
+            DictionaryResponse response = toResponse(entity);
+            responses.add(response);
+        }
+
+        return responses;
     }
 
     @Override
     public void createOrUpdate(String id, DictionaryRequest request) {
-        DictionaryEntity entity = repository.getById(id);
-        if (entity == null) {
-            entity = new DictionaryEntity();
-            entity.setId(UUID.fromString(id != null ? id : UUID.randomUUID().toString()));
-            entity.setIsActive(true);
+
+        if (request.getValue() == null || request.getValue().trim().isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Value field cannot be empty.");
         }
-        entity.setValue(request.getValue());
-        entity.setDescription(request.getDescription());
-        repository.update(entity);
+
+        UUID uuid = UUID.fromString(id);
+        DictionaryEntity existing = repository.getById(uuid);
+
+        if (existing == null) {
+
+            DictionaryEntity entity = new DictionaryEntity();
+            entity.setId(uuid);
+            entity.setValue(request.getValue());
+            entity.setDescription(request.getDescription());
+            entity.setIsActive(true);
+            repository.insert(entity);
+        } else {
+
+            existing.setValue(request.getValue());
+            existing.setDescription(request.getDescription());
+            existing.setIsActive(true);
+            repository.update(existing);
+        }
     }
 
     @Override
     public void softDelete(String id) {
+        UUID uuid = UUID.fromString(id);
+        DictionaryEntity entity = repository.getById(uuid);
+
+        if (entity == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found for id: " + id);
+        }
+
         repository.softDelete(id);
     }
 
     @Override
     public void restore(String id) {
-        DictionaryEntity entity = repository.getById(id);
-        if (entity != null && !entity.getIsActive()) {
-            repository.restore(id);
-        } else {
-            throw new RuntimeException("Cannot restore: either not found or already active");
+        UUID uuid = UUID.fromString(id);
+        DictionaryEntity entity = repository.getById(uuid);
+
+        if (entity == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found for id: " + id);
         }
+
+        if (entity.getIsActive()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry is already active.");
+        }
+
+        repository.restore(id);
     }
 
     private DictionaryResponse toResponse(DictionaryEntity entity) {
