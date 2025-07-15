@@ -1,13 +1,16 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
-    username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=dictionary_service_db
+    username: postgres
+    password: root
+
+  liquibase:
+    change-log: classpath:db.changelog/db.changelog-master.yaml
 
 mybatis:
   mapperLocations:
-    - classpath:/mappers/*Mapper.xml
+    - classpath:/sql/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100

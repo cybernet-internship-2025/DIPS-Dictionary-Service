@@ -3,23 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.group_one.dictionary.dictionary_service.mapper.CategoryMapper">
+<mapper namespace="az.cybernet.internship.dictionary.mapper.CategoryMapper">
 
-    <resultMap id="CategoryWithItemsResultMap" type="az.cybernet.internship.dictionary.model.dictionary.CategoryDto">
-        <id column="category_id" property="id"/>
+    <resultMap id="CategoryWithItemsResultMap" type="az.cybernet.internship.dictionary.model.category.CategoryDto">
+        <id column="category_id" property="id" typeHandler="az.cybernet.internship.dictionary.handler.UUIDTypeHandler"/>
         <result column="category_name" property="name"/>
         <result column="category_description" property="description"/>
+        <result column="is_active" property="isActive"/>
+        <result column="created_at" property="createdAt"/>
 
         <collection property="items" ofType="az.cybernet.internship.dictionary.model.dictionary.DictionaryResponse">
-            <id column="item_id" property="id"/>
+            <id column="item_id" property="id" typeHandler="az.cybernet.internship.dictionary.handler.UUIDTypeHandler"/>
             <result column="item_value" property="value"/>
             <result column="item_description" property="description"/>
             <result column="item_is_active" property="isActive"/>
         </collection>
     </resultMap>
 
+    <resultMap id="CategoryWithoutDictionariesResponse" type="az.cybernet.internship.dictionary.model.category.Category">
+        <id column="id" property="id" typeHandler="az.cybernet.internship.dictionary.handler.UUIDTypeHandler"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="is_active" property="isActive"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+
     <!-- getAll -->
-    <select id="getAll" resultType="az.cybernet.internship.dictionary.model.dictionary.Category">
+    <select id="getAll" resultType="az.cybernet.internship.dictionary.model.category.Category">
         SELECT id, name, description
         FROM categories
     </select>
@@ -37,6 +48,54 @@
         FROM categories c
                  LEFT JOIN dictionary_items d ON d.category_id = c.id
         WHERE c.id = #{id}
+    </select>
+
+    <select id="findByIdWithoutDictionaries" resultMap="CategoryWithoutDictionariesResponse">
+        select id, name, description, is_active
+        from categories
+        where id = #{id}
+        and is_active = true
+    </select>
+
+    <update id="update">
+update categories
+
+<trim prefix="SET" suffixOverrides=",">
+       updated_at = current_timestamp,
+<if test="category.name != null">
+    name = #{category.name},
+</if>
+
+    <if test="category.description != null">
+        description = #{category.description}
+    </if>
+
+</trim>
+    </update>
+
+    <update id="delete">
+        update categories
+        set is_active = false,
+         deleted_at = current_timestamp
+        where id = #{id}
+    </update>
+
+    <insert id="insert">
+insert into categories(id, name, description, is_active, created_at, updated_at, deleted_at)
+values(#{id}, #{name}, #{description}, #{isActive}, #{createdAt}, null, null)
+    </insert>
+
+    <update id="restore">
+        update categories
+        set is_active = true
+        where id = #{id}
+    </update>
+
+    <select id="findByIdAndDisabled" resultMap="CategoryWithoutDictionariesResponse">
+        select id, name, description, created_at
+        from categories
+        where id = #{id}
+        and is_active = false
     </select>
 
 </mapper>

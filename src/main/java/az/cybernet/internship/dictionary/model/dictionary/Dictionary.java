@@ -12,8 +12,8 @@ public class Dictionary {
     private String description;
     private Boolean isActive;
     private LocalDateTime deletedAt;
-
-    // ManyToOne əlaqə
-    private String categoryId;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private UUID categoryId;
 }
 

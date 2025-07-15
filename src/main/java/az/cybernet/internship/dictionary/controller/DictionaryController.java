@@ -1,16 +1,24 @@
 package az.cybernet.internship.dictionary.controller;
 
 
-import az.cybernet.internship.dictionary.model.dictionary.DictionaryRequest;
-import az.cybernet.internship.dictionary.model.dictionary.DictionaryResponse;
-import az.cybernet.internship.dictionary.service.DictionaryService;
+import az.cybernet.internship.dictionary.dto.dictionary.createDictionary.CreateDictionaryRequestBean;
+import az.cybernet.internship.dictionary.dto.dictionary.createDictionary.CreateDictionaryResponseBean;
+import az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryRequestBean;
+import az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryResponseBean;
+import az.cybernet.internship.dictionary.dto.dictionary.getByCategoryId.GetByCategoryIdResponseBean;
+import az.cybernet.internship.dictionary.dto.dictionary.getById.GetDictionaryByIdResponseBean;
+import az.cybernet.internship.dictionary.dto.dictionary.restore.RestoreDictionaryRequestBean;
+import az.cybernet.internship.dictionary.dto.dictionary.restore.RestoreDictionaryResponseBean;
+import az.cybernet.internship.dictionary.dto.dictionary.softDelete.SoftDeleteDictionaryRequestBean;
+import az.cybernet.internship.dictionary.dto.dictionary.softDelete.SoftDeleteDictionaryResponseBean;
+import az.cybernet.internship.dictionary.dto.dictionary.updateDictionary.UpdateDictionaryRequestBean;
+import az.cybernet.internship.dictionary.dto.dictionary.updateDictionary.UpdateDictionaryResponseBean;
+import az.cybernet.internship.dictionary.service.DictionaryServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,27 +27,47 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DictionaryController {
 
-    private final DictionaryService dictionaryService;
+    private final DictionaryServiceImpl dictionaryService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<DictionaryResponse> getById(@PathVariable UUID id) {
-        DictionaryResponse response = dictionaryService.getById(id);
-        return ResponseEntity.ok(response);
+    @ResponseStatus(HttpStatus.OK)
+    public GetDictionaryByIdResponseBean getById(@PathVariable("id")UUID id) {
+        return dictionaryService.getById(id);
     }
 
-    @GetMapping
-    public ResponseEntity<List<DictionaryResponse>> filter(@Valid DictionaryRequest dictionaryRequest) {
-        List<DictionaryResponse> result = dictionaryService.filter(dictionaryRequest);
-        return ResponseEntity.ok(result);
+    @GetMapping("/filter")
+    @ResponseStatus(HttpStatus.OK)
+    public List<FilterDictionaryResponseBean> filterDictionary(@RequestBody @Valid FilterDictionaryRequestBean request) {
+        return dictionaryService.filterDictionary(request);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> put(@PathVariable UUID id, @RequestBody @Valid DictionaryRequest request) {
-        dictionaryService.put(id, request);
-        return ResponseEntity.created(URI.create("/api/v1/dictionaries/" + id)).build();
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public CreateDictionaryResponseBean put(@RequestBody @Valid CreateDictionaryRequestBean request) {
+        return dictionaryService.createDictionary(request);
     }
-    @GetMapping("/category/{categoryId}")
-    public ResponseEntity<List<DictionaryResponse>> getByCategoryId(@PathVariable UUID categoryId) {
-        return ResponseEntity.ok(dictionaryService.getByCategoryId(categoryId));
+
+    @GetMapping("/category-id/{categoryId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<GetByCategoryIdResponseBean> getByCategoryId(@PathVariable("categoryId") UUID categoryId) {
+        return dictionaryService.getByCategoryId(categoryId);
+    }
+
+    @PutMapping("/restore")
+    @ResponseStatus(HttpStatus.OK)
+    public RestoreDictionaryResponseBean restoreDictionary(@RequestBody @Valid RestoreDictionaryRequestBean request) {
+        return dictionaryService.restoreDictionary(request);
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public SoftDeleteDictionaryResponseBean softDelete(@RequestBody @Valid SoftDeleteDictionaryRequestBean request){
+        return dictionaryService.softDelete(request);
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public UpdateDictionaryResponseBean updateDictionary(@RequestBody @Valid UpdateDictionaryRequestBean request){
+        return dictionaryService.updateDictionary(request);
     }
 }
