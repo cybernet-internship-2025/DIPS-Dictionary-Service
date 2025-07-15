@@ -1,6 +1,7 @@
 package az.cybernet.internship.dictionary.service;
 
 
+import az.cybernet.internship.dictionary.error.ErrorCode;
 import az.cybernet.internship.dictionary.error.NotFoundException;
 import az.cybernet.internship.dictionary.mapper.CategoryMapper;
 import az.cybernet.internship.dictionary.model.category.CategoryDto;
@@ -22,7 +23,7 @@ public class CategoryService {
 
     public CategoryDto getCategoryWithItems(UUID categoryId) {
         return categoryMapper.getByIdWithItems(categoryId)
-                .orElseThrow(() -> new NotFoundException("Category not found with id: " + categoryId));
+                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND,"Category not found with id: " + categoryId));
     }
 }
 
