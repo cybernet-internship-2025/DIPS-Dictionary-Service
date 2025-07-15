@@ -24,21 +24,25 @@ public class DictionaryController {
         }
 
         @PostMapping
+        @ResponseStatus(HttpStatus.CREATED)
         public void createDictionary(@RequestBody CreateDictionaryRequest request) {
             dictionaryService.saveDictionary(request);
         }
 
         @PutMapping("/{id}")
+        @ResponseStatus(HttpStatus.NO_CONTENT)
         public void updateDescription(@PathVariable Long id, @RequestBody UpdateDescriptionRequest request) {
             dictionaryService.updateDescription(id, request);
         }
 
         @DeleteMapping("/{id}")
+        @ResponseStatus(HttpStatus.NO_CONTENT)
         public void delete(@PathVariable Long id) {
             dictionaryService.deleteDictionary(id);
         }
 
         @PutMapping("/{id}/restore")
+        @ResponseStatus(HttpStatus.NO_CONTENT)
         public void restore(@PathVariable Long id) {
             dictionaryService.restoreDictionary(id);
         }
