@@ -22,7 +22,7 @@
         LIMIT #{limit}
     </select>
 
-    <update id="updateDictionary" parameterType="az.cybernet.internship.dictionary.entity.Dictionary">
+    <select id="updateDictionary" parameterType="az.cybernet.internship.dictionary.entity.Dictionary" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
         UPDATE dictionary SET
         <if test="category != null">
             category = #{category},
@@ -34,9 +34,10 @@
         <if test="isActive != null">
             is_active = #{isActive},
         </if>
-        update_date = #{updateDate}
-        WHERE id = #{id}::uuid;
-    </update>
+        update_date = now()
+        WHERE id = #{id}::uuid
+        RETURNING id, category, value, is_active, update_date;
+    </select>
 
     <select id="delete" parameterType="java.util.UUID" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
         UPDATE dictionary
@@ -44,5 +45,13 @@
             update_date = now()
         WHERE id = #{uuid}::uuid
     RETURNING id, category, value, is_active, update_date;
+    </select>
+
+    <select id="restoreDictionary" parameterType="java.util.UUID" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
+        UPDATE dictionary
+        SET is_active = true,
+        update_date = now()
+        WHERE id = #{uuid}::uuid
+        RETURNING id, category, value, is_active, update_date;
     </select>
 </mapper>
