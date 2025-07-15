@@ -67,32 +67,28 @@
         WHERE c.id = #{id}
     </select>
 
-    <!--  SELECT ALL  -->
-    <select id="findAll" resultMap="CategoryResultMap">
-        SELECT
-        c.id          AS c_id,
-        c.name        AS c_name,
+    <select id="findAll" resultMap="CategoryResultMap" parameterType="Integer">
+        SELECT c.id AS c_id,
+        c.name AS c_name,
         c.description AS c_description,
-        c.is_active   AS c_is_active,
-        c.created_at  AS c_created_at,
-        c.updated_at  AS c_updated_at,
+        c.is_active AS c_is_active,
+        c.created_at AS c_created_at,
+        c.updated_at AS c_updated_at,
 
-        i.id          AS i_id,
-        i.value       AS i_value,
+        i.id AS i_id,
+        i.value AS i_value,
         i.description AS i_description,
-        i.is_active   AS i_is_active,
-        i.created_at  AS i_created_at,
-        i.updated_at  AS i_updated_at,
+        i.is_active AS i_is_active,
+        i.created_at AS i_created_at,
+        i.updated_at AS i_updated_at,
         i.category_id AS i_category_id
-
-        FROM (
-            SELECT *
-            FROM categories
-            WHERE is_active != false
-            LIMIT #{limit}
-        ) c
+        FROM categories c
         LEFT JOIN items i ON c.id = i.category_id
-        ORDER BY c.id ASC, i.id ASC;
+        WHERE c.is_active != false
+        ORDER BY c.id ASC
+        <if test="limit != null">
+            LIMIT #{limit}
+        </if>
     </select>
 
     <!-- DELETE -->
@@ -103,12 +99,9 @@
         WHERE id = #{id}
     </update>
 
-
-    <!--  RESTORE CATEGORY  -->
     <update id="restoreCategory" parameterType="long">
         UPDATE categories
-        SET
-            is_active = true,
+        SET is_active  = true,
             updated_at = null
         WHERE id = #{id}
     </update>

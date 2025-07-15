@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 import static lombok.AccessLevel.PRIVATE;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString(exclude = "category")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = PRIVATE)
 public class DictionaryItem {
     Long id;
