@@ -38,9 +38,15 @@
     <!-- PUT /api/v1/dictionaries (UPDATE EXISTING) -->
     <update id="update" parameterType="az.cybernet.internship.dictionary.model.DictionaryEntry">
         UPDATE dictionary
-        SET value = #{value},
-            description = #{description},
-            updated_at = NOW()
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            updated_at = now()
+        </set>
         WHERE id = #{id}
     </update>
 

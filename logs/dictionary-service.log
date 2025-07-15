@@ -54,3 +54,8 @@
 2025-07-15T16:01:28.437+04:00  INFO 26440 --- [RMI TCP Connection(4)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-07-15T16:01:28.672+04:00  INFO 26440 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@419318ab
 2025-07-15T16:01:28.677+04:00  INFO 26440 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T16:26:37.288+04:00  WARN 26440 --- [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m8s371ms553µs900ns).
+2025-07-15T16:34:47.895+04:00  INFO 26440 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T16:34:47.927+04:00  INFO 26440 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T16:34:47.937+04:00  INFO 26440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T16:34:47.942+04:00  INFO 26440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
