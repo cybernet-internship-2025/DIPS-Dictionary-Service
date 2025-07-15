@@ -39,7 +39,7 @@ public class ItemServiceHandler implements ItemService {
         var dictionaryItem = fetchDictionaryIfExist(id);
 
         if (request.getCategoryId() != null) {
-            var dictionaryCategory = categoryService.fetchDictionaryIfExist(request.getCategoryId());
+            var dictionaryCategory = categoryService.fetchCategoryIfExist(request.getCategoryId());
         }
 
         itemMapper.updateItem(dictionaryItem, request);
@@ -93,7 +93,7 @@ public class ItemServiceHandler implements ItemService {
         log.info("ActionLog.saveItem.start - request: {}", request);
 
         DictionaryCategory dictionaryCategory = categoryService
-                .fetchDictionaryIfExist(request.getCategoryId());
+                .fetchCategoryIfExist(request.getCategoryId());
 
         if (!dictionaryCategory.getIsActive()) {
             throw new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage());
@@ -102,7 +102,6 @@ public class ItemServiceHandler implements ItemService {
         var dictionaryItem = itemMapper.buildDictionaryItem(request, dictionaryCategory);
         itemRepository.saveItem(dictionaryItem);
 
-        cacheUtil.deleteKeysByPattern("category:all:*");
 
         log.info("ActionLog.saveItem.end - request: {}", request);
     }
