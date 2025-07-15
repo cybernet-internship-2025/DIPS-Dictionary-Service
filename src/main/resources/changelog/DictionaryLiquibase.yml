@@ -23,6 +23,7 @@ databaseChangeLog:
               - column:
                   name: is_active
                   type: boolean
+                  defaultValueBoolean: true
               - column:
                   name: deleted_at
                   type: timestamp

@@ -1,34 +1,26 @@
 package az.cybernet.internship.dictionary.service;
 
 import az.cybernet.internship.dictionary.dto.DictionaryRequest;
-import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.exception.DictionaryBadRequestException;
+import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.model.DictionaryEntity;
 import az.cybernet.internship.dictionary.repository.DictionaryRepository;
-
-import org.springframework.http.HttpStatus;
-
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
 
 import java.util.UUID;
 
 @Service
 public class DictionaryService {
 
-
-    private final  DictionaryRepository repository;
-
+    private final DictionaryRepository repository;
 
     public DictionaryService(DictionaryRepository repository) {
         this.repository = repository;
     }
 
-
-
     public void createOrUpdate(UUID id, DictionaryRequest request) {
         if (request.getValue() == null || request.getValue().trim().isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Value field cannot be empty.");
+            throw new DictionaryBadRequestException("Value field cannot be empty.");
         }
 
         DictionaryEntity existing = repository.getById(id);
@@ -51,7 +43,7 @@ public class DictionaryService {
     public void softDelete(UUID id) {
         DictionaryEntity entity = repository.getById(id);
         if (entity == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found for id: " + id);
+            throw new DictionaryNotFoundException("Entry not found for id: " + id);
         }
         repository.softDelete(id);
     }
@@ -59,10 +51,10 @@ public class DictionaryService {
     public void restore(UUID id) {
         DictionaryEntity entity = repository.getById(id);
         if (entity == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry not found for id: " + id);
+            throw new DictionaryNotFoundException("Entry not found for id: " + id);
         }
         if (Boolean.TRUE.equals(entity.getIsActive())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry is already active.");
+            throw new DictionaryBadRequestException("Entry is already active.");
         }
         repository.restore(id);
     }
