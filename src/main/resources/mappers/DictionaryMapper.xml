@@ -22,6 +22,23 @@
         LIMIT #{limit}
     </select>
 
+    <insert id="insert" parameterType="az.cybernet.internship.dictionary.entity.Dictionary"
+            useGeneratedKeys="false">
+        INSERT INTO dictionary (
+        id, category, value, description, is_active, create_date, update_date
+        ) VALUES (
+        #{id}::uuid,
+        #{category},
+        #{value},
+        #{description},
+        #{isActive},
+        now(),
+        now()
+        )
+        RETURNING id, category, value, description, is_active, create_date, update_date;
+    </insert>
+
+
     <select id="updateDictionary" parameterType="az.cybernet.internship.dictionary.entity.Dictionary" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
         UPDATE dictionary SET
         <if test="category != null">

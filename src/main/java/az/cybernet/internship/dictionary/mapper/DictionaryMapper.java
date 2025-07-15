@@ -18,4 +18,7 @@ public interface DictionaryMapper {
     DictionaryResp restoreDictionary(@Param("uuid") UUID id);
 
     DictionaryResp delete(@Param("uuid") UUID id);
+
+    DictionaryResp insert(Dictionary dictionary);
+
 }

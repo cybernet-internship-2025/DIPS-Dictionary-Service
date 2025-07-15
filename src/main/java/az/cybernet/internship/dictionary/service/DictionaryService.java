@@ -16,4 +16,6 @@ public interface DictionaryService {
     DictionaryResp restoreDictionary(UUID id);
 
     DictionaryResp delete(UUID id);
+
+    DictionaryResp createDictionary(Dictionary dictionary);
 }
