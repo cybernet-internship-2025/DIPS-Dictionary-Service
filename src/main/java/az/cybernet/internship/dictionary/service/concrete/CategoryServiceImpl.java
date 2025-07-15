@@ -45,6 +45,7 @@ public class CategoryServiceImpl implements CategoryService {
 
             cacheUtil.delete("category:" + request.getId());
             cacheUtil.deleteByPrefix("category:all:");
+
             log.info("ActionLog.updateCategory.end - request: {}", request);
         }
     }
@@ -57,18 +58,13 @@ public class CategoryServiceImpl implements CategoryService {
 
         cacheUtil.delete("category:" + id);
         cacheUtil.deleteByPrefix("category:all:");
+
         log.info("ActionLog.restoreCategory.end - id: {}", id);
     }
 
     @Override
     public CategoryResponse findById(Long id) {
         log.info("ActionLog.findByIdCategory.start - id: {}", id);
-
-        var cached = cacheUtil.getBucket("category:" + id);
-        if (cached != null) {
-            log.info("ActionLog.findByIdCategory.cached - id: {}", id);
-            return (CategoryResponse) cached;
-        }
 
         var dictionaryCategory = fetchCategoryIfExist(id);
         var categoryResponse = categoryMapper.buildCategoryResponse(dictionaryCategory);
@@ -121,6 +117,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         cacheUtil.delete("category:" + id);
         cacheUtil.deleteByPrefix("category:all:");
+
         log.info("ActionLog.deleteCategory.end - id: {}", id);
     }
 

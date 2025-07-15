@@ -34,7 +34,7 @@ public class CacheUtil {
         bucket.set(value);
         bucket.expire(Duration.of(expireTime, temporalUnit));
     }
-
+  
     public void delete(String key) {
         redissonClient.getBucket(key).delete();
     }
@@ -48,6 +48,5 @@ public class CacheUtil {
 
         if (!matchedKeys.isEmpty()) {
             keys.delete(matchedKeys.toArray(new String[0]));
-        }
     }
 }
