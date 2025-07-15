@@ -42,6 +42,9 @@ public class CategoryServiceImpl implements CategoryService {
             var dictionaryCategory = fetchDictionaryIfExist(request.getId());
             categoryMapper.updateCategory(dictionaryCategory, request);
             categoryRepository.updateCategory(dictionaryCategory);
+
+            cacheUtil.delete("category:" + request.getId());
+            cacheUtil.deleteByPrefix("category:all:");
             log.info("ActionLog.updateCategory.end - request: {}", request);
         }
     }
@@ -51,6 +54,9 @@ public class CategoryServiceImpl implements CategoryService {
         log.info("ActionLog.restoreCategory.start - id: {}", id);
         var dictionaryCategory = fetchDictionaryIfExist(id);
         categoryRepository.restoreCategory(dictionaryCategory.getId());
+
+        cacheUtil.delete("category:" + id);
+        cacheUtil.deleteByPrefix("category:all:");
         log.info("ActionLog.restoreCategory.end - id: {}", id);
     }
 
@@ -75,11 +81,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<CategoryResponse> findAll(Integer limit) {
-        log.info("ActionLog.findAllCategories.start");
+        log.info("ActionLog.findAllCategories.start - limit: {}", limit);
 
+        String cacheKeyPrefix = "category:all:" + (limit == null ? "all" : limit) + ":";
         List<CategoryResponse> result = new ArrayList<>();
+
         for (int i = 0; ; i++) {
-            var item = cacheUtil.getBucket("category:all:" + limit + ":" + i);
+            var item = cacheUtil.getBucket(cacheKeyPrefix + i);
             if (item == null) break;
             result.add((CategoryResponse) item);
         }
@@ -89,14 +97,16 @@ public class CategoryServiceImpl implements CategoryService {
             return result;
         }
 
-        var dictionaryCategories = categoryRepository.findAll(limit);
-        var list = dictionaryCategories
-                .stream()
+        var dictionaryCategories = limit == null || limit == 0
+                ? categoryRepository.findAll()
+                : categoryRepository.findAllWithLimit(limit);
+
+        var list = dictionaryCategories.stream()
                 .map(categoryMapper::buildCategoryResponse)
                 .toList();
 
         for (int i = 0; i < list.size(); i++) {
-            cacheUtil.saveToCache("category:all:" + limit + ":" + i, list.get(i), 1L, HOURS);
+            cacheUtil.saveToCache(cacheKeyPrefix + i, list.get(i), 1L, HOURS);
         }
 
         log.info("ActionLog.findAllCategories.end - limit: {}", limit);
@@ -108,6 +118,9 @@ public class CategoryServiceImpl implements CategoryService {
         log.info("ActionLog.deleteCategory.start - id: {}", id);
         var dictionaryCategory = fetchDictionaryIfExist(id);
         categoryRepository.deleteCategory(dictionaryCategory.getId());
+
+        cacheUtil.delete("category:" + id);
+        cacheUtil.deleteByPrefix("category:all:");
         log.info("ActionLog.deleteCategory.end - id: {}", id);
     }
 

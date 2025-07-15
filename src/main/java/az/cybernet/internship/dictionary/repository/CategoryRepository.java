@@ -15,7 +15,9 @@ public interface CategoryRepository {
 
     Optional<DictionaryCategory> findById(Long id);
 
-    List<DictionaryCategory> findAll(Integer limit);
+    List<DictionaryCategory> findAll();
+
+    List<DictionaryCategory> findAllWithLimit(Integer limit);
 
     void deleteCategory(Long id);
 
