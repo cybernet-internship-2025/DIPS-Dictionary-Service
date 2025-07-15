@@ -17,7 +17,7 @@
     </resultMap>
 
     <!-- GET /api/v1/dictionaries -->
-    <select id="getAll" parameterType="map" resultMap="DictionaryMap">
+    <select id="findAll" parameterType="Integer" resultMap="DictionaryMap">
         SELECT * FROM dictionary
         WHERE (#{id} IS NULL OR id = #{id})
           AND (#{value} IS NULL OR LOWER(value) LIKE CONCAT('%', LOWER(#{value}), '%'))
@@ -25,14 +25,14 @@
     </select>
 
     <!-- GET /api/v1/dictionaries/{id} -->
-    <select id="getById" parameterType="java.lang.Long" resultMap="DictionaryMap">
+    <select id="findById" parameterType="java.lang.Long" resultMap="DictionaryMap">
         SELECT * FROM dictionary WHERE id = #{id}
     </select>
 
     <!-- PUT /api/v1/dictionaries (CREATE NEW) -->
-    <insert id="insert" parameterType="az.cybernet.internship.dictionary.model.DictionaryEntry" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO dictionary (category, value, description, is_active, created_at)
-        VALUES (#{category}, #{value}, #{description}, true, NOW())
+    <insert id="insert" parameterType="az.cybernet.internship.dictionary.model.DictionaryEntry" useGeneratedKeys="true">
+        INSERT INTO dictionary (category, value, description, is_active, created_at, updated_at)
+        VALUES (#{category}, #{value}, #{description}, true, NOW(), null)
     </insert>
 
     <!-- PUT /api/v1/dictionaries (UPDATE EXISTING) -->
@@ -40,8 +40,7 @@
         UPDATE dictionary
         SET value = #{value},
             description = #{description},
-            updated_at = NOW(),
-            is_active = true
+            updated_at = NOW()
         WHERE id = #{id}
     </update>
 
@@ -57,8 +56,8 @@
     <update id="restore" parameterType="java.lang.Long">
         UPDATE dictionary
         SET is_active = true,
-            updated_at = NOW()
-        WHERE id = #{id} AND is_active = false
+            updated_at = null
+        WHERE id = #{id}
     </update>
 
 </mapper>

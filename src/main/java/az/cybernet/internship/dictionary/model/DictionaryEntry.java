@@ -17,5 +17,4 @@ public class DictionaryEntry {
     private Boolean isActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
 }

@@ -16,7 +16,7 @@ public enum Mapper {
                 .description(entry.getDescription())
                 .isActive(true)
                 .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+                .updatedAt(null)
                 .build();
 
 
