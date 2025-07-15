@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Service
 @RequiredArgsConstructor
 public class DictionaryServiceHandler implements DictionaryService {
-    public final DictionaryRepository dictionaryRepository;
+    private final DictionaryRepository dictionaryRepository;
 
     public DictionaryResponse getDictionary(Long id) {
         var dictionary = fetchDictionaryIfExists(id);
