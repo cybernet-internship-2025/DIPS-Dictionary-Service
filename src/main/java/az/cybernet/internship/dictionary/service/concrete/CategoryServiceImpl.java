@@ -42,6 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
             var dictionaryCategory = fetchCategoryIfExist(request.getId());
             categoryMapper.updateCategory(dictionaryCategory, request);
             categoryRepository.updateCategory(dictionaryCategory);
+            cacheUtil.deleteKeysByPattern("category:all:*");
             log.info("ActionLog.updateCategory.end - request: {}", request);
         }
     }
@@ -51,18 +52,13 @@ public class CategoryServiceImpl implements CategoryService {
         log.info("ActionLog.restoreCategory.start - id: {}", id);
         var dictionaryCategory = fetchCategoryIfExist(id);
         categoryRepository.restoreCategory(dictionaryCategory.getId());
+        cacheUtil.deleteKeysByPattern("category:all:*");
         log.info("ActionLog.restoreCategory.end - id: {}", id);
     }
 
     @Override
     public CategoryResponse findById(Long id) {
         log.info("ActionLog.findByIdCategory.start - id: {}", id);
-
-        var cached = cacheUtil.getBucket("category:" + id);
-        if (cached != null) {
-            log.info("ActionLog.findByIdCategory.cached - id: {}", id);
-            return (CategoryResponse) cached;
-        }
 
         var dictionaryCategory = fetchCategoryIfExist(id);
         var categoryResponse = categoryMapper.buildCategoryResponse(dictionaryCategory);
@@ -108,6 +104,7 @@ public class CategoryServiceImpl implements CategoryService {
         log.info("ActionLog.deleteCategory.start - id: {}", id);
         var dictionaryCategory = fetchCategoryIfExist(id);
         categoryRepository.deleteCategory(dictionaryCategory.getId());
+        cacheUtil.deleteKeysByPattern("category:all:*");
         log.info("ActionLog.deleteCategory.end - id: {}", id);
     }
 
