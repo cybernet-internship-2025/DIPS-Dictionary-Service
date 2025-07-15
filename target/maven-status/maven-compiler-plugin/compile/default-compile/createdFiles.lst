@@ -1,0 +1,14 @@
+az/cybernet/internship/dictionary/model/dto/DictionaryResponseDto.class
+az/cybernet/internship/dictionary/mapper/DictionaryServiceMapper.class
+az/cybernet/internship/dictionary/repository/DictionaryMapper.class
+az/cybernet/internship/dictionary/exception/BadRequestException.class
+az/cybernet/internship/dictionary/typehandler/UUIDTypeHandler.class
+az/cybernet/internship/dictionary/repository/DictionarySqlProvider$1.class
+az/cybernet/internship/dictionary/DictionaryServiceApplication.class
+az/cybernet/internship/dictionary/controller/DictionaryController.class
+az/cybernet/internship/dictionary/model/DictionaryEntry.class
+az/cybernet/internship/dictionary/repository/DictionarySqlProvider.class
+az/cybernet/internship/dictionary/mapper/DictionaryServiceMapperImpl.class
+az/cybernet/internship/dictionary/service/DictionaryService.class
+az/cybernet/internship/dictionary/exception/ResourceNotFoundException.class
+az/cybernet/internship/dictionary/model/dto/DictionaryCreateUpdateDto.class
