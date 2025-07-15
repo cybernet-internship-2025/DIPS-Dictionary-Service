@@ -1,20 +1,30 @@
-spring:
-  datasource:
-    driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
-    username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+
 
 mybatis:
-  mapperLocations:
-    - classpath:/mappers/*Mapper.xml
+  mapper-locations: classpath:/mappers/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 30
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5438/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 springdoc:
   api-docs:
     path: /api/dictionary/api-docs
   swagger-ui:
     path: /api/dictionary/swagger-ui.html
+
+
