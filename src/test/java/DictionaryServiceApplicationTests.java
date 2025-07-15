@@ -1,9 +1,10 @@
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-//@SpringBootTest
+@SpringBootTest
 class DictionaryServiceApplicationTests {
 
-//    @Test
-//    void contextLoads() {
-//        // Test boşdur, amma məqsəd Spring context-in uğurla yüklənməsidir
-//    }
+    @Test
+    void contextLoads() {
+    }
 }
