@@ -5,6 +5,10 @@ spring:
     username: postgres
     password: 12345
 
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
+
 server:
   servlet:
     context-path: /api

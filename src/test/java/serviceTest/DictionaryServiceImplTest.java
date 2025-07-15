@@ -162,7 +162,6 @@ public class DictionaryServiceImplTest {
         assertEquals("New", response.getCategory());
         assertEquals("NewValue", response.getValue());
 
-        // mapper.insert çağırılmalıdı
         verify(mapper).insert(any(Dictionary.class));
         verify(mapper, never()).update(any());
     }
