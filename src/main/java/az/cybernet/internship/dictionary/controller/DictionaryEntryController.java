@@ -10,13 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/dictionaries")
 @RequiredArgsConstructor
 public class DictionaryEntryController {
-
     private final DictionaryEntryService dictionaryEntryService;
 
     @GetMapping
@@ -40,12 +38,12 @@ public class DictionaryEntryController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable UUID id) {
+    public void delete(@PathVariable String id) {
         dictionaryEntryService.delete(id);
     }
 
     @PostMapping("/{id}/restore")
-    public ResponseEntity<DictionaryEntryResponseDTO> restore(@PathVariable UUID id) {
+    public ResponseEntity<DictionaryEntryResponseDTO> restore(@PathVariable String id) {
         DictionaryEntryResponseDTO restored = dictionaryEntryService.restore(id);
         return new ResponseEntity<>(restored, HttpStatus.OK);
     }

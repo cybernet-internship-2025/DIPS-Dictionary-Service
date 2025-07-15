@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DictionaryEntryResponseDTO {
-    private String value;
-    private String description;
-    private String categoryName;
+public class DictionaryCategoryResponseDTO {
+    private String id;
+    private String name;
 }

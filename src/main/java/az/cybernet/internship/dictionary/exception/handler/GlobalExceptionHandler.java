@@ -1,21 +1,27 @@
 package az.cybernet.internship.dictionary.exception.handler;
 
 import az.cybernet.internship.dictionary.dto.response.ExceptionResponseDTO;
+import az.cybernet.internship.dictionary.exception.model.AlreadyExistsException;
 import az.cybernet.internship.dictionary.exception.model.ConflictException;
 import az.cybernet.internship.dictionary.exception.type.ExceptionType;
 import az.cybernet.internship.dictionary.exception.model.NotFoundException;
 import az.cybernet.internship.dictionary.exception.model.ValidationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ExceptionResponseDTO> handleNotFound(NotFoundException exception) {
+        return buildResponse(exception.getExceptionType().getStatus(), exception.getMessage());
+    }
+
+    @ExceptionHandler(AlreadyExistsException.class)
+    public ResponseEntity<ExceptionResponseDTO> handleAlreadyExists(AlreadyExistsException exception) {
         return buildResponse(exception.getExceptionType().getStatus(), exception.getMessage());
     }
 
