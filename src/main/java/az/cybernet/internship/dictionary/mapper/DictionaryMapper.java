@@ -11,26 +11,16 @@ import java.util.UUID;
 public interface DictionaryMapper {
     // Balash's commit
     Dictionary findById(@Param("id") UUID id);
-    List<Dictionary> findAllActiveDictionaryWithLimit(@Param("value") String value,
-                                                      @Param("isActive") Boolean isActive,
-                                                      @Param("limit") int limit);
+
+    List<Dictionary> findAllActiveDictionaryWithLimit(@Param("value") String value, @Param("isActive") Boolean isActive, @Param("limit") int limit);
 
     void restore(@Param("id") UUID id);
 
     // Goychek's commit
 
 
+    // Без комментариев, но с комментарием (。_。)
+    void insert(Dictionary entry);
 
-
-
-
-
-
-    // Huseyn's commit
-
-
-
-
-
-
+    int update(Dictionary entry);
 }

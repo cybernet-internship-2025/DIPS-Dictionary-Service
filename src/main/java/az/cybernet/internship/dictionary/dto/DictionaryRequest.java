@@ -11,7 +11,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DictionaryResponse {
+public class DictionaryRequest {
     private UUID id;
     private String category;
     private String value;

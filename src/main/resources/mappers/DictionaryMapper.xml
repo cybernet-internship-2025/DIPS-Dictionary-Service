@@ -32,8 +32,18 @@
         SELECT * FROM dictionary WHERE id = #{id}
     </select>
 
+    <!--  Кажется я знаю, где это написано лучше ༼ つ ◕_◕ ༽つ  -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dictionary (value, description, is_active)
+        VALUES (#{value}, #{description}, true)
+    </insert>
 
-    <!--    Balash committed    -->
+    <update id="update">
+        UPDATE dictionary
+        SET value = #{value}, description = #{description}
+        WHERE id = #{id}
+    </update>
+
     <!--    Goychek commit    -->
 
 
