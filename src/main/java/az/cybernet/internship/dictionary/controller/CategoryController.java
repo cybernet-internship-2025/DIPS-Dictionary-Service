@@ -38,25 +38,25 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.getCategoryWithItems(id));
     }
 
-    @PutMapping("/update-category")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public UpdateCategoryResponseBean updateCategory(@RequestBody @Valid UpdateCategoryRequestBean request){
         return categoryService.updateCategory(request);
     }
 
-    @DeleteMapping("/delete-category")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public DeleteCategoryResponseBean deleteCategory(@RequestBody @Valid DeleteCategoryRequestBean request){
         return categoryService.deleteCategory(request);
     }
 
-    @PostMapping("/create-category")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CreateCategoryResponseBean createCategory(@RequestBody @Valid CreateCategoryRequestBean request){
         return categoryService.createCategory(request);
     }
 
-    @PutMapping("/restore-category")
+    @PutMapping("/restore")
     @ResponseStatus(HttpStatus.OK)
     public RestoreCategoryResponseBean restoreCategory(@RequestBody @Valid RestoreCategoryRequestBean request){
         return categoryService.restoreCategory(request);
