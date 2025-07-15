@@ -2,7 +2,7 @@ package az.cybernet.internship.dictionary.controller;
 
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.service.DictionaryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,16 +36,13 @@ public class DictionaryController {
 
     //Goychek commited
 
-
-
-
-
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @DeleteMapping("/{id}")
+    public void deleteDictionary(@PathVariable UUID id) {
+        service.deleteDictionary(id);
+    }
 
     //Huseyn commited
-
-
-
-
 
 
 }

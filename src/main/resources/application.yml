@@ -1,9 +1,10 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/dictionary
     username: postgres
     password: Goychak2003
+
 #    datasource:
 #      driverClassName: org.postgresql.Driver
 #      url: jdbc:postgresql://localhost:5432/dictionary
@@ -23,3 +24,5 @@ springdoc:
     path: /dictionary/api-docs
   swagger-ui:
     path: /dictionary/swagger-ui.html
+
+

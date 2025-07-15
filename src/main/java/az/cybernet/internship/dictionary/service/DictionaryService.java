@@ -12,8 +12,7 @@ public interface DictionaryService {
     DictionaryResponse restoreDictionary(UUID uuid);
 
     // Goychek commit
-    void softDelete(UUID uuid);
-
+    void deleteDictionary(UUID uuid);
 
     // Huseyn commit
 }

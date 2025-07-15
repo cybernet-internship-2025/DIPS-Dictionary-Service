@@ -1,6 +1,7 @@
 package az.cybernet.internship.dictionary.service.impl;
 
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.exception.AlreadyInactiveException;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.model.Dictionary;
@@ -24,7 +25,7 @@ public class DictionaryServiceImpl implements DictionaryService {
 
     // Balash's commit
     @Override
-    public List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive,int limit) {
+    public List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive, int limit) {
         List<Dictionary> items = mapper.findAllActiveDictionaryWithLimit(value, isActive, limit);
 
         if (items.isEmpty()) throw new DictionaryNotFoundException("Dictionay not found");
@@ -56,14 +57,15 @@ public class DictionaryServiceImpl implements DictionaryService {
 
     // Goychek's commit
     @Override
-    public void softDelete(UUID uuid) {
+    public void deleteDictionary(UUID uuid) {
         Dictionary entity = mapper.findById(uuid);
         if (entity == null) {
             throw new EntityNotFoundException("Entity not found with id: " + uuid);
+        } else if (!entity.getIsActive()) {
+            throw new AlreadyInactiveException("Entity is already inactive with id: " + uuid);
         }
-
         mapper.softDelete(uuid, LocalDateTime.now());
     }
-    }
+}
 
-    // Huseyn's commit
+// Huseyn's commit
