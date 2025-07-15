@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,19 +45,40 @@ public class DictionaryServiceImpl implements DictionaryService {
     }
 
     @Override
+    @Transactional
     public DictionaryResp updateDictionary(Dictionary dictionary) {
+        log.info("Validating input");
         if (dictionary.getId() == null || dictionary.getValue() == null) {
             throw new InputValueMissingException("Missing required params:" +
                     (dictionary.getId() == null ? " Id" : "") +
                     (dictionary.getValue() == null ? " Value" : ""));
-        }
-        dictionary.setUpdateDate(LocalDateTime.now());
+        } log.info("Input validation successful");
 
-        if (dictionaryMapper.updateDictionary(dictionary) == 0) {
+        DictionaryResp dictionaryResponse = dictionaryMapper.updateDictionary(dictionary);
+
+        log.info("Checking database response");
+        if (dictionaryResponse == null) {
+            log.warn("Dictionary entry not found for update with id: {}", dictionary.getId());
             throw new DictionaryNotFoundException("Dictionary entry not found for update with id: "
                     + dictionary.getId());
         }
-        return dictionaryMap.toDto(dictionary);
+        log.info("Successfully updated dictionary entry with id: {}", dictionary.getId());
+        return dictionaryResponse;
+    }
+
+    @Override
+    @Transactional
+    public DictionaryResp restoreDictionary(UUID id) {
+        log.info("Trying to restore dictionary with id: {}", id);
+        DictionaryResp dictionaryResponse = dictionaryMapper.restoreDictionary(id);
+
+        if(dictionaryResponse == null) {
+            log.warn("Dictionary entry not found for restoration with id: {}", id);
+            throw new DictionaryNotFoundException("Dictionary entry not found for restoration with id: " + id);
+        }
+
+        log.info("Successfully restored dictionary entry");
+        return dictionaryResponse;
     }
 
     @Override

@@ -1,12 +1,12 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    #url: jdbc:postgresql://localhost:5433/testdb
-    #username: testuser
-    #password: 404911
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
-    username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+    url: jdbc:postgresql://localhost:5433/testdb
+    username: testuser
+    password: 404911
+    #url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
+    #username: ${jdbc.username:postgres}
+    #password: ${jdbc.password:postgres}
     #url: jdbc:postgresql://localhost:5432/postgres
     #username: postgres
     #password: mypassword
