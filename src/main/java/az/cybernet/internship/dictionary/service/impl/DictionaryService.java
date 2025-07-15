@@ -4,9 +4,7 @@ import az.cybernet.internship.dictionary.dto.dictionary.createDictionary.CreateD
 import az.cybernet.internship.dictionary.dto.dictionary.createDictionary.CreateDictionaryResponseBean;
 import az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryResponseBean;
-import az.cybernet.internship.dictionary.dto.dictionary.getByCategoryId.GetByCategoryIdRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.getByCategoryId.GetByCategoryIdResponseBean;
-import az.cybernet.internship.dictionary.dto.dictionary.getById.GetDictionaryByIdRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.getById.GetDictionaryByIdResponseBean;
 import az.cybernet.internship.dictionary.dto.dictionary.restore.RestoreDictionaryRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.restore.RestoreDictionaryResponseBean;
@@ -20,10 +18,10 @@ import java.util.List;
 import java.util.UUID;
 
 public interface DictionaryService {
-    List<GetByCategoryIdResponseBean> getByCategoryId(GetByCategoryIdRequestBean request);
+    List<GetByCategoryIdResponseBean> getByCategoryId(UUID categoryId);
     CreateDictionaryResponseBean createDictionary(CreateDictionaryRequestBean request);
     List<FilterDictionaryResponseBean> filterDictionary(FilterDictionaryRequestBean request);
-    GetDictionaryByIdResponseBean getById(GetDictionaryByIdRequestBean request);
+    GetDictionaryByIdResponseBean getById(UUID id);
     RestoreDictionaryResponseBean restoreDictionary(RestoreDictionaryRequestBean request);
     SoftDeleteDictionaryResponseBean softDelete(SoftDeleteDictionaryRequestBean request);
 

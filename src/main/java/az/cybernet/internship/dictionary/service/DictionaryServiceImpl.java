@@ -4,9 +4,7 @@ import az.cybernet.internship.dictionary.dto.dictionary.createDictionary.CreateD
 import az.cybernet.internship.dictionary.dto.dictionary.createDictionary.CreateDictionaryResponseBean;
 import az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryResponseBean;
-import az.cybernet.internship.dictionary.dto.dictionary.getByCategoryId.GetByCategoryIdRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.getByCategoryId.GetByCategoryIdResponseBean;
-import az.cybernet.internship.dictionary.dto.dictionary.getById.GetDictionaryByIdRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.getById.GetDictionaryByIdResponseBean;
 import az.cybernet.internship.dictionary.dto.dictionary.restore.RestoreDictionaryRequestBean;
 import az.cybernet.internship.dictionary.dto.dictionary.restore.RestoreDictionaryResponseBean;
@@ -37,9 +35,9 @@ public class DictionaryServiceImpl implements DictionaryService {
     private final DictionaryMapper dictionaryMapper;
     private final DictionaryMapstruct dictionaryMapstruct;
 
-    public List<GetByCategoryIdResponseBean> getByCategoryId(GetByCategoryIdRequestBean request) {
+    public List<GetByCategoryIdResponseBean> getByCategoryId(UUID categoryId) {
         return dictionaryMapper
-                .findByCategoryId(request.getId())
+                .findByCategoryId(categoryId)
                 .stream()
                 .map(dictionaryMapstruct::fromDictionaryToGetByCategoryIdResponseBean)
                 .collect(Collectors.toList());
@@ -74,12 +72,12 @@ public class DictionaryServiceImpl implements DictionaryService {
                 .collect(Collectors.toList());
     }
 
-    public GetDictionaryByIdResponseBean getById(GetDictionaryByIdRequestBean request) {
-        Dictionary dictionary = dictionaryMapper.findById(request.getId())
+    public GetDictionaryByIdResponseBean getById(UUID id) {
+        Dictionary dictionary = dictionaryMapper.findById(id)
                 .orElseThrow(() -> new NotFoundException("Dictionary not found"));
 
         GetDictionaryByIdResponseBean response = dictionaryMapstruct.fromDictionaryToGetDictionaryByIdResponseBean(dictionary);
-        response.setMessage("Dictionary given by id " + request.getId() + ":");
+        response.setMessage("Dictionary given by id " + id + ":");
 
         return response;
     }
