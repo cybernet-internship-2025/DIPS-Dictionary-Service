@@ -5,7 +5,7 @@
 
 <mapper namespace="com.group_one.dictionary.dictionary_service.mapper.CategoryMapper">
 
-    <resultMap id="CategoryWithItemsResultMap" type="az.cybernet.internship.dictionary.model.dictionary.CategoryDto">
+    <resultMap id="CategoryWithItemsResultMap" type="az.cybernet.internship.dictionary.model.category.CategoryWithItemsDto">
         <id column="category_id" property="id"/>
         <result column="category_name" property="name"/>
         <result column="category_description" property="description"/>
@@ -25,7 +25,7 @@
     </select>
 
     <!-- getByIdWithItems -->
-    <select id="getByIdWithItems" resultMap="CategoryWithItemsResultMap">
+    <select id="getByIdWithItems" resultMap="CategoryWithItemsResultMap" resultType=" az.cybernet.internship.dictionary.model.category.CategoryWithItemsDto">
         SELECT
             c.id AS category_id,
             c.name AS category_name,
