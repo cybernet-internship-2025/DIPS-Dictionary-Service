@@ -1,25 +1,26 @@
 package az.cybernet.internship.dictionary.mapper;
 
-import az.cybernet.internship.dictionary.model.DictionaryEntry;
+import az.cybernet.internship.dictionary.model.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mapper
 public interface DictionaryMapper {
     // Balash's commit
-    DictionaryEntry findById(@Param("id") String id);
+    Dictionary findById(@Param("id") UUID id);
 
-    List<DictionaryEntry> findAllActiveDictionaryWithLimit(@Param("value") String value, @Param("isActive") Boolean isActive, @Param("limit") int limit);
+    List<Dictionary> findAllActiveDictionaryWithLimit(@Param("value") String value, @Param("isActive") Boolean isActive, @Param("limit") int limit);
 
-    void restore(@Param("id") String id);
+    void restore(@Param("id") UUID id);
 
     // Goychek's commit
 
 
     // Без комментариев, но с комментарием (。_。)
-    void insert(DictionaryEntry entry);
+    void insert(Dictionary entry);
 
-    int update(DictionaryEntry entry);
+    int update(Dictionary entry);
 }

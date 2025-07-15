@@ -6,7 +6,7 @@
 <mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
 
     <!--    Balash's commit    -->
-    <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.DictionaryEntry">
+    <select id="findAllActiveDictionaryWithLimit" resultType="az.cybernet.internship.dictionary.model.Dictionary">
         SELECT *
         FROM dictionary
         <where>
@@ -25,11 +25,11 @@
         SET
             is_active = TRUE,
             deleted_at = NULL
-        WHERE id = #{id}::uuid
+        WHERE id = #{id}
     </update>
 
-    <select id="findById" resultType="az.cybernet.internship.dictionary.model.DictionaryEntry">
-        SELECT * FROM dictionary WHERE id = #{id}::uuid
+    <select id="findById" resultType="az.cybernet.internship.dictionary.model.Dictionary">
+        SELECT * FROM dictionary WHERE id = #{id}
     </select>
 
     <!--  Кажется я знаю, где это написано лучше ༼ つ ◕_◕ ༽つ  -->
@@ -41,7 +41,7 @@
     <update id="update">
         UPDATE dictionary
         SET value = #{value}, description = #{description}
-        WHERE id = #{id}::uuid
+        WHERE id = #{id}
     </update>
 
     <!--    Goychek commit    -->

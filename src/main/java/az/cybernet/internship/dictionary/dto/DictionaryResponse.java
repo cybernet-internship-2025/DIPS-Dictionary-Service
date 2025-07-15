@@ -5,12 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PublicDictionaryEntry {
-    private String id;
+public class DictionaryResponse {
+    private UUID id;
     private String category;
     private String value;
     private String description;

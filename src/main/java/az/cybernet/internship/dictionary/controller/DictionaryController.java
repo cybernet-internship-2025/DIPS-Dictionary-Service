@@ -1,33 +1,35 @@
 package az.cybernet.internship.dictionary.controller;
 
-import az.cybernet.internship.dictionary.dto.PublicDictionaryEntry;
-import az.cybernet.internship.dictionary.service.DictionaryService;
+import az.cybernet.internship.dictionary.dto.DictionaryRequest;
+import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.service.impl.DictionaryServiceImpl;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/dictionaries")
 public class DictionaryController {
 
-    private final DictionaryService service;
+    private final DictionaryServiceImpl service;
 
-    public DictionaryController(DictionaryService service) {
+    public DictionaryController(DictionaryServiceImpl service) {
         this.service = service;
     }
 
     // Balash commited
     @GetMapping
-    public ResponseEntity<List<PublicDictionaryEntry>> getAllActiveDictionaryWithLimit(@RequestParam String value, @RequestParam Boolean isActive, @RequestParam(defaultValue = "10") int limit) {
+    public ResponseEntity<List<DictionaryResponse>> getAllActiveDictionaryWithLimit(@RequestParam String value, @RequestParam Boolean isActive, @RequestParam(defaultValue = "10") int limit) {
         return ResponseEntity.ok(service.getAllActiveDictionaryWithLimit(value, isActive, limit));
     }
 
     @PostMapping("/{id}/restore")
-    public ResponseEntity<PublicDictionaryEntry> restoreDictionary(@PathVariable String id) {
-        return ResponseEntity.ok(service.restoreDictionary(id));
+    public void restoreDictionary(@PathVariable UUID id) {
+        service.restoreDictionary(id);
     }
 
     //Goychek commited
@@ -44,7 +46,7 @@ public class DictionaryController {
     }
 
     @PutMapping
-    public void put(@RequestBody PublicDictionaryEntry body) {
+    public void put(@RequestBody DictionaryRequest body) {
         service.saveOrUpdate(body);
     }
 }

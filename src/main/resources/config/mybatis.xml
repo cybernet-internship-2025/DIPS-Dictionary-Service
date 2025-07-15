@@ -7,8 +7,8 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
 
-<!--    <typeHandlers>-->
-<!--        <typeHandler handler="az.cybernet.internship.dictionary.util.handler.UUIDTypeHandler"-->
-<!--                     javaType="java.util.UUID" jdbcType="VARCHAR"/>-->
-<!--    </typeHandlers>-->
+    <typeHandlers>
+        <typeHandler handler="az.cybernet.internship.dictionary.util.handler.UUIDTypeHandler"
+                     javaType="java.util.UUID" jdbcType="VARCHAR"/>
+    </typeHandlers>
 </configuration>
