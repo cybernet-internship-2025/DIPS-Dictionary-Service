@@ -18,6 +18,3 @@ springdoc:
     path: /api/dictionary/api-docs
   swagger-ui:
     path: /api/dictionary/swagger-ui.html
-
-
-
