@@ -5,8 +5,10 @@ import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import az.cybernet.internship.dictionary.service.DictionaryService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -53,23 +55,15 @@ public class DictionaryServiceImpl implements DictionaryService {
     }
 
     // Goychek's commit
+    @Override
+    public void softDelete(UUID uuid) {
+        Dictionary entity = mapper.findById(uuid);
+        if (entity == null) {
+            throw new EntityNotFoundException("Entity not found with id: " + uuid);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        mapper.softDelete(uuid, LocalDateTime.now());
+    }
+    }
 
     // Huseyn's commit
-}

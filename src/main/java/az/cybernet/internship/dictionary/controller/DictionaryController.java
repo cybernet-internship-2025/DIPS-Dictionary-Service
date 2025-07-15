@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/dictionaries")
+@RequestMapping("/v1/dictionaries")
 public class DictionaryController {
 
     private final DictionaryService service;

@@ -8,10 +8,11 @@ import java.util.UUID;
 public interface DictionaryService {
     // Balash's commit
     List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive, int limit);
+
     DictionaryResponse restoreDictionary(UUID uuid);
 
     // Goychek commit
-
+    void softDelete(UUID uuid);
 
 
     // Huseyn commit
