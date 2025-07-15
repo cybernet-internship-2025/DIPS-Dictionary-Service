@@ -1,9 +1,10 @@
 package az.cybernet.internship.dictionary.controller;
 
 import az.cybernet.internship.dictionary.dto.*;
-import az.cybernet.internship.dictionary.service.*;
+import az.cybernet.internship.dictionary.service.DictionaryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,11 @@ import java.util.List;
 public class DictionaryController {
 
     private final DictionaryService dictionaryService;
+//
+//    public DictionaryController(@Qualifier("dictionaryServiceImpl") DictionaryService dictionaryService) {
+//        this.dictionaryService = dictionaryService;
+//    }
+
     @GetMapping
     public ResponseEntity<List<DictionaryResponse>> findAll() {
         return ResponseEntity.ok(dictionaryService.findAll());

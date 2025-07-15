@@ -59,3 +59,1193 @@
 2025-07-15T16:34:47.927+04:00  INFO 26440 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
 2025-07-15T16:34:47.937+04:00  INFO 26440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-07-15T16:34:47.942+04:00  INFO 26440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T16:57:05.441+04:00  INFO 17340 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 17340 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T16:57:05.442+04:00  INFO 17340 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T16:57:06.218+04:00  INFO 17340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T16:57:06.226+04:00  INFO 17340 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T16:57:06.226+04:00  INFO 17340 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T16:57:06.256+04:00  INFO 17340 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T16:57:06.256+04:00  INFO 17340 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 779 ms
+2025-07-15T16:57:06.801+04:00  INFO 17340 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T16:57:06.842+04:00  INFO 17340 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T16:57:06.850+04:00  INFO 17340 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 1.745 seconds (process running for 2.154)
+2025-07-15T16:57:07.368+04:00  INFO 17340 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T16:57:07.376+04:00  INFO 17340 --- [RMI TCP Connection(1)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T16:57:07.376+04:00  INFO 17340 --- [RMI TCP Connection(1)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T16:57:07.377+04:00  INFO 17340 --- [RMI TCP Connection(1)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-07-15T16:57:07.479+04:00  INFO 17340 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@832d010
+2025-07-15T16:57:07.481+04:00  INFO 17340 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:03:19.066+04:00  INFO 17340 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T17:03:19.073+04:00  INFO 17340 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T17:03:19.077+04:00  INFO 17340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:03:19.079+04:00  INFO 17340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:03:21.527+04:00  INFO 24504 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 24504 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:03:21.528+04:00  INFO 24504 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:03:22.334+04:00  INFO 24504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:03:22.342+04:00  INFO 24504 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:03:22.343+04:00  INFO 24504 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:03:22.372+04:00  INFO 24504 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:03:22.373+04:00  INFO 24504 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 808 ms
+2025-07-15T17:03:22.900+04:00  INFO 24504 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T17:03:22.940+04:00  INFO 24504 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T17:03:22.948+04:00  INFO 24504 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 1.745 seconds (process running for 2.157)
+2025-07-15T17:03:23.452+04:00  INFO 24504 --- [RMI TCP Connection(5)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T17:03:23.452+04:00  INFO 24504 --- [RMI TCP Connection(5)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T17:03:23.453+04:00  INFO 24504 --- [RMI TCP Connection(5)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T17:03:23.451+04:00  INFO 24504 --- [RMI TCP Connection(4)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:03:23.555+04:00  INFO 24504 --- [RMI TCP Connection(4)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@20275d95
+2025-07-15T17:03:23.557+04:00  INFO 24504 --- [RMI TCP Connection(4)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:05:09.228+04:00  INFO 24504 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T17:05:09.236+04:00  INFO 24504 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T17:05:09.241+04:00  INFO 24504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:05:09.245+04:00  INFO 24504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:05:16.129+04:00  INFO 13336 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 13336 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:05:16.131+04:00  INFO 13336 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:05:16.944+04:00  INFO 13336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:05:16.952+04:00  INFO 13336 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:05:16.952+04:00  INFO 13336 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:05:16.980+04:00  INFO 13336 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:05:16.980+04:00  INFO 13336 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 811 ms
+2025-07-15T17:05:17.181+04:00  INFO 13336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:05:17.290+04:00  INFO 13336 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bc20984
+2025-07-15T17:05:17.290+04:00  INFO 13336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:05:17.385+04:00  INFO 13336 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:05:17.480+04:00  INFO 13336 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:05:17.481+04:00  INFO 13336 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:05:17.481+04:00  INFO 13336 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:05:17.481+04:00  INFO 13336 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:05:17.481+04:00  INFO 13336 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:05:17.481+04:00  INFO 13336 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:05:18.989+04:00  WARN 13336 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:05:18.990+04:00  INFO 13336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:05:18.991+04:00  INFO 13336 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:05:18.993+04:00  INFO 13336 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:05:19.006+04:00  INFO 13336 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:05:19.018+04:00 ERROR 13336 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:/db/changelog/db.changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:08:24.891+04:00  INFO 21516 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 21516 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:08:24.893+04:00  INFO 21516 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:08:25.664+04:00  INFO 21516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:08:25.671+04:00  INFO 21516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:08:25.672+04:00  INFO 21516 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:08:25.706+04:00  INFO 21516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:08:25.706+04:00  INFO 21516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 778 ms
+2025-07-15T17:08:25.881+04:00  INFO 21516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:08:25.989+04:00  INFO 21516 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bc20984
+2025-07-15T17:08:25.990+04:00  INFO 21516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:08:26.075+04:00  INFO 21516 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:08:26.147+04:00  INFO 21516 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:08:26.147+04:00  INFO 21516 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:08:26.147+04:00  INFO 21516 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:08:26.147+04:00  INFO 21516 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:08:26.147+04:00  INFO 21516 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:08:26.147+04:00  INFO 21516 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:08:27.656+04:00  WARN 21516 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:08:27.657+04:00  INFO 21516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:08:27.660+04:00  INFO 21516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:08:27.665+04:00  INFO 21516 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:08:27.680+04:00  INFO 21516 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:08:27.691+04:00 ERROR 21516 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:/db/changelog/db.changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:16:44.536+04:00  INFO 27056 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 27056 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:16:44.538+04:00  INFO 27056 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:16:45.352+04:00  INFO 27056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:16:45.360+04:00  INFO 27056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:16:45.360+04:00  INFO 27056 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:16:45.390+04:00  INFO 27056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:16:45.390+04:00  INFO 27056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 815 ms
+2025-07-15T17:16:45.577+04:00  INFO 27056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:16:45.693+04:00  INFO 27056 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5323999f
+2025-07-15T17:16:45.694+04:00  INFO 27056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:16:45.776+04:00  INFO 27056 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:16:45.869+04:00  INFO 27056 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:16:45.870+04:00  INFO 27056 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:16:45.870+04:00  INFO 27056 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:16:45.870+04:00  INFO 27056 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:16:45.870+04:00  INFO 27056 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:16:45.871+04:00  INFO 27056 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:16:47.406+04:00  WARN 27056 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:16:47.407+04:00  INFO 27056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:16:47.411+04:00  INFO 27056 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:16:47.417+04:00  INFO 27056 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:16:47.428+04:00  INFO 27056 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:16:47.438+04:00 ERROR 27056 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:/db/changelog/db.changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:17:22.019+04:00  INFO 26820 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 26820 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:17:22.020+04:00  INFO 26820 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:17:22.824+04:00  INFO 26820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:17:22.832+04:00  INFO 26820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:17:22.833+04:00  INFO 26820 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:17:22.864+04:00  INFO 26820 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:17:22.865+04:00  INFO 26820 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 807 ms
+2025-07-15T17:17:23.038+04:00  INFO 26820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:17:23.149+04:00  INFO 26820 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bc20984
+2025-07-15T17:17:23.150+04:00  INFO 26820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:17:23.229+04:00  INFO 26820 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:17:23.300+04:00  INFO 26820 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:17:23.300+04:00  INFO 26820 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:17:23.300+04:00  INFO 26820 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:17:23.300+04:00  INFO 26820 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:17:23.300+04:00  INFO 26820 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:17:23.301+04:00  INFO 26820 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:17:24.811+04:00  WARN 26820 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:17:24.811+04:00  INFO 26820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:17:24.816+04:00  INFO 26820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:17:24.822+04:00  INFO 26820 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:17:24.833+04:00  INFO 26820 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:17:24.842+04:00 ERROR 26820 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:/db/changelog/db.changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:17:45.840+04:00  INFO 9676 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 9676 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:17:45.841+04:00  INFO 9676 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:17:46.622+04:00  INFO 9676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:17:46.629+04:00  INFO 9676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:17:46.629+04:00  INFO 9676 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:17:46.660+04:00  INFO 9676 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:17:46.660+04:00  INFO 9676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 779 ms
+2025-07-15T17:17:46.829+04:00  INFO 9676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:17:46.935+04:00  INFO 9676 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@f017dd0
+2025-07-15T17:17:46.936+04:00  INFO 9676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:17:47.014+04:00  INFO 9676 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:17:47.089+04:00  INFO 9676 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:17:47.089+04:00  INFO 9676 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:17:47.089+04:00  INFO 9676 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:17:47.089+04:00  INFO 9676 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:17:47.089+04:00  INFO 9676 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:17:47.090+04:00  INFO 9676 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:17:48.599+04:00  WARN 9676 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:17:48.599+04:00  INFO 9676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:17:48.603+04:00  INFO 9676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:17:48.607+04:00  INFO 9676 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:17:48.619+04:00  INFO 9676 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:17:48.628+04:00 ERROR 9676 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:/db/changelog/db.changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:18:36.128+04:00  INFO 18216 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 18216 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:18:36.130+04:00  INFO 18216 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:18:36.939+04:00  INFO 18216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:18:36.947+04:00  INFO 18216 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:18:36.948+04:00  INFO 18216 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:18:36.978+04:00  INFO 18216 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:18:36.979+04:00  INFO 18216 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 809 ms
+2025-07-15T17:18:37.153+04:00  INFO 18216 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:18:37.262+04:00  INFO 18216 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@69a373fd
+2025-07-15T17:18:37.264+04:00  INFO 18216 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:18:37.344+04:00  INFO 18216 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:18:37.426+04:00  INFO 18216 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:18:37.426+04:00  INFO 18216 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:18:37.426+04:00  INFO 18216 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:18:37.426+04:00  INFO 18216 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:18:37.426+04:00  INFO 18216 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:18:37.427+04:00  INFO 18216 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:18:38.900+04:00  WARN 18216 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:18:38.900+04:00  INFO 18216 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:18:38.902+04:00  INFO 18216 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:18:38.904+04:00  INFO 18216 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:18:38.916+04:00  INFO 18216 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:18:38.926+04:00 ERROR 18216 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:19:09.659+04:00  INFO 26712 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 26712 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:19:09.660+04:00  INFO 26712 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:19:10.503+04:00  INFO 26712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:19:10.512+04:00  INFO 26712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:19:10.512+04:00  INFO 26712 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:19:10.545+04:00  INFO 26712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:19:10.545+04:00  INFO 26712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+2025-07-15T17:19:10.738+04:00  INFO 26712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:19:10.839+04:00  INFO 26712 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6735f210
+2025-07-15T17:19:10.840+04:00  INFO 26712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:19:10.922+04:00  INFO 26712 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:19:11.002+04:00  INFO 26712 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:19:11.002+04:00  INFO 26712 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:19:11.002+04:00  INFO 26712 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:19:11.002+04:00  INFO 26712 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:19:11.002+04:00  INFO 26712 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:19:11.003+04:00  INFO 26712 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:19:12.513+04:00  WARN 26712 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:19:12.514+04:00  INFO 26712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:19:12.522+04:00  INFO 26712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:19:12.527+04:00  INFO 26712 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:19:12.539+04:00  INFO 26712 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:19:12.548+04:00 ERROR 26712 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:19:34.001+04:00  INFO 11824 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 11824 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:19:34.003+04:00  INFO 11824 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:19:34.836+04:00  INFO 11824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:19:34.844+04:00  INFO 11824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:19:34.845+04:00  INFO 11824 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:19:34.876+04:00  INFO 11824 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:19:34.876+04:00  INFO 11824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 836 ms
+2025-07-15T17:19:35.060+04:00  INFO 11824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:19:35.164+04:00  INFO 11824 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@19ae36f4
+2025-07-15T17:19:35.165+04:00  INFO 11824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:19:35.243+04:00  INFO 11824 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:19:35.299+04:00  INFO 11824 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:19:35.349+04:00  INFO 11824 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:19:35.428+04:00  INFO 11824 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:19:35.436+04:00  INFO 11824 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:19:35.442+04:00  INFO 11824 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:19:35.595+04:00  WARN 11824 --- [main] liquibase.executor                       : drop cascades to constraint booking_passengers_booking_id_fkey on table booking_passengers
+2025-07-15T17:19:35.597+04:00  WARN 11824 --- [main] liquibase.executor                       : drop cascades to constraint booking_passengers_passengers_id_fkey on table booking_passengers
+2025-07-15T17:19:35.604+04:00  INFO 11824 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:19:35.684+04:00  INFO 11824 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:19:35.686+04:00  INFO 11824 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:19:35.688+04:00  WARN 11824 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:19:35.690+04:00  INFO 11824 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:19:35.692+04:00  INFO 11824 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:19:35.693+04:00  INFO 11824 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:19:37.090+04:00  INFO 11824 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:19:37.090+04:00  INFO 11824 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:19:37.090+04:00  INFO 11824 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:19:37.090+04:00  INFO 11824 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:19:37.090+04:00  INFO 11824 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:19:37.091+04:00  INFO 11824 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:19:37.092+04:00  WARN 11824 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:19:37.092+04:00  INFO 11824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:19:37.094+04:00  INFO 11824 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:19:37.096+04:00  INFO 11824 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:19:37.114+04:00  INFO 11824 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:19:37.123+04:00 ERROR 11824 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:20:44.443+04:00  INFO 12472 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 12472 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:20:44.444+04:00  INFO 12472 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:20:45.205+04:00  INFO 12472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:20:45.212+04:00  INFO 12472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:20:45.213+04:00  INFO 12472 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:20:45.243+04:00  INFO 12472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:20:45.243+04:00  INFO 12472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 763 ms
+2025-07-15T17:20:45.414+04:00  INFO 12472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:20:45.527+04:00  INFO 12472 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3bc20984
+2025-07-15T17:20:45.527+04:00  INFO 12472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:20:45.604+04:00  INFO 12472 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:20:45.677+04:00  INFO 12472 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:20:45.678+04:00  INFO 12472 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:20:45.678+04:00  INFO 12472 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:20:45.678+04:00  INFO 12472 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:20:45.678+04:00  INFO 12472 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:20:45.678+04:00  INFO 12472 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:20:47.187+04:00  WARN 12472 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:20:47.187+04:00  INFO 12472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:20:47.190+04:00  INFO 12472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:20:47.196+04:00  INFO 12472 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:20:47.209+04:00  INFO 12472 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:20:47.219+04:00 ERROR 12472 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:22:32.988+04:00  INFO 17476 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 17476 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:22:32.990+04:00  INFO 17476 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:22:33.822+04:00  INFO 17476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:22:33.830+04:00  INFO 17476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:22:33.830+04:00  INFO 17476 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:22:33.861+04:00  INFO 17476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:22:33.861+04:00  INFO 17476 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 832 ms
+2025-07-15T17:22:34.053+04:00  INFO 17476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:22:34.155+04:00  INFO 17476 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@f017dd0
+2025-07-15T17:22:34.156+04:00  INFO 17476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:22:34.234+04:00  INFO 17476 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:22:34.292+04:00  INFO 17476 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:22:34.324+04:00  INFO 17476 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:22:34.363+04:00  INFO 17476 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:22:34.366+04:00  INFO 17476 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:22:34.370+04:00  INFO 17476 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:22:34.431+04:00  INFO 17476 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:22:34.517+04:00  INFO 17476 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:22:34.521+04:00  INFO 17476 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:22:34.527+04:00  WARN 17476 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:22:34.530+04:00  INFO 17476 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:22:34.534+04:00  INFO 17476 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:22:34.534+04:00  INFO 17476 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:22:36.079+04:00  INFO 17476 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:22:36.079+04:00  INFO 17476 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:22:36.079+04:00  INFO 17476 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:22:36.079+04:00  INFO 17476 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:22:36.079+04:00  INFO 17476 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:22:36.079+04:00  INFO 17476 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:22:36.081+04:00  WARN 17476 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryService' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:22:36.081+04:00  INFO 17476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:22:36.082+04:00  INFO 17476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:22:36.084+04:00  INFO 17476 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:22:36.098+04:00  INFO 17476 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:22:36.112+04:00 ERROR 17476 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:28:32.842+04:00  INFO 19660 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 19660 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:28:32.844+04:00  INFO 19660 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:28:34.080+04:00  INFO 19660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:28:34.091+04:00  INFO 19660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:28:34.092+04:00  INFO 19660 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:28:34.137+04:00  INFO 19660 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:28:34.138+04:00  INFO 19660 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1229 ms
+2025-07-15T17:28:34.407+04:00  INFO 19660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:28:34.669+04:00  INFO 19660 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6735f210
+2025-07-15T17:28:34.670+04:00  INFO 19660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:28:34.796+04:00  INFO 19660 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:28:34.874+04:00  INFO 19660 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:28:34.929+04:00  INFO 19660 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:28:34.986+04:00  INFO 19660 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:28:34.991+04:00  INFO 19660 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:28:34.995+04:00  INFO 19660 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:28:35.078+04:00  INFO 19660 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:28:35.226+04:00  INFO 19660 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:28:35.230+04:00  INFO 19660 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:28:35.234+04:00  WARN 19660 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:28:35.237+04:00  INFO 19660 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:28:35.241+04:00  INFO 19660 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:28:35.242+04:00  INFO 19660 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:28:36.804+04:00  INFO 19660 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:28:36.805+04:00  INFO 19660 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:28:36.805+04:00  INFO 19660 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:28:36.805+04:00  INFO 19660 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:28:36.805+04:00  INFO 19660 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:28:36.805+04:00  INFO 19660 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:28:36.807+04:00  WARN 19660 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:28:36.808+04:00  INFO 19660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:28:36.810+04:00  INFO 19660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:28:36.814+04:00  INFO 19660 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:28:36.834+04:00  INFO 19660 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:28:36.848+04:00 ERROR 19660 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:31:02.921+04:00  INFO 20072 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 20072 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:31:02.922+04:00  INFO 20072 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:31:04.131+04:00  INFO 20072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:31:04.142+04:00  INFO 20072 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:31:04.143+04:00  INFO 20072 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:31:04.185+04:00  INFO 20072 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:31:04.186+04:00  INFO 20072 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1211 ms
+2025-07-15T17:31:04.455+04:00  INFO 20072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:31:04.599+04:00  INFO 20072 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6735f210
+2025-07-15T17:31:04.600+04:00  INFO 20072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:31:04.727+04:00  INFO 20072 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:31:04.806+04:00  INFO 20072 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:31:04.853+04:00  INFO 20072 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:31:04.927+04:00  INFO 20072 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:31:04.933+04:00  INFO 20072 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:31:04.938+04:00  INFO 20072 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:31:05.050+04:00  INFO 20072 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:31:05.209+04:00  INFO 20072 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:31:05.212+04:00  INFO 20072 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:31:05.216+04:00  WARN 20072 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:31:05.219+04:00  INFO 20072 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:31:05.222+04:00  INFO 20072 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:31:05.223+04:00  INFO 20072 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:31:06.764+04:00  INFO 20072 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:31:06.764+04:00  INFO 20072 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:31:06.764+04:00  INFO 20072 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:31:06.765+04:00  INFO 20072 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:31:06.765+04:00  INFO 20072 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:31:06.765+04:00  INFO 20072 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:31:06.767+04:00  WARN 20072 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:31:06.767+04:00  INFO 20072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:31:06.775+04:00  INFO 20072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:31:06.779+04:00  INFO 20072 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:31:06.791+04:00  INFO 20072 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:31:06.808+04:00 ERROR 20072 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:33:11.723+04:00  INFO 25316 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 25316 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:33:11.725+04:00  INFO 25316 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:33:12.901+04:00  INFO 25316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:33:12.911+04:00  INFO 25316 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:33:12.911+04:00  INFO 25316 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:33:12.955+04:00  INFO 25316 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:33:12.956+04:00  INFO 25316 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1167 ms
+2025-07-15T17:33:13.222+04:00  INFO 25316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:33:13.370+04:00  INFO 25316 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6735f210
+2025-07-15T17:33:13.372+04:00  INFO 25316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:33:13.503+04:00  INFO 25316 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:33:13.580+04:00  INFO 25316 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:33:13.629+04:00  INFO 25316 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:33:13.693+04:00  INFO 25316 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:33:13.700+04:00  INFO 25316 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:33:13.705+04:00  INFO 25316 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:33:13.801+04:00  INFO 25316 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:33:13.935+04:00  INFO 25316 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:33:13.939+04:00  INFO 25316 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:33:13.944+04:00  WARN 25316 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:33:13.948+04:00  INFO 25316 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:33:13.952+04:00  INFO 25316 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:33:13.953+04:00  INFO 25316 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:33:15.502+04:00  INFO 25316 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:33:15.502+04:00  INFO 25316 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:33:15.503+04:00  INFO 25316 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:33:15.503+04:00  INFO 25316 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:33:15.503+04:00  INFO 25316 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:33:15.503+04:00  INFO 25316 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:33:15.506+04:00  WARN 25316 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:33:15.506+04:00  INFO 25316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:33:15.509+04:00  INFO 25316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:33:15.513+04:00  INFO 25316 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:33:15.531+04:00  INFO 25316 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:33:15.551+04:00 ERROR 25316 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:34:22.366+04:00  INFO 27108 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 27108 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:34:22.368+04:00  INFO 27108 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:34:23.639+04:00  INFO 27108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:34:23.652+04:00  INFO 27108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:34:23.653+04:00  INFO 27108 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:34:23.698+04:00  INFO 27108 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:34:23.699+04:00  INFO 27108 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1269 ms
+2025-07-15T17:34:23.993+04:00  INFO 27108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:34:24.145+04:00  INFO 27108 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6df11e91
+2025-07-15T17:34:24.147+04:00  INFO 27108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:34:24.292+04:00  INFO 27108 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:34:24.374+04:00  INFO 27108 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:34:24.421+04:00  INFO 27108 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:34:24.482+04:00  INFO 27108 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:34:24.488+04:00  INFO 27108 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:34:24.493+04:00  INFO 27108 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:34:24.599+04:00  INFO 27108 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:34:24.740+04:00  INFO 27108 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:34:24.745+04:00  INFO 27108 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:34:24.751+04:00  WARN 27108 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:34:24.754+04:00  INFO 27108 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:34:24.758+04:00  INFO 27108 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:34:24.759+04:00  INFO 27108 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:34:26.320+04:00  INFO 27108 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:34:26.320+04:00  INFO 27108 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:34:26.320+04:00  INFO 27108 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:34:26.320+04:00  INFO 27108 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:34:26.320+04:00  INFO 27108 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:34:26.320+04:00  INFO 27108 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:34:26.322+04:00  WARN 27108 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:34:26.323+04:00  INFO 27108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:34:26.327+04:00  INFO 27108 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:34:26.331+04:00  INFO 27108 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:34:26.345+04:00  INFO 27108 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:34:26.361+04:00 ERROR 27108 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:36:50.628+04:00  INFO 27548 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 27548 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:36:50.632+04:00  INFO 27548 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:36:51.897+04:00  INFO 27548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:36:51.910+04:00  INFO 27548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:36:51.910+04:00  INFO 27548 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:36:51.957+04:00  INFO 27548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:36:51.958+04:00  INFO 27548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1275 ms
+2025-07-15T17:36:52.235+04:00  INFO 27548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:36:52.384+04:00  INFO 27548 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@372954e1
+2025-07-15T17:36:52.386+04:00  INFO 27548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:36:52.515+04:00  INFO 27548 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:36:52.598+04:00  INFO 27548 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:36:52.647+04:00  INFO 27548 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:36:52.710+04:00  INFO 27548 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:36:52.716+04:00  INFO 27548 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:36:52.720+04:00  INFO 27548 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:36:52.815+04:00  INFO 27548 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:36:52.960+04:00  INFO 27548 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:36:52.963+04:00  INFO 27548 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:36:52.967+04:00  WARN 27548 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:36:52.971+04:00  INFO 27548 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:36:52.973+04:00  INFO 27548 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:36:52.974+04:00  INFO 27548 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:36:54.515+04:00  INFO 27548 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:36:54.515+04:00  INFO 27548 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:36:54.515+04:00  INFO 27548 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:36:54.515+04:00  INFO 27548 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:36:54.515+04:00  INFO 27548 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:36:54.516+04:00  INFO 27548 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:36:54.518+04:00  WARN 27548 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:36:54.518+04:00  INFO 27548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:36:54.522+04:00  INFO 27548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:36:54.526+04:00  INFO 27548 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:36:54.541+04:00  INFO 27548 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:36:54.556+04:00 ERROR 27548 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:38:48.790+04:00  INFO 23884 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 23884 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:38:48.793+04:00  INFO 23884 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:38:49.978+04:00  INFO 23884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:38:49.989+04:00  INFO 23884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:38:49.989+04:00  INFO 23884 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:38:50.051+04:00  INFO 23884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:38:50.052+04:00  INFO 23884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1199 ms
+2025-07-15T17:38:50.313+04:00  INFO 23884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:38:50.462+04:00  INFO 23884 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6fe04f2a
+2025-07-15T17:38:50.463+04:00  INFO 23884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:38:50.598+04:00  INFO 23884 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:38:50.687+04:00  INFO 23884 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:38:50.735+04:00  INFO 23884 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:38:50.793+04:00  INFO 23884 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:38:50.798+04:00  INFO 23884 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:38:50.803+04:00  INFO 23884 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:38:50.908+04:00  INFO 23884 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:38:51.050+04:00  INFO 23884 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:38:51.053+04:00  INFO 23884 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:38:51.058+04:00  WARN 23884 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:38:51.061+04:00  INFO 23884 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:38:51.065+04:00  INFO 23884 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:38:51.066+04:00  INFO 23884 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:38:52.653+04:00  INFO 23884 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:38:52.653+04:00  INFO 23884 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:38:52.653+04:00  INFO 23884 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:38:52.653+04:00  INFO 23884 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:38:52.653+04:00  INFO 23884 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:38:52.653+04:00  INFO 23884 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:38:52.656+04:00  WARN 23884 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:38:52.668+04:00  INFO 23884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:38:52.671+04:00  INFO 23884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:38:52.675+04:00  INFO 23884 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:38:52.695+04:00  INFO 23884 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:38:52.717+04:00 ERROR 23884 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:40:19.889+04:00  INFO 948 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 948 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:40:19.892+04:00  INFO 948 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:40:21.091+04:00  INFO 948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:40:21.102+04:00  INFO 948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:40:21.102+04:00  INFO 948 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:40:21.181+04:00  INFO 948 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:40:21.182+04:00  INFO 948 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1231 ms
+2025-07-15T17:40:21.748+04:00  INFO 948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:40:21.890+04:00  INFO 948 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79308a2
+2025-07-15T17:40:21.891+04:00  INFO 948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:40:22.023+04:00  INFO 948 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:40:22.104+04:00  INFO 948 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:40:22.149+04:00  INFO 948 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:40:22.207+04:00  INFO 948 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:40:22.211+04:00  INFO 948 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:40:22.216+04:00  INFO 948 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:40:22.307+04:00  INFO 948 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:40:22.448+04:00  INFO 948 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:40:22.451+04:00  INFO 948 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:40:22.455+04:00  WARN 948 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:40:22.458+04:00  INFO 948 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:40:22.461+04:00  INFO 948 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:40:22.462+04:00  INFO 948 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:40:24.010+04:00  INFO 948 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:40:24.011+04:00  INFO 948 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:40:24.011+04:00  INFO 948 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:40:24.011+04:00  INFO 948 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:40:24.011+04:00  INFO 948 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:40:24.011+04:00  INFO 948 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:40:24.013+04:00  WARN 948 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:40:24.013+04:00  INFO 948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:40:24.016+04:00  INFO 948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:40:24.019+04:00  INFO 948 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:40:24.034+04:00  INFO 948 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:40:24.048+04:00 ERROR 948 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:42:12.533+04:00  INFO 12148 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 12148 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:42:12.535+04:00  INFO 12148 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:42:13.720+04:00  INFO 12148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:42:13.731+04:00  INFO 12148 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:42:13.732+04:00  INFO 12148 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:42:13.772+04:00  INFO 12148 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:42:13.772+04:00  INFO 12148 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1182 ms
+2025-07-15T17:42:14.288+04:00  INFO 12148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:42:14.427+04:00  INFO 12148 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27502e5c
+2025-07-15T17:42:14.428+04:00  INFO 12148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:42:14.554+04:00  INFO 12148 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:42:14.656+04:00  INFO 12148 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:42:14.657+04:00  INFO 12148 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:42:14.657+04:00  INFO 12148 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:42:14.657+04:00  INFO 12148 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:42:14.657+04:00  INFO 12148 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:42:14.657+04:00  INFO 12148 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:42:16.169+04:00  WARN 12148 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:/db/changelog/db.changelog-master.yaml does not exist
+2025-07-15T17:42:16.170+04:00  INFO 12148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:42:16.176+04:00  INFO 12148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:42:16.181+04:00  INFO 12148 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:42:16.213+04:00  INFO 12148 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:42:16.230+04:00 ERROR 12148 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:/db/changelog/db.changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:43:16.361+04:00  INFO 11552 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 11552 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:43:16.363+04:00  INFO 11552 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:43:17.539+04:00  INFO 11552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:43:17.550+04:00  INFO 11552 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:43:17.550+04:00  INFO 11552 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:43:17.626+04:00  INFO 11552 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:43:17.626+04:00  INFO 11552 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1207 ms
+2025-07-15T17:43:18.429+04:00  INFO 11552 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T17:43:18.526+04:00  INFO 11552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T17:43:18.543+04:00  INFO 11552 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 2.689 seconds (process running for 3.229)
+2025-07-15T17:43:19.054+04:00  INFO 11552 --- [RMI TCP Connection(3)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T17:43:19.055+04:00  INFO 11552 --- [RMI TCP Connection(3)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T17:43:19.056+04:00  INFO 11552 --- [RMI TCP Connection(3)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T17:43:19.062+04:00  INFO 11552 --- [RMI TCP Connection(1)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:43:19.220+04:00  INFO 11552 --- [RMI TCP Connection(1)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e82f15e
+2025-07-15T17:43:19.223+04:00  INFO 11552 --- [RMI TCP Connection(1)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:43:54.129+04:00  INFO 11552 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T17:43:54.149+04:00  INFO 11552 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T17:43:54.154+04:00  INFO 11552 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:43:54.157+04:00  INFO 11552 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:44:06.524+04:00  INFO 26668 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 26668 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:44:06.526+04:00  INFO 26668 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:44:07.746+04:00  INFO 26668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:44:07.758+04:00  INFO 26668 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:44:07.758+04:00  INFO 26668 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:44:07.802+04:00  INFO 26668 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:44:07.803+04:00  INFO 26668 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1217 ms
+2025-07-15T17:44:08.654+04:00  INFO 26668 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T17:44:08.717+04:00  INFO 26668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T17:44:08.729+04:00  INFO 26668 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 2.697 seconds (process running for 3.24)
+2025-07-15T17:44:09.214+04:00  INFO 26668 --- [RMI TCP Connection(2)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T17:44:09.214+04:00  INFO 26668 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T17:44:09.215+04:00  INFO 26668 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T17:44:09.228+04:00  INFO 26668 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:44:09.395+04:00  INFO 26668 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@49281adf
+2025-07-15T17:44:09.398+04:00  INFO 26668 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:44:22.674+04:00  INFO 26668 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T17:44:22.687+04:00  INFO 26668 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T17:44:22.691+04:00  INFO 26668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:44:22.693+04:00  INFO 26668 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:44:35.540+04:00  INFO 14104 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 14104 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:44:35.542+04:00  INFO 14104 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:44:36.741+04:00  INFO 14104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:44:36.752+04:00  INFO 14104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:44:36.752+04:00  INFO 14104 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:44:36.796+04:00  INFO 14104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:44:36.796+04:00  INFO 14104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1200 ms
+2025-07-15T17:44:37.592+04:00  INFO 14104 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T17:44:37.652+04:00  INFO 14104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T17:44:37.662+04:00  INFO 14104 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 2.597 seconds (process running for 3.138)
+2025-07-15T17:44:38.270+04:00  INFO 14104 --- [RMI TCP Connection(2)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T17:44:38.270+04:00  INFO 14104 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T17:44:38.272+04:00  INFO 14104 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T17:44:38.272+04:00  INFO 14104 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:44:38.443+04:00  INFO 14104 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@f807d80
+2025-07-15T17:44:38.447+04:00  INFO 14104 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:44:44.852+04:00  INFO 14104 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T17:44:44.867+04:00  INFO 14104 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T17:44:44.872+04:00  INFO 14104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:44:44.876+04:00  INFO 14104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:44:52.628+04:00  INFO 24604 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 24604 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:44:52.630+04:00  INFO 24604 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:44:53.829+04:00  INFO 24604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:44:53.840+04:00  INFO 24604 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:44:53.840+04:00  INFO 24604 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:44:53.915+04:00  INFO 24604 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:44:53.915+04:00  INFO 24604 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1228 ms
+2025-07-15T17:44:54.187+04:00  INFO 24604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:44:54.330+04:00  INFO 24604 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@372954e1
+2025-07-15T17:44:54.330+04:00  INFO 24604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:44:54.464+04:00  INFO 24604 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:44:54.548+04:00  INFO 24604 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:44:54.594+04:00  INFO 24604 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:44:54.649+04:00  INFO 24604 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:44:54.654+04:00  INFO 24604 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:44:54.659+04:00  INFO 24604 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:44:54.765+04:00  INFO 24604 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:44:54.894+04:00  INFO 24604 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:44:54.897+04:00  INFO 24604 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:44:54.901+04:00  WARN 24604 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:44:54.904+04:00  INFO 24604 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:44:54.907+04:00  INFO 24604 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:44:54.908+04:00  INFO 24604 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:44:56.448+04:00  INFO 24604 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:44:56.448+04:00  INFO 24604 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:44:56.448+04:00  INFO 24604 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:44:56.448+04:00  INFO 24604 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:44:56.448+04:00  INFO 24604 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:44:56.448+04:00  INFO 24604 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:44:56.450+04:00  WARN 24604 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:44:56.451+04:00  INFO 24604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:44:56.454+04:00  INFO 24604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:44:56.458+04:00  INFO 24604 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:44:56.472+04:00  INFO 24604 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:44:56.487+04:00 ERROR 24604 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:45:50.328+04:00  INFO 27440 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 27440 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:45:50.331+04:00  INFO 27440 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:45:51.539+04:00  INFO 27440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:45:51.550+04:00  INFO 27440 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:45:51.550+04:00  INFO 27440 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:45:51.593+04:00  INFO 27440 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:45:51.593+04:00  INFO 27440 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1205 ms
+2025-07-15T17:45:51.854+04:00  INFO 27440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:45:52.009+04:00  INFO 27440 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6df11e91
+2025-07-15T17:45:52.010+04:00  INFO 27440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:45:52.149+04:00  INFO 27440 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:45:52.233+04:00  INFO 27440 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:45:52.284+04:00  INFO 27440 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:45:52.342+04:00  INFO 27440 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:45:52.347+04:00  INFO 27440 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:45:52.352+04:00  INFO 27440 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:45:52.456+04:00  INFO 27440 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:45:52.603+04:00  INFO 27440 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:45:52.606+04:00  INFO 27440 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:45:52.611+04:00  WARN 27440 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:45:52.614+04:00  INFO 27440 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:45:52.617+04:00  INFO 27440 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:45:52.618+04:00  INFO 27440 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:45:54.163+04:00  INFO 27440 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:45:54.163+04:00  INFO 27440 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:45:54.165+04:00  INFO 27440 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:45:54.165+04:00  INFO 27440 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:45:54.165+04:00  INFO 27440 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:45:54.165+04:00  INFO 27440 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:45:54.167+04:00  WARN 27440 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:liquibase/changelog-master.yaml does not exist
+2025-07-15T17:45:54.167+04:00  INFO 27440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:45:54.170+04:00  INFO 27440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:45:54.172+04:00  INFO 27440 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:45:54.187+04:00  INFO 27440 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:45:54.201+04:00 ERROR 27440 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:liquibase/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:48:10.209+04:00  INFO 8812 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 8812 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:48:10.211+04:00  INFO 8812 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:48:11.421+04:00  INFO 8812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:48:11.434+04:00  INFO 8812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:48:11.434+04:00  INFO 8812 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:48:11.506+04:00  INFO 8812 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:48:11.507+04:00  INFO 8812 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1238 ms
+2025-07-15T17:48:11.778+04:00  INFO 8812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:48:11.936+04:00  INFO 8812 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@372954e1
+2025-07-15T17:48:11.938+04:00  INFO 8812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:48:12.064+04:00  INFO 8812 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:48:12.147+04:00  INFO 8812 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:48:12.194+04:00  INFO 8812 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:48:12.268+04:00  INFO 8812 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:48:12.274+04:00  INFO 8812 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:48:12.281+04:00  INFO 8812 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:48:12.378+04:00  INFO 8812 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:48:12.521+04:00  INFO 8812 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:48:12.525+04:00  INFO 8812 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:48:12.530+04:00  WARN 8812 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:48:12.533+04:00  INFO 8812 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:48:12.537+04:00  INFO 8812 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:48:12.538+04:00  INFO 8812 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:48:14.097+04:00  INFO 8812 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:48:14.097+04:00  INFO 8812 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:48:14.098+04:00  INFO 8812 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:48:14.098+04:00  INFO 8812 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  classpath:migration/changelog-master.yaml does not exist
+2025-07-15T17:48:14.099+04:00  INFO 8812 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:48:14.100+04:00  INFO 8812 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:48:14.102+04:00  WARN 8812 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: classpath:migration/changelog-master.yaml does not exist
+2025-07-15T17:48:14.102+04:00  INFO 8812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:48:14.107+04:00  INFO 8812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:48:14.111+04:00  INFO 8812 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:48:14.125+04:00  INFO 8812 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:48:14.138+04:00 ERROR 8812 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'classpath:migration/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:49:51.841+04:00  INFO 26992 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 26992 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:49:51.844+04:00  INFO 26992 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:49:53.042+04:00  INFO 26992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:49:53.053+04:00  INFO 26992 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:49:53.053+04:00  INFO 26992 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:49:53.099+04:00  INFO 26992 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:49:53.099+04:00  INFO 26992 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1196 ms
+2025-07-15T17:49:53.373+04:00  INFO 26992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:49:53.516+04:00  INFO 26992 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6df11e91
+2025-07-15T17:49:53.518+04:00  INFO 26992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:49:53.663+04:00  INFO 26992 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:49:53.753+04:00  INFO 26992 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:49:53.801+04:00  INFO 26992 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:49:53.856+04:00  INFO 26992 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:49:53.862+04:00  INFO 26992 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:49:53.869+04:00  INFO 26992 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:49:53.971+04:00  INFO 26992 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:49:54.108+04:00  INFO 26992 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:49:54.111+04:00  INFO 26992 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:49:54.119+04:00  WARN 26992 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:49:54.126+04:00  INFO 26992 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:49:54.130+04:00  INFO 26992 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:49:54.131+04:00  INFO 26992 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:49:55.689+04:00  INFO 26992 --- [main] liquibase.command                        : Logging exception.
+2025-07-15T17:49:55.690+04:00  INFO 26992 --- [main] liquibase.ui                             : ERROR: Exception Details
+2025-07-15T17:49:55.690+04:00  INFO 26992 --- [main] liquibase.ui                             : ERROR: Exception Primary Class:  ChangeLogParseException
+2025-07-15T17:49:55.690+04:00  INFO 26992 --- [main] liquibase.ui                             : ERROR: Exception Primary Reason:  migration/changelog-master.yaml does not exist
+2025-07-15T17:49:55.690+04:00  INFO 26992 --- [main] liquibase.ui                             : ERROR: Exception Primary Source:  4.31.1
+2025-07-15T17:49:55.690+04:00  INFO 26992 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:49:55.693+04:00  WARN 26992 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dictionaryController' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\controller\DictionaryController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryServiceImpl' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\service\DictionaryServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'dictionaryRepository' defined in file [C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes\az\cybernet\internship\dictionary\repository\DictionaryRepository.class]: Unsatisfied dependency expressed through bean property 'sqlSessionTemplate': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: migration/changelog-master.yaml does not exist
+2025-07-15T17:49:55.693+04:00  INFO 26992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:49:55.696+04:00  INFO 26992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T17:49:55.700+04:00  INFO 26992 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-07-15T17:49:55.717+04:00  INFO 26992 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-15T17:49:55.730+04:00 ERROR 26992 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Liquibase failed to start because no changelog could be found at 'migration/changelog-master.yaml'.
+
+Action:
+
+Make sure a Liquibase changelog is present at the configured path.
+
+2025-07-15T17:50:43.408+04:00  INFO 26756 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 26756 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T17:50:43.410+04:00  INFO 26756 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T17:50:44.710+04:00  INFO 26756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T17:50:44.722+04:00  INFO 26756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T17:50:44.723+04:00  INFO 26756 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T17:50:44.771+04:00  INFO 26756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T17:50:44.771+04:00  INFO 26756 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1300 ms
+2025-07-15T17:50:45.058+04:00  INFO 26756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T17:50:45.212+04:00  INFO 26756 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@19ae36f4
+2025-07-15T17:50:45.213+04:00  INFO 26756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T17:50:45.358+04:00  INFO 26756 --- [main] liquibase.database                       : Set default schema name to public
+2025-07-15T17:50:45.439+04:00  INFO 26756 --- [main] liquibase.ui                             : INFO: The drop-all command may result in unrecoverable destructive changes to objects at 'jdbc:postgresql://localhost:5432/postgres'.
+To protect against unwanted drops, set --requireForce=true, which will require a --force=true flag on the command.
+Learn more at https://docs.liquibase.com/dropall.
+
+2025-07-15T17:50:45.487+04:00  INFO 26756 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:50:45.545+04:00  INFO 26756 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:50:45.551+04:00  INFO 26756 --- [main] liquibase.command                        : Dropping Database Objects in schema: postgres.public
+2025-07-15T17:50:45.555+04:00  INFO 26756 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:50:45.685+04:00  INFO 26756 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:50:45.840+04:00  INFO 26756 --- [main] liquibase.database                       : Successfully deleted all supported object types in schema postgres.public.
+2025-07-15T17:50:45.844+04:00  INFO 26756 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:50:45.849+04:00  WARN 26756 --- [main] liquibase.lockservice                    : Failed to release change log lock
+2025-07-15T17:50:45.852+04:00  INFO 26756 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:50:45.857+04:00  INFO 26756 --- [main] liquibase.ui                             : All objects dropped from postgres@jdbc:postgresql://localhost:5432/postgres
+2025-07-15T17:50:45.858+04:00  INFO 26756 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:50:47.439+04:00  INFO 26756 --- [main] liquibase.changelog                      : Reading resource: migration/1.0/DictionaryLiquibase.yml
+2025-07-15T17:50:47.537+04:00  INFO 26756 --- [main] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2025-07-15T17:50:47.544+04:00  INFO 26756 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2025-07-15T17:50:47.550+04:00  INFO 26756 --- [main] liquibase.snapshot                       : Creating snapshot
+2025-07-15T17:50:47.599+04:00  INFO 26756 --- [main] liquibase.lockservice                    : Successfully acquired change log lock
+2025-07-15T17:50:47.600+04:00  INFO 26756 --- [main] liquibase.command                        : Using deploymentId: 2587445034
+2025-07-15T17:50:47.601+04:00  INFO 26756 --- [main] liquibase.changelog                      : Reading from public.databasechangelog
+2025-07-15T17:50:47.618+04:00  INFO 26756 --- [main] liquibase.ui                             : Running Changeset: migration/1.0/DictionaryLiquibase.yml::20251000::Cybernet team-5
+2025-07-15T17:50:47.632+04:00  INFO 26756 --- [main] liquibase.changelog                      : Table categories created
+2025-07-15T17:50:47.633+04:00  INFO 26756 --- [main] liquibase.changelog                      : ChangeSet migration/1.0/DictionaryLiquibase.yml::20251000::Cybernet team-5 ran successfully in 14ms
+2025-07-15T17:50:47.642+04:00  INFO 26756 --- [main] liquibase.util                           : UPDATE SUMMARY
+2025-07-15T17:50:47.642+04:00  INFO 26756 --- [main] liquibase.util                           : Run:                          1
+2025-07-15T17:50:47.642+04:00  INFO 26756 --- [main] liquibase.util                           : Previously run:               0
+2025-07-15T17:50:47.642+04:00  INFO 26756 --- [main] liquibase.util                           : Filtered out:                 0
+2025-07-15T17:50:47.642+04:00  INFO 26756 --- [main] liquibase.util                           : -------------------------------
+2025-07-15T17:50:47.642+04:00  INFO 26756 --- [main] liquibase.util                           : Total change sets:            1
+2025-07-15T17:50:47.643+04:00  INFO 26756 --- [main] liquibase.util                           : Update summary generated
+2025-07-15T17:50:47.645+04:00  INFO 26756 --- [main] liquibase.command                        : Update command completed successfully.
+2025-07-15T17:50:47.645+04:00  INFO 26756 --- [main] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 1
+2025-07-15T17:50:47.648+04:00  INFO 26756 --- [main] liquibase.lockservice                    : Successfully released change log lock
+2025-07-15T17:50:47.648+04:00  INFO 26756 --- [main] liquibase.command                        : Command execution complete
+2025-07-15T17:50:48.305+04:00  INFO 26756 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T17:50:48.400+04:00  INFO 26756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T17:50:48.413+04:00  INFO 26756 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 5.545 seconds (process running for 6.095)
+2025-07-15T17:50:48.604+04:00  INFO 26756 --- [RMI TCP Connection(2)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T17:50:48.604+04:00  INFO 26756 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T17:50:48.605+04:00  INFO 26756 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T17:54:04.763+04:00  INFO 26756 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T17:54:04.782+04:00  INFO 26756 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T17:54:04.788+04:00  INFO 26756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T17:54:04.790+04:00  INFO 26756 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
