@@ -1,6 +1,7 @@
 package az.cybernet.internship.dictionary.controller;
 
 
+import az.cybernet.internship.dictionary.DictionaryServiceApplication;
 import az.cybernet.internship.dictionary.model.request.CreateDictionaryRequest;
 import az.cybernet.internship.dictionary.model.request.UpdateDescriptionRequest;
 import az.cybernet.internship.dictionary.model.response.DictionaryResponse;
@@ -14,44 +15,31 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/dictionaries")
 @RequiredArgsConstructor
 public class DictionaryController {
-    private final DictionaryServiceHandler descriptionService;
-    private final DictionaryServiceHandler dictionaryServiceHandler;
 
-    @GetMapping("/{id}")
-    public DictionaryResponse getDictionary (@PathVariable Long id) {
-        return descriptionService.getDictionary(id);
+        private final DictionaryServiceHandler dictionaryService;
+
+        @GetMapping("/{id}")
+        public DictionaryResponse getDictionary(@PathVariable Long id) {
+            return dictionaryService.getDictionary(id);
+        }
+
+        @PostMapping
+        public void createDictionary(@RequestBody CreateDictionaryRequest request) {
+            dictionaryService.saveDictionary(request);
+        }
+
+        @PutMapping("/{id}")
+        public void updateDescription(@PathVariable Long id, @RequestBody UpdateDescriptionRequest request) {
+            dictionaryService.updateDescription(id, request);
+        }
+
+        @DeleteMapping("/{id}")
+        public void delete(@PathVariable Long id) {
+            dictionaryService.deleteDictionary(id);
+        }
+
+        @PutMapping("/{id}/restore")
+        public void restore(@PathVariable Long id) {
+            dictionaryService.restoreDictionary(id);
+        }
     }
-
-//    @PutMapping("/{id}/description")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public void updateDescription(@PathVariable Long id, @RequestBody UpdateDescriptionRequest request) {
-//        descriptionService.updateDescription(id, request );
-//    }
-
-    @PutMapping("/{id}/description")
-    public ResponseEntity<Void> updateDescription(
-            @PathVariable Long id,
-            @RequestBody UpdateDescriptionRequest request) {
-        dictionaryServiceHandler.updateDescription(id, request);
-        return ResponseEntity.ok().build();
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteDictionary(@PathVariable Long id) {
-        descriptionService.deleteDictionary(id);
-
-    }
-
-    @PostMapping("/{id}/restore")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void restoreictionary(@PathVariable Long id) {
-        descriptionService.restoreDictionary(id);
-    }
-
-    @PutMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createDictionary (@RequestBody CreateDictionaryRequest request) {
-        descriptionService.saveDictionary(request);
-    }
-
-}
