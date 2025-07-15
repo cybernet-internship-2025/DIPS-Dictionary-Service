@@ -9,6 +9,7 @@ import az.cybernet.internship.dictionary.model.response.ItemResponse;
 import az.cybernet.internship.dictionary.repository.ItemRepository;
 import az.cybernet.internship.dictionary.service.abstraction.CategoryService;
 import az.cybernet.internship.dictionary.service.abstraction.ItemService;
+import az.cybernet.internship.dictionary.util.CacheUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,7 @@ public class ItemServiceHandler implements ItemService {
     ItemRepository itemRepository;
     CategoryService categoryService;
     ItemMapper itemMapper;
+    CacheUtil cacheUtil;
 
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -42,6 +44,7 @@ public class ItemServiceHandler implements ItemService {
 
         itemMapper.updateItem(dictionaryItem, request);
         itemRepository.updateItem(id, dictionaryItem);
+        cacheUtil.deleteKeysByPattern("category:all:*");
         log.info("ActionLog.updateItem.end - id: {},  request: {}", id, request);
     }
 
@@ -59,6 +62,7 @@ public class ItemServiceHandler implements ItemService {
         log.info("ActionLog.restoreItem.start - id: {}", id);
         var dictionaryItem = fetchDictionaryIfExist(id);
         itemRepository.restore(dictionaryItem.getId());
+        cacheUtil.deleteKeysByPattern("category:all:" + dictionaryItem.getId());
         log.info("ActionLog.restoreItem.end - id: {}", id);
     }
 
@@ -79,6 +83,7 @@ public class ItemServiceHandler implements ItemService {
         log.info("ActionLog.deleteItem.start - id: {}", id);
         var dictionaryItem = fetchDictionaryIfExist(id);
         itemRepository.deleteItem(dictionaryItem.getId());
+        cacheUtil.deleteKeysByPattern("category:all:" + dictionaryItem.getId());
         log.info("ActionLog.deleteItem.end - id: {}", id);
     }
 
@@ -86,13 +91,19 @@ public class ItemServiceHandler implements ItemService {
     @Override
     public void saveItem(ItemRequest request) {
         log.info("ActionLog.saveItem.start - request: {}", request);
+
         DictionaryCategory dictionaryCategory = categoryService
                 .fetchDictionaryIfExist(request.getCategoryId());
+
         if (!dictionaryCategory.getIsActive()) {
-            throw new NotFoundException(CATEGORY_NOT_FOUND.getCode(), ITEM_NOT_FOUND.getMessage());
+            throw new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage());
         }
+
         var dictionaryItem = itemMapper.buildDictionaryItem(request, dictionaryCategory);
         itemRepository.saveItem(dictionaryItem);
+
+        cacheUtil.deleteKeysByPattern("category:all:*");
+
         log.info("ActionLog.saveItem.end - request: {}", request);
     }
 

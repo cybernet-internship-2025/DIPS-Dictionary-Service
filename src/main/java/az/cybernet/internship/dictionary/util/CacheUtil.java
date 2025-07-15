@@ -30,4 +30,11 @@ public class CacheUtil {
         bucket.set(value);
         bucket.expire(Duration.of(expireTime, temporalUnit));
     }
+
+    public void deleteKeysByPattern(String pattern) {
+        Iterable<String> keys = redissonClient.getKeys().getKeysByPattern(pattern);
+        for (String key : keys) {
+            redissonClient.getBucket(key).delete();
+        }
+    }
 }
