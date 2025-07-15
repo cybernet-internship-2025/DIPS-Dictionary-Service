@@ -35,6 +35,8 @@ public class DictionaryController {
         return ResponseEntity.ok(entries);
     }
 
+    //hello, comment test.
+
     @PutMapping
     public ResponseEntity<DictionaryResponseDto> createOrUpdateDictionary(@RequestBody @Valid DictionaryCreateUpdateDto dto) {
         DictionaryResponseDto resultDto = dictionaryService.createOrUpdateDictionary(dto);
