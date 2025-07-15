@@ -3,6 +3,7 @@ package az.cybernet.internship.dictionary.controller;
 import az.cybernet.internship.dictionary.dto.request.DictionaryCategoryRequestDTO;
 import az.cybernet.internship.dictionary.dto.response.DictionaryCategoryResponseDTO;
 import az.cybernet.internship.dictionary.service.DictionaryCategoryService;
+import az.cybernet.internship.dictionary.service.DictionaryEntryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DictionaryCategoryController {
     private final DictionaryCategoryService dictionaryCategoryService;
+    private final DictionaryEntryService dictionaryEntryService;
 
     @GetMapping
     public ResponseEntity<List<DictionaryCategoryResponseDTO>> selectAll() {
@@ -39,6 +41,7 @@ public class DictionaryCategoryController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id) {
+        dictionaryEntryService.deleteAllByName(id);
         dictionaryCategoryService.delete(id);
     }
 }

@@ -15,6 +15,9 @@ public interface DictionaryEntryMapper {
     @Select("SELECT * FROM dictionary_entry WHERE id=#{id, jdbcType=VARCHAR}")
     DictionaryEntry selectById(String id);
 
+    @Select("SELECT * FROM dictionary_entry WHERE value=#{value}")
+    DictionaryEntry selectByValue(String value);
+
     @Insert("""
             INSERT INTO dictionary_entry(id, value, description, is_active, deleted_at, category_id)
             VALUES(#{id, jdbcType=VARCHAR}, #{value}, #{description}, #{isActive}, #{deletedAt}, #{categoryID, jdbcType=VARCHAR})
@@ -28,4 +31,7 @@ public interface DictionaryEntryMapper {
             WHERE id=#{id, jdbcType=VARCHAR}
             """)
     void update(DictionaryEntry entry);
+
+    @Delete("DELETE FROM dictionary_entry WHERE category_id=#{categoryID, jdbcType=VARCHAR}")
+    void deleteAllById(String categoryID);
 }

@@ -3,6 +3,7 @@ package az.cybernet.internship.dictionary.service.impl;
 import az.cybernet.internship.dictionary.converter.DictionaryCategoryConverter;
 import az.cybernet.internship.dictionary.dto.request.DictionaryCategoryRequestDTO;
 import az.cybernet.internship.dictionary.dto.response.DictionaryCategoryResponseDTO;
+import az.cybernet.internship.dictionary.exception.model.AlreadyExistsException;
 import az.cybernet.internship.dictionary.exception.model.NotFoundException;
 import az.cybernet.internship.dictionary.exception.type.ExceptionType;
 import az.cybernet.internship.dictionary.mapper.DictionaryCategoryMapper;
@@ -28,6 +29,10 @@ public class DictionaryCategoryServiceImpl implements DictionaryCategoryService 
     }
 
     public DictionaryCategoryResponseDTO insert(DictionaryCategoryRequestDTO categoryRequestDTO) {
+        if (selectByName(categoryRequestDTO.getName()) != null) {
+            throw new AlreadyExistsException(ExceptionType.CATEGORY_ALREADY_EXISTS);
+        }
+
         DictionaryCategory category = dictionaryCategoryConverter.convert(categoryRequestDTO);
 
         category.setId(UUID.randomUUID().toString());

@@ -15,4 +15,6 @@ public interface DictionaryEntryService {
     void delete(String id);
 
     DictionaryEntryResponseDTO restore(String id);
+
+    void deleteAllByName(String categoryID);
 }

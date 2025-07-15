@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 public enum ExceptionType {
     ENTRY_NOT_FOUND("Entry not found", HttpStatus.NOT_FOUND),
     CATEGORY_NOT_FOUND("Category not found", HttpStatus.NOT_FOUND),
+    ENTRY_ALREADY_EXISTS("Entry already exists", HttpStatus.CONFLICT),
+    CATEGORY_ALREADY_EXISTS("Category already exists", HttpStatus.CONFLICT),
     ENTRY_ALREADY_ACTIVE("Entry already active", HttpStatus.CONFLICT),
     BAD_REQUEST("Bad request", HttpStatus.BAD_REQUEST),
     INTERNAL_SERVER_ERROR("Internal server error", HttpStatus.INTERNAL_SERVER_ERROR),

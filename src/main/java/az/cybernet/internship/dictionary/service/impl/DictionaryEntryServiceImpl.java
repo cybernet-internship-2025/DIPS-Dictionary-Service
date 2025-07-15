@@ -3,6 +3,7 @@ package az.cybernet.internship.dictionary.service.impl;
 import az.cybernet.internship.dictionary.converter.DictionaryEntryConverter;
 import az.cybernet.internship.dictionary.dto.request.DictionaryEntryRequestDTO;
 import az.cybernet.internship.dictionary.dto.response.DictionaryEntryResponseDTO;
+import az.cybernet.internship.dictionary.exception.model.AlreadyExistsException;
 import az.cybernet.internship.dictionary.exception.model.ConflictException;
 import az.cybernet.internship.dictionary.exception.type.ExceptionType;
 import az.cybernet.internship.dictionary.exception.model.NotFoundException;
@@ -42,6 +43,10 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
 
     @Override
     public DictionaryEntryResponseDTO insert(DictionaryEntryRequestDTO entryRequestDTO) {
+        if (selectByValue(entryRequestDTO.getValue()) != null) {
+            throw new AlreadyExistsException(ExceptionType.ENTRY_ALREADY_EXISTS);
+        }
+
         DictionaryEntry entry = dictionaryEntryConverter.convert(entryRequestDTO);
         String categoryID = dictionaryCategoryService.selectByName(entryRequestDTO.getCategoryName()).getId();
 
@@ -83,6 +88,10 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
         dictionaryEntryMapper.update(entry);
     }
 
+    public void deleteAllByName(String categoryID) {
+        dictionaryEntryMapper.deleteAllById(categoryID);
+    }
+
     public DictionaryEntryResponseDTO restore(String id) {
         DictionaryEntry entry = selectByID(id);
 
@@ -99,6 +108,10 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
         dictionaryEntryResponseDTO.setCategoryName(categoryName);
 
         return dictionaryEntryResponseDTO;
+    }
+
+    public DictionaryEntry selectByValue(String value) {
+        return dictionaryEntryMapper.selectByValue(value);
     }
 
     private DictionaryEntry selectByID(String id) {

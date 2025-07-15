@@ -1,6 +1,7 @@
 package az.cybernet.internship.dictionary.exception.handler;
 
 import az.cybernet.internship.dictionary.dto.response.ExceptionResponseDTO;
+import az.cybernet.internship.dictionary.exception.model.AlreadyExistsException;
 import az.cybernet.internship.dictionary.exception.model.ConflictException;
 import az.cybernet.internship.dictionary.exception.type.ExceptionType;
 import az.cybernet.internship.dictionary.exception.model.NotFoundException;
@@ -16,6 +17,11 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ExceptionResponseDTO> handleNotFound(NotFoundException exception) {
+        return buildResponse(exception.getExceptionType().getStatus(), exception.getMessage());
+    }
+
+    @ExceptionHandler(AlreadyExistsException.class)
+    public ResponseEntity<ExceptionResponseDTO> handleAlreadyExists(AlreadyExistsException exception) {
         return buildResponse(exception.getExceptionType().getStatus(), exception.getMessage());
     }
 
