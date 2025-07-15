@@ -1,13 +1,20 @@
 package az.cybernet.internship.dictionary.service.impl;
 
+import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.exception.AlreadyInactiveException;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
+import az.cybernet.internship.dictionary.mapstruct.DictionaryEntryMapper;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import az.cybernet.internship.dictionary.service.DictionaryService;
+
 import jakarta.persistence.EntityNotFoundException;
+
+import org.springframework.http.HttpStatus;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,42 +24,23 @@ import java.util.stream.Collectors;
 @Service
 public class DictionaryServiceImpl implements DictionaryService {
 
-    private final DictionaryMapper mapper;
+    private final DictionaryMapper mapper; // MyBatis
+    private final DictionaryEntryMapper dtoMapper; // MapStruct
 
-    public DictionaryServiceImpl(DictionaryMapper mapper) {
+    public DictionaryServiceImpl(DictionaryMapper mapper, DictionaryEntryMapper dtoMapper) {
         this.mapper = mapper;
+        this.dtoMapper = dtoMapper;
     }
 
     // Balash's commit
+
     @Override
     public List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive, int limit) {
         List<Dictionary> items = mapper.findAllActiveDictionaryWithLimit(value, isActive, limit);
 
-        if (items.isEmpty()) throw new DictionaryNotFoundException("Dictionay not found");
+        if (items.isEmpty()) throw new DictionaryNotFoundException("Dictionary not found");
 
-        return items.stream()
-                .map(item -> new DictionaryResponse(
-                        item.getId(),
-                        item.getCategory(),
-                        item.getValue(),
-                        item.getDescription()
-                ))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public DictionaryResponse restoreDictionary(UUID uuid) {
-        mapper.restore(uuid);
-
-        Dictionary dictionary = mapper.findById(uuid);
-
-        DictionaryResponse response = new DictionaryResponse();
-        response.setId(dictionary.getId());
-        response.setCategory(dictionary.getCategory());
-        response.setValue(dictionary.getValue());
-        response.setDescription(dictionary.getDescription());
-
-        return response;
+        return items.stream().map(dtoMapper::toDto).collect(Collectors.toList());
     }
 
     // Goychek's commit
@@ -65,6 +53,26 @@ public class DictionaryServiceImpl implements DictionaryService {
             throw new AlreadyInactiveException("Entity is already inactive with id: " + uuid);
         }
         mapper.softDelete(uuid, LocalDateTime.now());
+      }
+
+   
+
+    @Override
+    public void restoreDictionary(UUID id) {
+
+    }
+
+    // Как-то здесь меня забыли (┬┬﹏┬┬)
+    public void saveOrUpdate(DictionaryRequest body) {
+        if (body.getValue() == null || body.getValue().trim().isEmpty())
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Field 'value' cannot be empty");
+
+        Dictionary entry = dtoMapper.toEntity(body);
+
+        if (body.getId() == null) mapper.insert(entry);
+        else if (mapper.update(entry) == 0)
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry with id " + body.getId() + " not found");
+
     }
 }
 
