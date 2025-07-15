@@ -5,7 +5,6 @@ import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.http.HttpStatus;
 
-import az.cybernet.internship.dictionary.service.impl.DictionaryServiceImpl;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +17,9 @@ import java.util.UUID;
 @RequestMapping("/v1/dictionaries")
 public class DictionaryController {
 
-    private final DictionaryServiceImpl service;
+    private final DictionaryService service;
 
-    public DictionaryController(DictionaryServiceImpl service) {
+    public DictionaryController(DictionaryService service) {
         this.service = service;
     }
 
