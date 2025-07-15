@@ -40,27 +40,17 @@ public class DictionaryService {
         throw  new DictionaryEntryNotFound("Dictionary entry not found");
     }
     public DictionaryResponse saveOrUpdate(DictionaryRequest dictionaryRequest) {
-        Optional<DictionaryEntry> optional = dictionaryRepository.findById(dictionaryRequest.getId());
-        if (optional.isPresent()) {
-            DictionaryEntry dictionaryEntry = optional.get();
-            dictionaryEntry.setCategory(dictionaryRequest.getCategory());
-            dictionaryEntry.setDescription(dictionaryRequest.getDescription());
-            dictionaryEntry.setValue(dictionaryRequest.getValue());
-            dictionaryEntry.setCreatedAt(LocalDateTime.now());
-            dictionaryEntry.setUpdatedAt(LocalDateTime.now());
-            dictionaryEntry.setIsActive(true);
+        if (dictionaryRequest.getId() != null) {
+            DictionaryEntry dictionaryEntry = dictionaryRepository.findById(dictionaryRequest.getId()).orElseThrow(() -> new DictionaryEntryNotFound(""));
+            DICTIONARY_MAPPER.updateResponse(dictionaryEntry, dictionaryRequest);
             dictionaryRepository.update(dictionaryEntry);
             return DICTIONARY_MAPPER.mapToResponse(dictionaryEntry);
         }
-        DictionaryEntry dictionaryEntry= new DictionaryEntry();
-        dictionaryEntry.setCategory(dictionaryRequest.getCategory());
-        dictionaryEntry.setDescription(dictionaryRequest.getDescription());
-        dictionaryEntry.setValue(dictionaryRequest.getValue());
-        dictionaryEntry.setCreatedAt(LocalDateTime.now());
-        dictionaryEntry.setUpdatedAt(LocalDateTime.now());
-        dictionaryEntry.setIsActive(true);
-        dictionaryRepository.insert(dictionaryEntry);
-        return DICTIONARY_MAPPER.mapToResponse(dictionaryEntry);
+        else {
+            DictionaryEntry dictionaryEntry = DICTIONARY_MAPPER.buildEntry(dictionaryRequest);
+            dictionaryRepository.insert(dictionaryEntry);
+            return DICTIONARY_MAPPER.mapToResponse(dictionaryEntry);
+        }
 
 
     }

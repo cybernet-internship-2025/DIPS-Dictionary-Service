@@ -1,0 +1,56 @@
+2025-07-15T15:01:23.125+04:00  INFO 16000 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 16000 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T15:01:23.127+04:00  INFO 16000 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T15:01:24.334+04:00  INFO 16000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T15:01:24.375+04:00  INFO 16000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T15:01:24.376+04:00  INFO 16000 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T15:01:24.423+04:00  INFO 16000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T15:01:24.423+04:00  INFO 16000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1240 ms
+2025-07-15T15:01:25.271+04:00  INFO 16000 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T15:01:25.338+04:00  INFO 16000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T15:01:25.349+04:00  INFO 16000 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 2.749 seconds (process running for 3.307)
+2025-07-15T15:01:25.798+04:00  INFO 16000 --- [RMI TCP Connection(1)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T15:01:25.799+04:00  INFO 16000 --- [RMI TCP Connection(1)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T15:01:25.800+04:00  INFO 16000 --- [RMI TCP Connection(1)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T15:01:25.799+04:00  INFO 16000 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T15:01:25.974+04:00  INFO 16000 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e6711c4
+2025-07-15T15:01:25.977+04:00  INFO 16000 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T15:09:27.538+04:00  INFO 16000 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T15:09:27.560+04:00  INFO 16000 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T15:09:27.565+04:00  INFO 16000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T15:09:27.569+04:00  INFO 16000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T15:28:53.115+04:00  INFO 16536 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 16536 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T15:28:53.118+04:00  INFO 16536 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T15:28:54.652+04:00  INFO 16536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T15:28:54.669+04:00  INFO 16536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T15:28:54.670+04:00  INFO 16536 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T15:28:54.733+04:00  INFO 16536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T15:28:54.734+04:00  INFO 16536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1553 ms
+2025-07-15T15:28:55.872+04:00  INFO 16536 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T15:28:55.949+04:00  INFO 16536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T15:28:55.966+04:00  INFO 16536 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 3.446 seconds (process running for 4.146)
+2025-07-15T15:28:56.642+04:00  INFO 16536 --- [RMI TCP Connection(2)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T15:28:56.643+04:00  INFO 16536 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T15:28:56.646+04:00  INFO 16536 --- [RMI TCP Connection(2)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-07-15T15:28:56.652+04:00  INFO 16536 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T15:28:56.960+04:00  INFO 16536 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@755e7ea2
+2025-07-15T15:28:56.964+04:00  INFO 16536 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-15T16:01:17.000+04:00  INFO 16536 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-15T16:01:17.024+04:00  INFO 16536 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-15T16:01:17.033+04:00  INFO 16536 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-15T16:01:17.037+04:00  INFO 16536 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-07-15T16:01:24.939+04:00  INFO 26440 --- [main] a.c.i.d.DictionaryServiceApplication     : Starting DictionaryServiceApplication using Java 24.0.1 with PID 26440 (C:\Users\user\IdeaProjects\DIPS-Dictionary-Service\target\classes started by user in C:\Users\user\IdeaProjects\DIPS-Dictionary-Service)
+2025-07-15T16:01:24.942+04:00  INFO 26440 --- [main] a.c.i.d.DictionaryServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-07-15T16:01:26.504+04:00  INFO 26440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-15T16:01:26.520+04:00  INFO 26440 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-15T16:01:26.520+04:00  INFO 26440 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-15T16:01:26.579+04:00  INFO 26440 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-15T16:01:26.580+04:00  INFO 26440 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1553 ms
+2025-07-15T16:01:27.608+04:00  INFO 26440 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-07-15T16:01:27.690+04:00  INFO 26440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-15T16:01:27.706+04:00  INFO 26440 --- [main] a.c.i.d.DictionaryServiceApplication     : Started DictionaryServiceApplication in 3.476 seconds (process running for 4.247)
+2025-07-15T16:01:28.435+04:00  INFO 26440 --- [RMI TCP Connection(4)-10.153.185.188] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-15T16:01:28.392+04:00  INFO 26440 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-15T16:01:28.435+04:00  INFO 26440 --- [RMI TCP Connection(4)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-15T16:01:28.437+04:00  INFO 26440 --- [RMI TCP Connection(4)-10.153.185.188] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-07-15T16:01:28.672+04:00  INFO 26440 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@419318ab
+2025-07-15T16:01:28.677+04:00  INFO 26440 --- [RMI TCP Connection(3)-10.153.185.188] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
