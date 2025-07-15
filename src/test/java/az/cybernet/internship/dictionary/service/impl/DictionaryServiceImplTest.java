@@ -69,7 +69,7 @@ public class DictionaryServiceImplTest {
         dictionary.setId(UUID.randomUUID().toString());
         dictionary.setValue("test");
 
-        when(dictionaryMapper.updateDictionary(dictionary)).thenReturn(1);
+        when(dictionaryMapper.updateDictionary(dictionary)).thenReturn(new DictionaryResp());
         when(dictionaryMap.toDto(dictionary)).thenReturn(new DictionaryResp());
 
         DictionaryResp result = dictionaryService.updateDictionary(dictionary);
@@ -93,7 +93,7 @@ public class DictionaryServiceImplTest {
         dictionary.setId(UUID.randomUUID().toString());
         dictionary.setValue("value");
 
-        when(dictionaryMapper.updateDictionary(dictionary)).thenReturn(0);
+        when(dictionaryMapper.updateDictionary(dictionary)).thenReturn(null);
 
         assertThrows(DictionaryNotFoundException.class, () ->
                 dictionaryService.updateDictionary(dictionary));
@@ -120,5 +120,25 @@ public class DictionaryServiceImplTest {
 
         assertThrows(DictionaryNotFoundException.class, () ->
                 dictionaryService.delete(id));
+    }
+
+    @Test
+    void restoreDictionary_success() {
+        UUID id = UUID.randomUUID();
+
+        when(dictionaryMapper.restoreDictionary(id)).thenReturn(new DictionaryResp());
+
+        DictionaryResp response = dictionaryService.restoreDictionary(id);
+        assertNotNull(response);
+        verify(dictionaryMapper).restoreDictionary(id);
+    }
+
+    @Test
+    void restoreDictionary_notFound_trowsException() {
+        UUID id = UUID.randomUUID();
+
+        when(dictionaryMapper.restoreDictionary(id)).thenReturn(null);
+
+        assertThrows(DictionaryNotFoundException.class, () -> dictionaryService.restoreDictionary(id));
     }
 }
