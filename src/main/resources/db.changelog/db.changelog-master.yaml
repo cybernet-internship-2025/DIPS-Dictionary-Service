@@ -7,67 +7,17 @@ databaseChangeLog:
             splitStatements: false
             sql: CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
-  - changeSet:
-      id: 2
-      author: gulnare.islamova
-      changes:
-        - createTable:
-            tableName: categories
-            columns:
-              - column:
-                  name: id
-                  type: uuid
-                  defaultValueComputed: uuid_generate_v4()
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: name
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: description
-                  type: varchar(500)
+  - include:
+      file: db.changelog/01-create-category-table.sql
 
-  - changeSet:
-      id: 3
-      author: gulnare.islamova
-      changes:
-        - createTable:
-            tableName: dictionaries
-            columns:
-              - column:
-                  name: id
-                  type: uuid
-                  defaultValueComputed: uuid_generate_v4()
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: value
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: description
-                  type: varchar(500)
-              - column:
-                  name: is_active
-                  type: boolean
-                  constraints:
-                    nullable: false
-              - column:
-                  name: deleted_at
-                  type: timestamp
-              - column:
-                  name: category_id
-                  type: uuid
-                  constraints:
-                    nullable: false
-        - addForeignKeyConstraint:
-            baseTableName: dictionary_items
-            baseColumnNames: category_id
-            referencedTableName: categories
-            referencedColumnNames: id
-            constraintName: fk_dictionary_category
+  - include:
+      file: db.changelog/02-create-dictionary-table.sql
+
+  - include:
+      file: db.changelog/03-add-is-active-to-category.sql
+
+  - include:
+      file: db.changelog/04-add-created-at-and-updated-at-category-table.sql
+
+  - include:
+      file: db.changelog/05-add-deleted-at-category-table.sql

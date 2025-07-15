@@ -4,73 +4,111 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="az.cybernet.internship.dictionary.mapper.DictionaryMapper">
-
-    <insert id="insert">
-        INSERT INTO dictionaries(id, value, description, is_active, deleted_at, category_id)
-        VALUES (#{id}, #{value}, #{description}, true, null, #{categoryId})
-    </insert>
-
-    <update id="update">
-        UPDATE dictionaries
-        SET value = #{value},
-            description = #{description},
-            category_id = #{categoryId}
-        WHERE id = #{id}
-    </update>
-
-    <update id="softDelete">
-        UPDATE dictionaries
-        SET is_active = false,
-            deleted_at = now()
-        WHERE id = #{id}
-    </update>
-
-    <update id="restore">
-        UPDATE dictionaries
-        SET is_active = true,
-            deleted_at = null
-        WHERE id = #{id}
-    </update>
-    <select id="findByCategoryId" resultType="az.cybernet.internship.dictionary.model.dictionary.Dictionary">
-        SELECT id, value, description, is_active, deleted_at, category_id
-        FROM dictionaries
-        WHERE category_id = #{categoryId} AND is_active = true
-    </select>
-
-    <select id="findById" resultType="az.cybernet.internship.dictionary.model.dictionary.Dictionary">
-        SELECT * FROM dictionaries
-        WHERE id = #{id}
-    </select>
-
-    <select id="filter"
-            resultType="java.util.List"
-            parameterType="az.cybernet.internship.dictionary.model.dictionary.DictionaryRequest"
-            resultMap="filterResultMap">
-        SELECT id, value, description, is_active, deleted_at, category_id FROM dictionaries
-        where 1=1
-        <if test="req.value != null">
-            AND value = #{req.value}
-        </if>
-        <if test="req.isActive != null">
-            AND is_active = #{req.isActive}
-        </if>
-        ORDER BY value
-        <if test="req.offset != null">
-            offset #{req.offset}
-        </if>
-        <if test="req.limit != null">
-            LIMIT #{req.limit}
-        </if>
-    </select>
-
-    <resultMap id="filterResultMap"
-               type="az.cybernet.internship.dictionary.model.dictionary.DictionaryResponse">
-        <result property="id" column="id"/>
+    <resultMap id="allDictionaryFields" type="az.cybernet.internship.dictionary.model.dictionary.Dictionary">
+        <id property="id" column="id" typeHandler="az.cybernet.internship.dictionary.handler.UUIDTypeHandler"/>
         <result property="value" column="value"/>
         <result property="description" column="description"/>
         <result property="isActive" column="is_active"/>
         <result property="deletedAt" column="deleted_at"/>
-        <result property="categoryId" column="category_id"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="categoryId" column="category_id" typeHandler="az.cybernet.internship.dictionary.handler.UUIDTypeHandler"/>
     </resultMap>
+
+
+    <insert id="insert">
+        INSERT INTO dictionaries(id, value, description, is_active, deleted_at, category_id, created_at, updated_at)
+        VALUES (#{id}, #{value}, #{description}, true, null, #{categoryId}, current_timestamp, null)
+    </insert>
+
+    <update id="update">
+        UPDATE dictionaries
+        <trim prefix="SET" suffixOverrides=",">
+            updated_at = current_timestamp,
+            <if test="dictionary.value != null">
+                value = #{dictionary.value},
+            </if>
+            <if test="dictionary.description != null">
+                description = #{dictionary.description},
+            </if>
+            <if test="dictionary.categoryId != null">
+                category_id = #{dictionary.categoryId},
+            </if>
+            <if test="dictionary.isActive != null">
+                is_active = #{dictionary.isActive},
+            </if>
+        </trim>
+        WHERE id = #{dictionary.id}
+    </update>
+
+
+
+    <update id="softDelete">
+        UPDATE dictionaries
+        SET is_active = false,
+            deleted_at = current_timestamp
+        WHERE id = #{id}
+    </update>
+
+    <update id="restore">
+        UPDATE dictionaries d
+        SET is_active = true,
+            deleted_at = null
+        WHERE d.id = #{id}
+    </update>
+
+    <select id="findByCategoryId" resultMap="allDictionaryFields">
+        SELECT id, value, description, is_active, deleted_at, created_at, updated_at, category_id
+        FROM dictionaries d
+        WHERE d.category_id = #{categoryId} AND d.is_active = true
+    </select>
+
+    <select id="findById" resultMap="allDictionaryFields">
+        SELECT
+            d.id,
+            d.value,
+            d.description,
+            d.is_active,
+            d.deleted_at,
+            d.created_at,
+            d.updated_at,
+            d.category_id
+        FROM dictionaries d
+        WHERE d.id = #{id} and d.is_active = true
+    </select>
+
+
+    <select id="filter"
+            parameterType="az.cybernet.internship.dictionary.dto.dictionary.filterDictionary.FilterDictionaryRequestBean"
+            resultMap="allDictionaryFields">
+        SELECT id, value, description, is_active, deleted_at, created_at, updated_at, category_id FROM dictionaries
+        where 1=1
+
+        <if test="req.value != null">
+            AND value = #{req.value}
+        </if>
+        <if test="req.offset != null">
+            OFFSET #{req.offset}
+        </if>
+        <if test="req.limit != null">
+            LIMIT #{req.limit}
+        </if>
+
+    </select>
+
+    <select id="findByIdNotActive" resultMap="allDictionaryFields">
+        select id, value, description, is_active, deleted_at, created_at, updated_at, category_id
+        from dictionaries
+        where id = #{id}
+        and is_active = false
+    </select>
+
+    <update id="changeActivityStatusByCategoryId">
+        update dictionaries
+        set is_active = #{activityStatus}
+        where category_id = #{categoryId}
+    </update>
+
+
 
 </mapper>
