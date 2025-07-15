@@ -123,8 +123,7 @@
 
     <update id="restoreCategory" parameterType="long">
         UPDATE categories
-        SET
-            is_active = true,
+        SET is_active  = true,
             updated_at = null
         WHERE id = #{id}
     </update>

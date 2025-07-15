@@ -39,7 +39,7 @@ public class CategoryServiceImpl implements CategoryService {
             log.info("ActionLog.saveCategory.end - request: {}", request);
         } else {
             log.info("ActionLog.updateCategory.start - request: {}", request);
-            var dictionaryCategory = fetchDictionaryIfExist(request.getId());
+            var dictionaryCategory = fetchCategoryIfExist(request.getId());
             categoryMapper.updateCategory(dictionaryCategory, request);
             categoryRepository.updateCategory(dictionaryCategory);
 
@@ -52,7 +52,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void restoreCategory(Long id) {
         log.info("ActionLog.restoreCategory.start - id: {}", id);
-        var dictionaryCategory = fetchDictionaryIfExist(id);
+        var dictionaryCategory = fetchCategoryIfExist(id);
         categoryRepository.restoreCategory(dictionaryCategory.getId());
 
         cacheUtil.delete("category:" + id);
@@ -70,7 +70,7 @@ public class CategoryServiceImpl implements CategoryService {
             return (CategoryResponse) cached;
         }
 
-        var dictionaryCategory = fetchDictionaryIfExist(id);
+        var dictionaryCategory = fetchCategoryIfExist(id);
         var categoryResponse = categoryMapper.buildCategoryResponse(dictionaryCategory);
 
         cacheUtil.saveToCache("category:" + id, categoryResponse, 1L, HOURS);
@@ -116,7 +116,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Long id) {
         log.info("ActionLog.deleteCategory.start - id: {}", id);
-        var dictionaryCategory = fetchDictionaryIfExist(id);
+        var dictionaryCategory = fetchCategoryIfExist(id);
         categoryRepository.deleteCategory(dictionaryCategory.getId());
 
         cacheUtil.delete("category:" + id);
@@ -125,7 +125,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public DictionaryCategory fetchDictionaryIfExist(Long id) {
+    public DictionaryCategory fetchCategoryIfExist(Long id) {
         return categoryRepository.findById(id).orElseThrow(() ->
                 new NotFoundException(CATEGORY_NOT_FOUND.getCode(), CATEGORY_NOT_FOUND.getMessage(id)));
     }
