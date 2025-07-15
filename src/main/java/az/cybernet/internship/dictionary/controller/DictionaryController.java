@@ -2,7 +2,9 @@ package az.cybernet.internship.dictionary.controller;
 
 import az.cybernet.internship.dictionary.dto.*;
 import az.cybernet.internship.dictionary.service.*;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,27 +14,29 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DictionaryController {
 
-    private final DictionaryService service;
-
+    private final DictionaryService dictionaryService;
     @GetMapping
-    public List<DictionaryResponse> getAll(@RequestParam(required = false) String id,
-                                           @RequestParam(required = false) String value,
-                                           @RequestParam(required = false, defaultValue = "true") Boolean isActive) {
-        return service.getAll(id, value, isActive);
+    public ResponseEntity<List<DictionaryResponse>> findAll() {
+        return ResponseEntity.ok(dictionaryService.findAll());
+    }
+    @GetMapping(path = "{id}")
+    public ResponseEntity<DictionaryResponse> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(dictionaryService.findById(id));
+    }
+    @PutMapping
+    public ResponseEntity<DictionaryResponse> saveOrUpdate( @Valid @RequestBody DictionaryResponse dictionaryResponse) {
+        return ResponseEntity.ok(dictionaryService.saveOrUpdate(dictionaryResponse));
+
+    }
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<DictionaryResponse> delete(@PathVariable  Long id) {
+        dictionaryService.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+    @PostMapping
+    public ResponseEntity<DictionaryResponse> restore(@Valid @RequestBody DictionaryResponse dictionaryResponse) {
+        return ResponseEntity.ok(dictionaryService.saveOrUpdate(dictionaryResponse));
+
     }
 
-    @PutMapping("/{id}")
-    public void createOrUpdate(@PathVariable String id, @RequestBody DictionaryRequest request) {
-        service.createOrUpdate(id, request);
-    }
-
-    @DeleteMapping("/{id}")
-    public void softDelete(@PathVariable String id) {
-        service.softDelete(id);
-    }
-
-    @PostMapping("/{id}/restore")
-    public void restore(@PathVariable String id) {
-        service.restore(id);
-    }
 }
