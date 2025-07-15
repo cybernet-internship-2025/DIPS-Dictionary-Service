@@ -30,43 +30,43 @@ public class DictionaryController {
 
     private final DictionaryServiceImpl dictionaryService;
 
-    @GetMapping("/get-by-id")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public GetDictionaryByIdResponseBean getById(@RequestBody @Valid GetDictionaryByIdRequestBean requestBean) {
         return dictionaryService.getById(requestBean);
     }
 
-    @GetMapping("/filter-dictionary")
+    @GetMapping("/filter")
     @ResponseStatus(HttpStatus.OK)
     public List<FilterDictionaryResponseBean> filterDictionary(@RequestBody @Valid FilterDictionaryRequestBean request) {
         return dictionaryService.filterDictionary(request);
     }
 
-    @PostMapping("/create-dictionary")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CreateDictionaryResponseBean put(@RequestBody @Valid CreateDictionaryRequestBean request) {
         return dictionaryService.createDictionary(request);
     }
 
-    @GetMapping("/get-by-category-id")
+    @GetMapping("/category-id")
     @ResponseStatus(HttpStatus.OK)
     public List<GetByCategoryIdResponseBean> getByCategoryId(@RequestBody @Valid GetByCategoryIdRequestBean request) {
         return dictionaryService.getByCategoryId(request);
     }
 
-    @PutMapping("/restore-dictionary")
+    @PutMapping("/restore")
     @ResponseStatus(HttpStatus.OK)
     public RestoreDictionaryResponseBean restoreDictionary(@RequestBody @Valid RestoreDictionaryRequestBean request) {
         return dictionaryService.restoreDictionary(request);
     }
 
-    @DeleteMapping("/delete-dictionary")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public SoftDeleteDictionaryResponseBean softDelete(@RequestBody @Valid SoftDeleteDictionaryRequestBean request){
         return dictionaryService.softDelete(request);
     }
 
-    @PutMapping("/update-dictionary")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public UpdateDictionaryResponseBean updateDictionary(@RequestBody @Valid UpdateDictionaryRequestBean request){
         return dictionaryService.updateDictionary(request);
