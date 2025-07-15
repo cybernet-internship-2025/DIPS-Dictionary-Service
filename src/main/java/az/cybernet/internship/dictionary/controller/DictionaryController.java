@@ -2,6 +2,9 @@ package az.cybernet.internship.dictionary.controller;
 
 import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.service.DictionaryService;
+import org.springframework.http.HttpStatus;
+
 import az.cybernet.internship.dictionary.service.impl.DictionaryServiceImpl;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/dictionaries")
+@RequestMapping("/v1/dictionaries")
 public class DictionaryController {
 
     private final DictionaryServiceImpl service;
@@ -34,6 +37,13 @@ public class DictionaryController {
 
     //Goychek commited
 
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @DeleteMapping("/{id}")
+    public void deleteDictionary(@PathVariable UUID id) {
+        service.deleteDictionary(id);
+    }
+
+    //Huseyn commited
 
     // Может когда-нибудь и здесь это понабиться =￣ω￣=
     @Getter
@@ -49,4 +59,5 @@ public class DictionaryController {
     public void put(@RequestBody DictionaryRequest body) {
         service.saveOrUpdate(body);
     }
+
 }

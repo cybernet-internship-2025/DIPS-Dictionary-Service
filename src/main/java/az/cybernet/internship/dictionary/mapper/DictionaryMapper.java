@@ -4,6 +4,7 @@ import az.cybernet.internship.dictionary.model.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,9 +19,13 @@ public interface DictionaryMapper {
 
     // Goychek's commit
 
+    void softDelete(@Param("id") UUID id, @Param("deletedAt") LocalDateTime deletedAt);
+
+    // Huseyn's commit
 
     // Без комментариев, но с комментарием (。_。)
     void insert(Dictionary entry);
 
     int update(Dictionary entry);
+
 }

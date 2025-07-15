@@ -46,23 +46,12 @@
 
     <!--    Goychek commit    -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <update id="softDelete">
+        UPDATE dictionary
+        SET is_active = false,
+            deleted_at = #{deletedAt}
+        WHERE id = #{id}
+    </update>
 
 
     <!--    Goychek committed    -->

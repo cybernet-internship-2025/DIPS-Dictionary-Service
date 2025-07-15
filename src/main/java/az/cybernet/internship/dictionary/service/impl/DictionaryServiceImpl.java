@@ -2,15 +2,21 @@ package az.cybernet.internship.dictionary.service.impl;
 
 import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
+import az.cybernet.internship.dictionary.exception.AlreadyInactiveException;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.mapstruct.DictionaryEntryMapper;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import az.cybernet.internship.dictionary.service.DictionaryService;
+
+import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.http.HttpStatus;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -27,6 +33,8 @@ public class DictionaryServiceImpl implements DictionaryService {
     }
 
     // Balash's commit
+
+    @Override
     public List<DictionaryResponse> getAllActiveDictionaryWithLimit(String value, Boolean isActive, int limit) {
         List<Dictionary> items = mapper.findAllActiveDictionaryWithLimit(value, isActive, limit);
 
@@ -36,11 +44,18 @@ public class DictionaryServiceImpl implements DictionaryService {
     }
 
     // Goychek's commit
-
     @Override
-    public void softDelete(UUID id) {
+    public void deleteDictionary(UUID uuid) {
+        Dictionary entity = mapper.findById(uuid);
+        if (entity == null) {
+            throw new EntityNotFoundException("Entity not found with id: " + uuid);
+        } else if (!entity.getIsActive()) {
+            throw new AlreadyInactiveException("Entity is already inactive with id: " + uuid);
+        }
+        mapper.softDelete(uuid, LocalDateTime.now());
+      }
 
-    }
+   
 
     @Override
     public void restoreDictionary(UUID id) {
@@ -57,5 +72,8 @@ public class DictionaryServiceImpl implements DictionaryService {
         if (body.getId() == null) mapper.insert(entry);
         else if (mapper.update(entry) == 0)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Entry with id " + body.getId() + " not found");
+
     }
 }
+
+// Huseyn's commit
