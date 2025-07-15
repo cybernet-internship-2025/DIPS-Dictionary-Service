@@ -28,13 +28,13 @@ public class DictionaryController {
 //        descriptionService.updateDescription(id, request );
 //    }
 
-//    @PutMapping("/{id}/description")
-//    public ResponseEntity<Void> updateDescription(
-//            @PathVariable Long id,
-//            @RequestBody UpdateDescriptionRequest request) {
-//        dictionaryServiceHandler.updateDescription(id, request);
-//        return ResponseEntity.ok().build();
-//    }
+    @PutMapping("/{id}/description")
+    public ResponseEntity<Void> updateDescription(
+            @PathVariable Long id,
+            @RequestBody UpdateDescriptionRequest request) {
+        dictionaryServiceHandler.updateDescription(id, request);
+        return ResponseEntity.ok().build();
+    }
 
     @DeleteMapping("/{id}")
     public void deleteDictionary(@PathVariable Long id) {
