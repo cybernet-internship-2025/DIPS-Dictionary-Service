@@ -20,14 +20,6 @@
         LIMIT #{limit}
     </select>
 
-    <update id="restore">
-        UPDATE dictionary
-        SET
-            is_active = TRUE,
-            deleted_at = NULL
-        WHERE id = #{id}
-    </update>
-
     <select id="findById" resultType="az.cybernet.internship.dictionary.model.Dictionary">
         SELECT * FROM dictionary WHERE id = #{id}
     </select>
@@ -50,6 +42,13 @@
         UPDATE dictionary
         SET is_active = false,
             deleted_at = #{deletedAt}
+        WHERE id = #{id}
+    </update>
+
+    <update id="restore">
+        UPDATE dictionary
+        SET is_active  = true,
+            deleted_at = null
         WHERE id = #{id}
     </update>
 

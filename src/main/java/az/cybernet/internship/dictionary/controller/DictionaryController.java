@@ -5,8 +5,6 @@ import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import org.springframework.http.HttpStatus;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,34 +27,25 @@ public class DictionaryController {
         return ResponseEntity.ok(service.getAllActiveDictionaryWithLimit(value, isActive, limit));
     }
 
-    @PostMapping("/{id}/restore")
+    //Goychek commited
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{id}/restore")
     public void restoreDictionary(@PathVariable UUID id) {
         service.restoreDictionary(id);
     }
 
-    //Goychek commited
-
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deleteDictionary(@PathVariable UUID id) {
         service.deleteDictionary(id);
     }
 
     //Huseyn commited
-
     // Может когда-нибудь и здесь это понабиться =￣ω￣=
-    @Getter
-    @Setter
-    public static class DictionaryFilter {
-        private Long id;
-        private String value;
-        private Boolean isActive;
-        private Integer limit;
-    }
 
     @PutMapping
+    @ResponseStatus(HttpStatus.OK)
     public void put(@RequestBody DictionaryRequest body) {
         service.saveOrUpdate(body);
     }
-
 }

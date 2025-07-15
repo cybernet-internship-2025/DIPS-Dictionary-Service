@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.exception.handler;
 
+import az.cybernet.internship.dictionary.exception.AlreadyActiveException;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
 import az.cybernet.internship.dictionary.exception.AlreadyInactiveException;
 import org.springframework.http.HttpStatus;
@@ -31,4 +32,9 @@ public class GlobalExceptionHandler {
                 .body(ex.getMessage());
     }
 
+    public ResponseEntity<String> handleAlreadyActiveException(AlreadyActiveException ex) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ex.getMessage());
+    }
 }
