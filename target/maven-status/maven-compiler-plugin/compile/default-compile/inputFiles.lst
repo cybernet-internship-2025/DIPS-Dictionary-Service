@@ -1,0 +1,12 @@
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/repository/DictionarySqlProvider.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/exception/BadRequestException.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/model/dto/DictionaryResponseDto.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/mapper/DictionaryServiceMapper.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/typehandler/UUIDTypeHandler.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/repository/DictionaryMapper.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/service/DictionaryService.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/model/DictionaryEntry.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/exception/ResourceNotFoundException.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/controller/DictionaryController.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/DictionaryServiceApplication.java
+/Users/agasi/Desktop/cybernet/DIPS-Dictionary-Service/src/main/java/az/cybernet/internship/dictionary/model/dto/DictionaryCreateUpdateDto.java
