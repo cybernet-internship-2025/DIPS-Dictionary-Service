@@ -24,8 +24,8 @@ public class DictionaryController {
         return ResponseEntity.ok(dictionaryService.findById(id));
     }
     @PutMapping
-    public ResponseEntity<DictionaryResponse> saveOrUpdate( @Valid @RequestBody DictionaryResponse dictionaryResponse) {
-        return ResponseEntity.ok(dictionaryService.saveOrUpdate(dictionaryResponse));
+    public ResponseEntity<DictionaryResponse> saveOrUpdate( @Valid @RequestBody DictionaryRequest dictionaryRequest) {
+        return ResponseEntity.ok(dictionaryService.saveOrUpdate(dictionaryRequest));
 
     }
     @DeleteMapping(path = "{id}")
@@ -33,9 +33,10 @@ public class DictionaryController {
         dictionaryService.deleteById(id);
         return ResponseEntity.ok().build();
     }
-    @PostMapping
-    public ResponseEntity<DictionaryResponse> restore(@Valid @RequestBody DictionaryResponse dictionaryResponse) {
-        return ResponseEntity.ok(dictionaryService.saveOrUpdate(dictionaryResponse));
+    @PostMapping(path = "{id}")
+    public ResponseEntity<DictionaryResponse> restore(@PathVariable Long id) {
+       dictionaryService.restore(id);
+       return ResponseEntity.ok().build();
 
     }
 

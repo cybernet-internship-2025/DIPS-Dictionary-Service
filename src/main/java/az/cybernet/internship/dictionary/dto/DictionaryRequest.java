@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DictionaryRequest {
+    private Long id;
+    private String category;
     private String value;
     private String description;
+
 
 }

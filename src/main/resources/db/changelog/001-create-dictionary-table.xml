@@ -13,7 +13,7 @@
             <column name="value" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="description" type="TEXT"/>
-            <column name="is_active" type="BOOLEAN"/>
+            <column name="is_active" type="TRUE"/>
             <column name="created_at" type="TIMESTAMP"/>
             <column name="updated_at" type="TIMESTAMP"/>
         </createTable>

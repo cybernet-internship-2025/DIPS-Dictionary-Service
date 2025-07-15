@@ -4,6 +4,7 @@ import az.cybernet.internship.dictionary.dto.DictionaryRequest;
 import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.model.DictionaryEntry;
 import az.cybernet.internship.dictionary.repository.DictionaryRepository;
+import exception.DictionaryEntryNotFound;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -32,34 +33,36 @@ public class DictionaryService {
 
     }
     public DictionaryResponse findById(Long id) {
-        DictionaryEntry dictionaryEntry = dictionaryRepository.findById(id).orElse(null);
-        return DICTIONARY_MAPPER.mapToResponse(dictionaryEntry);
+       Optional<DictionaryEntry> optional = dictionaryRepository.findById(id);
+       if (optional.isPresent()) {
+           return DICTIONARY_MAPPER.mapToResponse(optional.get());
+       }
+        throw  new DictionaryEntryNotFound("Dictionary entry not found");
     }
-    public DictionaryResponse saveOrUpdate(DictionaryResponse dictionaryResponse) {
-        Optional<DictionaryEntry> optional=dictionaryRepository.findById(dictionaryResponse.getId());
+    public DictionaryResponse saveOrUpdate(DictionaryRequest dictionaryRequest) {
+        Optional<DictionaryEntry> optional = dictionaryRepository.findById(dictionaryRequest.getId());
         if (optional.isPresent()) {
-            DictionaryEntry dictionaryEntry=optional.get();
-            dictionaryEntry.setCategory(dictionaryResponse.getCategory());
-            dictionaryEntry.setValue(dictionaryResponse.getValue());
-            dictionaryEntry.setDescription(dictionaryResponse.getDescription());
-            dictionaryEntry.setIsActive(true);
-            dictionaryEntry.setCreatedAt(dictionaryResponse.getCreatedAt());
+            DictionaryEntry dictionaryEntry = optional.get();
+            dictionaryEntry.setCategory(dictionaryRequest.getCategory());
+            dictionaryEntry.setDescription(dictionaryRequest.getDescription());
+            dictionaryEntry.setValue(dictionaryRequest.getValue());
+            dictionaryEntry.setCreatedAt(LocalDateTime.now());
             dictionaryEntry.setUpdatedAt(LocalDateTime.now());
+            dictionaryEntry.setIsActive(true);
             dictionaryRepository.update(dictionaryEntry);
-            return dictionaryResponse;
-        }
-        else {
-            DictionaryEntry dictionaryEntry=new DictionaryEntry();
-            dictionaryEntry.setCategory(dictionaryResponse.getCategory());
-            dictionaryEntry.setValue(dictionaryResponse.getValue());
-            dictionaryEntry.setDescription(dictionaryResponse.getDescription());
-            dictionaryEntry.setIsActive(true);
-            dictionaryEntry.setCreatedAt(dictionaryResponse.getCreatedAt());
-            dictionaryEntry.setUpdatedAt(LocalDateTime.now());
-            dictionaryRepository.insert(dictionaryEntry);
             return DICTIONARY_MAPPER.mapToResponse(dictionaryEntry);
-
         }
+        DictionaryEntry dictionaryEntry= new DictionaryEntry();
+        dictionaryEntry.setCategory(dictionaryRequest.getCategory());
+        dictionaryEntry.setDescription(dictionaryRequest.getDescription());
+        dictionaryEntry.setValue(dictionaryRequest.getValue());
+        dictionaryEntry.setCreatedAt(LocalDateTime.now());
+        dictionaryEntry.setUpdatedAt(LocalDateTime.now());
+        dictionaryEntry.setIsActive(true);
+        dictionaryRepository.insert(dictionaryEntry);
+        return DICTIONARY_MAPPER.mapToResponse(dictionaryEntry);
+
+
     }
     public void deleteById(Long id) {
         Optional<DictionaryEntry> optional=dictionaryRepository.findById(id);
@@ -70,19 +73,11 @@ public class DictionaryService {
             dictionaryRepository.update(dictionaryEntry);
         }
     }
-    public void restore(DictionaryResponse dictionaryResponse) {
-        DictionaryEntry dictionaryEntry=dictionaryRepository.findById(dictionaryResponse.getId()).get();
-        if(dictionaryEntry.getIsActive()){
-            dictionaryEntry.setIsActive(false);
-            dictionaryEntry.setUpdatedAt(LocalDateTime.now());
-            dictionaryRepository.update(dictionaryEntry);
-        }
-        else {
+    public void restore(Long id) {
+        Optional<DictionaryEntry> optional=dictionaryRepository.findById(id);
+        if (optional.isPresent()) {
+            DictionaryEntry dictionaryEntry=optional.get();
             dictionaryEntry.setIsActive(true);
-            dictionaryEntry.setUpdatedAt(LocalDateTime.now());
-            dictionaryRepository.update(dictionaryEntry);
         }
-
-
     }
 }
