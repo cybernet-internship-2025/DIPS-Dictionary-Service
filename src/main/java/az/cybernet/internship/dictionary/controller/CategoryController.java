@@ -1,14 +1,13 @@
 package az.cybernet.internship.dictionary.controller;
 
 import az.cybernet.internship.dictionary.model.category.CategoryDto;
+import az.cybernet.internship.dictionary.model.category.CategoryWithItemsDto;
+import az.cybernet.internship.dictionary.model.category.CategoryWithItemsResponse;
 import az.cybernet.internship.dictionary.service.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,16 +18,13 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    // GET /api/v1/categories
     @GetMapping
     public ResponseEntity<List<CategoryDto>> getAllCategories() {
         return ResponseEntity.ok(categoryService.getAllCategories());
     }
 
-    // GET /api/v1/categories/{id}/items
     @GetMapping("/{id}/items")
-    public ResponseEntity<CategoryDto> getCategoryWithItems(@PathVariable UUID id) {
-        return ResponseEntity.ok(categoryService.getCategoryWithItems(id));
+    public ResponseEntity<CategoryWithItemsDto> getCategoryWithItems(@PathVariable UUID id) {
+        return ResponseEntity.status(HttpStatus.OK).body(categoryService.getCategoryWithItems(id));
     }
 }
-

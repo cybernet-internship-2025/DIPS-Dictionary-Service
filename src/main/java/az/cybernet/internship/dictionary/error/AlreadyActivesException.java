@@ -6,16 +6,17 @@ import lombok.experimental.FieldDefaults;
 
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
-public class NotFoundException extends RuntimeException {
-    static ErrorCode errorCode = ErrorCode.NOT_FOUND;
+public class AlreadyActivesException extends RuntimeException{
+    static ErrorCode errorCode = ErrorCode.ALREADY_ACTIVE;
 
-    public NotFoundException(){
+    public AlreadyActivesException(){
         super(errorCode.getMessage());
     }
 
-    public NotFoundException(String customMessage){
+    public AlreadyActivesException(String customMessage){
         super(customMessage);
     }
+
     public ErrorCode getErrorCode(){
         return errorCode;
     }

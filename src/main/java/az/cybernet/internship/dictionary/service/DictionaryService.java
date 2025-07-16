@@ -1,6 +1,6 @@
 package az.cybernet.internship.dictionary.service;
 
-import az.cybernet.internship.dictionary.error.ErrorCode;
+import az.cybernet.internship.dictionary.error.AlreadyActivesException;
 import az.cybernet.internship.dictionary.error.NotFoundException;
 import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.mapstruct.DictionaryMapstruct;
@@ -57,17 +57,17 @@ public class DictionaryService {
 
     public DictionaryResponse getById(UUID id) {
         Dictionary item = dictionaryItemMapper.findById(id)
-                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND, "Dictionary not found"));
+                .orElseThrow(NotFoundException::new);
         return dictionaryMapstruct.toResponse(item);
     }
 
 
     public void restore(UUID id) {
         Dictionary item = dictionaryItemMapper.findById(id)
-                .orElseThrow(() -> new NotFoundException(ErrorCode.NOT_FOUND, "DictionaryItem not found"));
+                .orElseThrow(NotFoundException::new);
 
         if (Boolean.TRUE.equals(item.getIsActive())) {
-            throw new IllegalStateException("Item is already active");
+            throw new AlreadyActivesException();
         }
 
         dictionaryItemMapper.restore(id);
