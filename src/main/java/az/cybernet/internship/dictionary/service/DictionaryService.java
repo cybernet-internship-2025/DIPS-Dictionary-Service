@@ -13,6 +13,8 @@ public interface DictionaryService {
 
     DictionaryResp updateDictionary(DictionaryReq dictionary);
 
+    DictionaryResp insert(DictionaryReq dictionary);
+
     DictionaryResp restoreDictionary(UUID id);
 
     DictionaryResp delete(UUID id);

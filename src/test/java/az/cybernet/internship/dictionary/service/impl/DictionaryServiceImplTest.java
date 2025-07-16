@@ -102,7 +102,6 @@ public class DictionaryServiceImplTest {
                 dictionaryService.updateDictionary(dictionary));
     }
 
-
     @Test
     void delete_success() {
         UUID id = UUID.randomUUID();

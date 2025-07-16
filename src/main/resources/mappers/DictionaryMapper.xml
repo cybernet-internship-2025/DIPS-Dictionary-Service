@@ -55,16 +55,16 @@
         RETURNING id, category, value, is_active, update_date;
     </select>
 
-    <insert id="insert" parameterType="az.cybernet.internship.dictionary.dto.req.DictionaryReq">
+    <insert id="insert" parameterType="az.cybernet.internship.dictionary.entity.Dictionary">
         INSERT INTO dictionary (id, category, value, description, is_active, create_date, update_date)
         VALUES (
-            id = #{id}:uuid,
-            category = #{category},
-            value = #{value},
-            description = #{description},
-            is_active = true,
-            create_date = now(),
-            update_date = now()
-        )
+            #{id}::uuid,
+            #{category},
+            #{value},
+            #{description},
+            #{isActive},
+            #{createDate},
+            #{updateDate}
+        );
     </insert>
 </mapper>

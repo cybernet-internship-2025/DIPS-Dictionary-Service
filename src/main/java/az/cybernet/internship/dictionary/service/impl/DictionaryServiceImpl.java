@@ -9,9 +9,11 @@ import az.cybernet.internship.dictionary.mapper.DictionaryMapper;
 import az.cybernet.internship.dictionary.mapstruct.DictionaryMap;
 import az.cybernet.internship.dictionary.service.DictionaryService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -48,12 +50,12 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     @Transactional
     public DictionaryResp updateDictionary(DictionaryReq dictionaryReq) {
-        log.info("Validating input");
+        log.info("Validating update input");
         if (dictionaryReq.getId() == null || dictionaryReq.getValue() == null) {
             throw new InputValueMissingException("Missing required params:" +
                     (dictionaryReq.getId() == null ? " Id" : "") +
                     (dictionaryReq.getValue() == null ? " Value" : ""));
-        } log.info("Input validation successful");
+        } log.info("Update validation successful");
 
         Dictionary updateResult = dictionaryMapper.updateDictionary(dictionaryMap.toEntity(dictionaryReq));
 
@@ -65,6 +67,34 @@ public class DictionaryServiceImpl implements DictionaryService {
         }
         log.info("Successfully updated dictionary entry with id: {}", updateResult.getId());
         return dictionaryMap.toDto(updateResult);
+    }
+
+    @Override
+    @Transactional
+    public DictionaryResp insert(DictionaryReq dictionaryReq) {
+        log.info("Validating insert input");
+        if(dictionaryReq.getId() == null || dictionaryReq.getValue() == null) {
+            throw new InputValueMissingException("Missing required params:" +
+                    (dictionaryReq.getId() == null ? " Id" : "") +
+                    (dictionaryReq.getValue() == null ? " Value" : ""));
+        } log.info("Input validation successful");
+
+        //category is important enough to be NOT_NULL, but also insignificant enough to allow for this to exist
+        if(dictionaryReq.getCategory() == null) {
+            dictionaryReq.setCategory("generic");
+        }
+
+        Dictionary dictionary = dictionaryMap.toEntity(dictionaryReq);
+
+        dictionary.setIsActive(true);
+        dictionary.setCreateDate(LocalDateTime.now());
+        dictionary.setUpdateDate(LocalDateTime.now());
+
+        log.info("Inserting entry");
+        dictionaryMapper.insert(dictionary);
+        log.info("Insert successful");
+
+        return dictionaryMap.toDto(dictionary);
     }
 
     @Override
