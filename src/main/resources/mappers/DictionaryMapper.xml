@@ -11,7 +11,7 @@
         FROM dictionary
         <where>
             <if test="value != null and value != ''">
-                AND value LIKE CONCAT('%', #{value}, '%')
+                AND LOWER(value) LIKE CONCAT('%', #{value}, '%')
             </if>
             <if test="isActive != null">
                 AND is_active = #{isActive}
@@ -22,8 +22,7 @@
 
     <update id="restore">
         UPDATE dictionary
-        SET
-            is_active = TRUE,
+        SET is_active = TRUE,
             deleted_at = NULL
         WHERE id = #{id}
     </update>
@@ -32,7 +31,19 @@
         SELECT * FROM dictionary WHERE id = #{id}
     </select>
 
-    <!--  Кажется я знаю, где это написано лучше ༼ つ ◕_◕ ༽つ  -->
+    <!--    Balash committed    -->
+    <!--    Goychek's commit    -->
+
+    <update id="softDelete">
+        UPDATE dictionary
+        SET is_active = false,
+            deleted_at = #{deletedAt}
+        WHERE id = #{id}
+    </update>
+
+    <!--    Goychek committed    -->
+    <!--    Huseyn's commit    -->
+
     <insert id="insert" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO dictionary (value, description, is_active)
         VALUES (#{value}, #{description}, true)
@@ -43,42 +54,6 @@
         SET value = #{value}, description = #{description}
         WHERE id = #{id}
     </update>
-
-    <!--    Goychek commit    -->
-
-    <update id="softDelete">
-        UPDATE dictionary
-        SET is_active = false,
-            deleted_at = #{deletedAt}
-        WHERE id = #{id}
-    </update>
-
-
-    <!--    Goychek committed    -->
-    <!--    Huseyn commit    -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!--    Huseyn committed    -->
 
