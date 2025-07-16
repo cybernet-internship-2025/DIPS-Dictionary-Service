@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.service.impl;
 
+import az.cybernet.internship.dictionary.dto.req.DictionaryReq;
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.entity.Dictionary;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
@@ -46,51 +47,53 @@ public class DictionaryServiceImpl implements DictionaryService {
 
     @Override
     @Transactional
-    public DictionaryResp updateDictionary(Dictionary dictionary) {
+    public DictionaryResp updateDictionary(DictionaryReq dictionaryReq) {
         log.info("Validating input");
-        if (dictionary.getId() == null || dictionary.getValue() == null) {
+        if (dictionaryReq.getId() == null || dictionaryReq.getValue() == null) {
             throw new InputValueMissingException("Missing required params:" +
-                    (dictionary.getId() == null ? " Id" : "") +
-                    (dictionary.getValue() == null ? " Value" : ""));
+                    (dictionaryReq.getId() == null ? " Id" : "") +
+                    (dictionaryReq.getValue() == null ? " Value" : ""));
         } log.info("Input validation successful");
 
-        DictionaryResp dictionaryResponse = dictionaryMapper.updateDictionary(dictionary);
+        Dictionary updateResult = dictionaryMapper.updateDictionary(dictionaryMap.toEntity(dictionaryReq));
 
         log.info("Checking database response");
-        if (dictionaryResponse == null) {
-            log.warn("Dictionary entry not found for update with id: {}", dictionary.getId());
+        if (updateResult == null) {
+            log.warn("Dictionary entry not found for update with id: {}", dictionaryReq.getId());
             throw new DictionaryNotFoundException("Dictionary entry not found for update with id: "
-                    + dictionary.getId());
+                    + dictionaryReq.getId());
         }
-        log.info("Successfully updated dictionary entry with id: {}", dictionary.getId());
-        return dictionaryResponse;
+        log.info("Successfully updated dictionary entry with id: {}", updateResult.getId());
+        return dictionaryMap.toDto(updateResult);
     }
 
     @Override
     @Transactional
     public DictionaryResp restoreDictionary(UUID id) {
         log.info("Trying to restore dictionary with id: {}", id);
-        DictionaryResp dictionaryResponse = dictionaryMapper.restoreDictionary(id);
+        Dictionary dictionaryRestored = dictionaryMapper.restoreDictionary(id);
 
-        if(dictionaryResponse == null) {
+        if(dictionaryRestored == null) {
             log.warn("Dictionary entry not found for restoration with id: {}", id);
             throw new DictionaryNotFoundException("Dictionary entry not found for restoration with id: " + id);
         }
 
         log.info("Successfully restored dictionary entry");
-        return dictionaryResponse;
+        return dictionaryMap.toDto(dictionaryRestored);
     }
 
     @Override
     @Transactional
     public DictionaryResp delete(UUID id) {
         log.info("Deleting dictionary with id: {}", id);
-        DictionaryResp deleted = dictionaryMapper.delete(id);
-        if (deleted == null) {
+        Dictionary deletedDictionary = dictionaryMapper.delete(id);
+
+        if (deletedDictionary == null) {
             log.warn("Dictionary entry not found for deletion with id: {}", id);
             throw new DictionaryNotFoundException("Dictionary entry not found for id: " + id);
         }
         log.info("Successfully deleted dictionary with id: {}", id);
-        return deleted;
+
+        return dictionaryMap.toDto(deletedDictionary);
     }
 }

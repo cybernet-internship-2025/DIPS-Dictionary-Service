@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InputValueMissingException.class)
     public ResponseEntity<ErrorResp> handleInputValueMissing(InputValueMissingException ex) {
         ErrorResp error = new ErrorResp(
-                HttpStatus.NOT_ACCEPTABLE.value(),
+                HttpStatus.BAD_REQUEST.value(),
                 "Input not Acceptable",
                 ex.getMessage()
         );
