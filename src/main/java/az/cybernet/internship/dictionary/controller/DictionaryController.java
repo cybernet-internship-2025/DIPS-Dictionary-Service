@@ -25,13 +25,16 @@ public class DictionaryController {
 
     // Balash commited
     @GetMapping
-    public ResponseEntity<List<DictionaryResponse>> getAllActiveDictionaryWithLimit(@RequestParam String value, @RequestParam Boolean isActive, @RequestParam(defaultValue = "10") int limit) {
+    public ResponseEntity<List<DictionaryResponse>> getAllActiveDictionaryWithLimit(
+            @RequestParam String value,
+            @RequestParam Boolean isActive,
+            @RequestParam(defaultValue = "10") int limit) {
         return ResponseEntity.ok(service.getAllActiveDictionaryWithLimit(value, isActive, limit));
     }
 
     @PostMapping("/{id}/restore")
-    public void restoreDictionary(@PathVariable UUID id) {
-        service.restoreDictionary(id);
+    public ResponseEntity<DictionaryResponse> restoreDictionary(@PathVariable UUID id) {
+        return ResponseEntity.ok(service.restoreDictionary(id));
     }
 
     //Goychek commited
@@ -43,16 +46,6 @@ public class DictionaryController {
     }
 
     //Huseyn commited
-
-    // Может когда-нибудь и здесь это понабиться =￣ω￣=
-    @Getter
-    @Setter
-    public static class DictionaryFilter {
-        private Long id;
-        private String value;
-        private Boolean isActive;
-        private Integer limit;
-    }
 
     @PutMapping
     public void put(@RequestBody DictionaryRequest body) {

@@ -5,7 +5,6 @@ import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 import az.cybernet.internship.dictionary.model.Dictionary;
 import org.mapstruct.Mapper;
 
-// Больше предпочитаю ручками, чем mapstruct, но кому это интересно? ¯\(°_o)/¯
 @Mapper(componentModel = "spring")
 public interface DictionaryEntryMapper {
 
