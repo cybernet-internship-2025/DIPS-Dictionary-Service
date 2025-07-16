@@ -3,11 +3,15 @@ package az.cybernet.internship.dictionary.util;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.redisson.api.RBucket;
+import org.redisson.api.RKeys;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.temporal.TemporalUnit;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -30,11 +34,19 @@ public class CacheUtil {
         bucket.set(value);
         bucket.expire(Duration.of(expireTime, temporalUnit));
     }
+  
+    public void delete(String key) {
+        redissonClient.getBucket(key).delete();
+    }
 
-    public void deleteKeysByPattern(String pattern) {
-        Iterable<String> keys = redissonClient.getKeys().getKeysByPattern(pattern);
-        for (String key : keys) {
-            redissonClient.getBucket(key).delete();
-        }
+    public void deleteByPrefix(String prefix) {
+        RKeys keys = redissonClient.getKeys();
+
+        Iterable<String> keyIterable = keys.getKeysByPattern(prefix + "*");
+        List<String> matchedKeys = StreamSupport.stream(keyIterable.spliterator(), false)
+                .toList();
+
+        if (!matchedKeys.isEmpty()) {
+            keys.delete(matchedKeys.toArray(new String[0]));
     }
 }
