@@ -1,0 +1,49 @@
+package az.cybernet.internship.dictionary.controller;
+
+import az.cybernet.internship.dictionary.dto.*;
+import az.cybernet.internship.dictionary.service.DictionaryService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/dictionaries")
+@RequiredArgsConstructor
+public class DictionaryController {
+
+    private final DictionaryService dictionaryService;
+//
+//    public DictionaryController(@Qualifier("dictionaryServiceImpl") DictionaryService dictionaryService) {
+//        this.dictionaryService = dictionaryService;
+//    }
+
+    @GetMapping
+    public ResponseEntity<List<DictionaryResponse>> findAll() {
+        return ResponseEntity.ok(dictionaryService.findAll());
+    }
+    @GetMapping(path = "{id}")
+    public ResponseEntity<DictionaryResponse> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(dictionaryService.findById(id));
+    }
+    @PutMapping
+    public ResponseEntity<DictionaryResponse> saveOrUpdate( @Valid @RequestBody DictionaryRequest dictionaryRequest) {
+        return ResponseEntity.ok(dictionaryService.saveOrUpdate(dictionaryRequest));
+
+    }
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<DictionaryResponse> delete(@PathVariable  Long id) throws Exception {
+        dictionaryService.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+    @PostMapping(path = "{id}")
+    public ResponseEntity<DictionaryResponse> restore(@PathVariable Long id) {
+       dictionaryService.restore(id);
+       return ResponseEntity.ok().build();
+
+    }
+
+}

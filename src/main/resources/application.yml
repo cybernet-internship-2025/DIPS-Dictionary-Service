@@ -1,20 +1,32 @@
 spring:
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: ${jdbc.url:jdbc:postgresql://localhost/dictionary}
+    driver-class-name: org.postgresql.Driver
+    url: ${jdbc.url:jdbc:postgresql://localhost:5432/postgres}
     username: ${jdbc.username:postgres}
-    password: ${jdbc.password:postgres}
+    password: ${jdbc.password:2635}
+  liquibase:
+    change-log: classpath:migration/changelog-master.yml
+    drop-first: true
 
 mybatis:
-  mapperLocations:
-    - classpath:/mappers/*Mapper.xml
+  mapper-locations: classpath:/mappers/*Mapper.xml
+  type-aliases-package: az.cybernet.internship.dictionary.model
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 30
+
+
 
 springdoc:
   api-docs:
     path: /api/dictionary/api-docs
   swagger-ui:
     path: /api/dictionary/swagger-ui.html
+logging:
+  file:
+    name: logs/dictionary-service.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n"
+  level:
+    root: info
