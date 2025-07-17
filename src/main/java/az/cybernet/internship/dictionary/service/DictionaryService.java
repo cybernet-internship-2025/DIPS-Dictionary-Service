@@ -5,6 +5,7 @@ import az.cybernet.internship.dictionary.dto.DictionaryResponse;
 
 import java.util.List;
 
+
 public interface DictionaryService {
 
     List<DictionaryResponse> findAll();
@@ -13,7 +14,7 @@ public interface DictionaryService {
 
     DictionaryResponse saveOrUpdate(DictionaryRequest dictionaryRequest);
 
-    void deleteById(Long id);
+    void deleteById(Long id) throws Exception;
 
     void restore(Long id);
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/dictionary")
+@RequestMapping("/api/v1/dictionaries")
 @RequiredArgsConstructor
 public class DictionaryController {
 
@@ -35,7 +35,7 @@ public class DictionaryController {
 
     }
     @DeleteMapping(path = "{id}")
-    public ResponseEntity<DictionaryResponse> delete(@PathVariable  Long id) {
+    public ResponseEntity<DictionaryResponse> delete(@PathVariable  Long id) throws Exception {
         dictionaryService.deleteById(id);
         return ResponseEntity.ok().build();
     }

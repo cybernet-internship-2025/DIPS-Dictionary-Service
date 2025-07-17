@@ -10,18 +10,18 @@ import java.util.Dictionary;
 
 public enum Mapper {
     DICTIONARY_MAPPER;
-    public DictionaryResponse mapToResponse(DictionaryEntry entry) {
-        return DictionaryResponse.builder()
-                .id(entry.getId())
-                .category(entry.getCategory())
-                .value(entry.getValue())
-                .description(entry.getDescription())
-                .isActive(true)
-                .createdAt(LocalDateTime.now())
-                .updatedAt(null)
-                .build();
-    }
-
+//    public DictionaryResponse mapToResponse(DictionaryEntry entry) {
+//        return DictionaryResponse.builder()
+//                .id(entry.getId())
+//                .category(entry.getCategory())
+//                .value(entry.getValue())
+//                .description(entry.getDescription())
+//                .isActive(true)
+//                .createdAt(LocalDateTime.now())
+//                .updatedAt(null)
+//                .build();
+//    }
+//
     public void updateResponse(DictionaryEntry dictionaryEntry, DictionaryRequest dictionaryRequest) {
         dictionaryEntry.setCategory(dictionaryRequest.getCategory());
         if (StringUtils.isNotEmpty(dictionaryRequest.getDescription())) {
@@ -32,17 +32,17 @@ public enum Mapper {
         dictionaryEntry.setUpdatedAt(LocalDateTime.now());
         dictionaryEntry.setIsActive(true);
     }
-
-    public DictionaryEntry buildEntry(DictionaryRequest entry) {
-        return DictionaryEntry.builder()
-                .id(entry.getId())
-                .category(entry.getCategory())
-                .value(entry.getValue())
-                .description(entry.getDescription())
-                .isActive(true)
-                .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
-                .build();
-    }
+//
+//    public DictionaryEntry buildEntry(DictionaryRequest entry) {
+//        return DictionaryEntry.builder()
+//                .id(entry.getId())
+//                .category(entry.getCategory())
+//                .value(entry.getValue())
+//                .description(entry.getDescription())
+//                .isActive(true)
+//                .createdAt(LocalDateTime.now())
+//                .updatedAt(LocalDateTime.now())
+//                .build();
+//    }
 
 }
