@@ -24,7 +24,7 @@ public class CategoryService {
 
     public CategoryWithItemsDto getCategoryWithItems(UUID categoryId) {
         return categoryMapper.getByIdWithItems(categoryId)
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(()->new NotFoundException("Category",categoryId));
     }
 }
 

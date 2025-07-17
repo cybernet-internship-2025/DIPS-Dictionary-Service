@@ -9,13 +9,10 @@ import lombok.experimental.FieldDefaults;
 public class NotFoundException extends RuntimeException {
     static ErrorCode errorCode = ErrorCode.NOT_FOUND;
 
-    public NotFoundException(){
-        super(errorCode.getMessage());
+    public NotFoundException(String entityName, Object id) {
+        super(String.format("%s not found with id: %s", entityName, id));
     }
 
-    public NotFoundException(String customMessage){
-        super(customMessage);
-    }
     public ErrorCode getErrorCode(){
         return errorCode;
     }

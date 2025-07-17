@@ -57,14 +57,14 @@ public class DictionaryService {
 
     public DictionaryResponse getById(UUID id) {
         Dictionary item = dictionaryItemMapper.findById(id)
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(() -> new NotFoundException("Dictionary", id));
         return dictionaryMapstruct.toResponse(item);
     }
 
 
     public void restore(UUID id) {
         Dictionary item = dictionaryItemMapper.findById(id)
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(() -> new NotFoundException("Dictionary", id));
 
         if (Boolean.TRUE.equals(item.getIsActive())) {
             throw new AlreadyActivesException();
