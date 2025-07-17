@@ -24,7 +24,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}/items")
-    public ResponseEntity<CategoryWithItemsResponse> getCategoryWithItems(@PathVariable UUID id) {
+    public ResponseEntity<CategoryWithItemsDto> getCategoryWithItems(@PathVariable UUID id) {
         return ResponseEntity.status(HttpStatus.OK).body(categoryService.getCategoryWithItems(id));
     }
 }
