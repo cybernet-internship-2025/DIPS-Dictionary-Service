@@ -22,7 +22,7 @@
         LIMIT #{limit}
     </select>
 
-    <select id="updateDictionary" parameterType="az.cybernet.internship.dictionary.entity.Dictionary" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
+    <select id="updateDictionary" parameterType="az.cybernet.internship.dictionary.dto.req.DictionaryReq" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
         UPDATE dictionary SET
         <if test="category != null">
             category = #{category},
@@ -39,7 +39,7 @@
         RETURNING id, category, value, is_active, update_date;
     </select>
 
-    <select id="delete" parameterType="java.util.UUID" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
+    <select id="delete" parameterType="java.util.UUID" resultType="az.cybernet.internship.dictionary.entity.Dictionary">
         UPDATE dictionary
         SET is_active = false,
             update_date = now()
@@ -47,11 +47,24 @@
     RETURNING id, category, value, is_active, update_date;
     </select>
 
-    <select id="restoreDictionary" parameterType="java.util.UUID" resultType="az.cybernet.internship.dictionary.dto.resp.DictionaryResp">
+    <select id="restoreDictionary" parameterType="java.util.UUID" resultType="az.cybernet.internship.dictionary.entity.Dictionary">
         UPDATE dictionary
         SET is_active = true,
         update_date = now()
         WHERE id = #{uuid}::uuid
         RETURNING id, category, value, is_active, update_date;
     </select>
+
+    <insert id="insert" parameterType="az.cybernet.internship.dictionary.entity.Dictionary">
+        INSERT INTO dictionary (id, category, value, description, is_active, create_date, update_date)
+        VALUES (
+            #{id}::uuid,
+            #{category},
+            #{value},
+            #{description},
+            #{isActive},
+            #{createDate},
+            #{updateDate}
+        );
+    </insert>
 </mapper>

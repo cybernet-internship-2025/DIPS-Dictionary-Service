@@ -1,7 +1,7 @@
 package az.cybernet.internship.dictionary.service;
 
+import az.cybernet.internship.dictionary.dto.req.DictionaryReq;
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
-import az.cybernet.internship.dictionary.entity.Dictionary;
 
 
 import java.util.List;
@@ -11,7 +11,9 @@ public interface DictionaryService {
 
     List<DictionaryResp> findDictionaries(UUID id, String value, Boolean isActive, Integer limit);
 
-    DictionaryResp updateDictionary(Dictionary dictionary);
+    DictionaryResp updateDictionary(DictionaryReq dictionary);
+
+    DictionaryResp insert(DictionaryReq dictionary);
 
     DictionaryResp restoreDictionary(UUID id);
 

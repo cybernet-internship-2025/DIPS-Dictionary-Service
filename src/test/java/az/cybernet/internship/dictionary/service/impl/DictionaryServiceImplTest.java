@@ -1,5 +1,6 @@
 package az.cybernet.internship.dictionary.service.impl;
 
+import az.cybernet.internship.dictionary.dto.req.DictionaryReq;
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.entity.Dictionary;
 import az.cybernet.internship.dictionary.exception.DictionaryNotFoundException;
@@ -19,8 +20,8 @@ import java.util.UUID;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 public class DictionaryServiceImplTest {
     @Mock
@@ -65,22 +66,24 @@ public class DictionaryServiceImplTest {
 
     @Test
     void updateDictionary_success() {
-        Dictionary dictionary = new Dictionary();
+        //this seems so fckd up. forgive me god.
+        DictionaryReq dictionary = new DictionaryReq();
         dictionary.setId(UUID.randomUUID().toString());
         dictionary.setValue("test");
 
-        when(dictionaryMapper.updateDictionary(dictionary)).thenReturn(new DictionaryResp());
-        when(dictionaryMap.toDto(dictionary)).thenReturn(new DictionaryResp());
+        when(dictionaryMap.toEntity(dictionary)).thenReturn(new Dictionary());
+        when(dictionaryMapper.updateDictionary(any(Dictionary.class))).thenReturn(new Dictionary());
+        when(dictionaryMap.toDto(any(Dictionary.class))).thenReturn(new DictionaryResp());
 
         DictionaryResp result = dictionaryService.updateDictionary(dictionary);
 
         assertNotNull(result);
-        verify(dictionaryMapper).updateDictionary(dictionary);
+        verify(dictionaryMapper).updateDictionary(dictionaryMap.toEntity(dictionary));
     }
 
     @Test
     void updateDictionary_missingInput_throwsException() {
-        Dictionary dictionary = new Dictionary();
+        DictionaryReq dictionary = new DictionaryReq();
         dictionary.setValue("value");
 
         assertThrows(InputValueMissingException.class, () ->
@@ -89,23 +92,23 @@ public class DictionaryServiceImplTest {
 
     @Test
     void updateDictionary_notFound_throwsException() {
-        Dictionary dictionary = new Dictionary();
+        DictionaryReq dictionary = new DictionaryReq();
         dictionary.setId(UUID.randomUUID().toString());
         dictionary.setValue("value");
 
-        when(dictionaryMapper.updateDictionary(dictionary)).thenReturn(null);
+        when(dictionaryMapper.updateDictionary(any(Dictionary.class))).thenReturn(null);
 
         assertThrows(DictionaryNotFoundException.class, () ->
                 dictionaryService.updateDictionary(dictionary));
     }
 
-
     @Test
     void delete_success() {
         UUID id = UUID.randomUUID();
-        DictionaryResp mockResp = new DictionaryResp();
+        Dictionary mockDictionary = new Dictionary();
 
-        when(dictionaryMapper.delete(id)).thenReturn(mockResp);
+        when(dictionaryMapper.delete(id)).thenReturn(mockDictionary);
+        when(dictionaryMap.toDto(any(Dictionary.class))).thenReturn(new DictionaryResp());
 
         DictionaryResp result = dictionaryService.delete(id);
 
@@ -126,7 +129,8 @@ public class DictionaryServiceImplTest {
     void restoreDictionary_success() {
         UUID id = UUID.randomUUID();
 
-        when(dictionaryMapper.restoreDictionary(id)).thenReturn(new DictionaryResp());
+        when(dictionaryMapper.restoreDictionary(id)).thenReturn(new Dictionary());
+        when(dictionaryMap.toDto(any(Dictionary.class))).thenReturn(new DictionaryResp());
 
         DictionaryResp response = dictionaryService.restoreDictionary(id);
         assertNotNull(response);

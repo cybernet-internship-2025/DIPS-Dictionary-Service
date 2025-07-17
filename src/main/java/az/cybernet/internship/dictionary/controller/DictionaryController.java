@@ -1,8 +1,8 @@
 package az.cybernet.internship.dictionary.controller;
 
+import az.cybernet.internship.dictionary.dto.req.DictionaryReq;
 import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.service.DictionaryService;
-import az.cybernet.internship.dictionary.entity.Dictionary;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,9 +34,17 @@ public class DictionaryController {
 
     @PutMapping
     public ResponseEntity<DictionaryResp> updateDictionary(
-            @RequestBody Dictionary dictionary
+            @RequestBody DictionaryReq dictionary
     ) {
         DictionaryResp response = dictionaryService.updateDictionary(dictionary);
+        return ok(response);
+    }
+
+    @PostMapping
+    public ResponseEntity<DictionaryResp> insert(
+            @RequestBody DictionaryReq dictionary
+    ) {
+        DictionaryResp response = dictionaryService.insert(dictionary);
         return ok(response);
     }
 

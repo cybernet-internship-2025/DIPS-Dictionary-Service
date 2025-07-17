@@ -1,6 +1,5 @@
 package az.cybernet.internship.dictionary.mapper;
 
-import az.cybernet.internship.dictionary.dto.resp.DictionaryResp;
 import az.cybernet.internship.dictionary.entity.Dictionary;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -13,9 +12,11 @@ public interface DictionaryMapper {
 
     List<Dictionary> findByFilters(UUID id, String value, Boolean isActive, Integer limit);
 
-    DictionaryResp updateDictionary(Dictionary dictionary);
+    Dictionary updateDictionary(Dictionary dictionary);
 
-    DictionaryResp restoreDictionary(@Param("uuid") UUID id);
+    void insert(Dictionary dictionary);
 
-    DictionaryResp delete(@Param("uuid") UUID id);
+    Dictionary restoreDictionary(@Param("uuid") UUID id);
+
+    Dictionary delete(@Param("uuid") UUID id);
 }
