@@ -10,6 +10,8 @@ import az.cybernet.internship.dictionary.mapper.DictionaryCategoryMapper;
 import az.cybernet.internship.dictionary.model.DictionaryCategory;
 import az.cybernet.internship.dictionary.service.DictionaryCategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +23,8 @@ public class DictionaryCategoryServiceImpl implements DictionaryCategoryService 
     private final DictionaryCategoryMapper dictionaryCategoryMapper;
     private final DictionaryCategoryConverter dictionaryCategoryConverter;
 
+    @Override
+    @Cacheable(value = "category_cache", key = "'all_categories'")
     public List<DictionaryCategoryResponseDTO> selectAll() {
         return dictionaryCategoryMapper.selectAll()
                 .stream()
@@ -28,6 +32,8 @@ public class DictionaryCategoryServiceImpl implements DictionaryCategoryService 
                 .toList();
     }
 
+    @Override
+    @CacheEvict(value = "category_cache", key = "'all_categories'")
     public DictionaryCategoryResponseDTO insert(DictionaryCategoryRequestDTO categoryRequestDTO) {
         if (selectByName(categoryRequestDTO.getName()) != null) {
             throw new AlreadyExistsException(ExceptionType.CATEGORY_ALREADY_EXISTS);
@@ -41,6 +47,8 @@ public class DictionaryCategoryServiceImpl implements DictionaryCategoryService 
         return dictionaryCategoryConverter.convert(category);
     }
 
+    @Override
+    @CacheEvict(value = "category_cache", key = "'all_categories'")
     public DictionaryCategoryResponseDTO update(DictionaryCategoryRequestDTO categoryRequestDTO) {
         DictionaryCategory category = selectByID(categoryRequestDTO.getId());
         category.setName(categoryRequestDTO.getName());
@@ -48,16 +56,23 @@ public class DictionaryCategoryServiceImpl implements DictionaryCategoryService 
         return dictionaryCategoryConverter.convert(category);
     }
 
+    @Override
+    @CacheEvict(value = "category_cache", key = "'all_categories'")
     public void delete(String id) {
         DictionaryCategory category = selectByID(id);
         dictionaryCategoryMapper.delete(id);
     }
 
+    @Override
     public DictionaryCategory selectByName(String name) {
-        return dictionaryCategoryMapper.selectByName(name);
+        DictionaryCategory category = dictionaryCategoryMapper.selectByName(name);
+        if (category == null) {
+            throw new NotFoundException(ExceptionType.CATEGORY_NOT_FOUND);
+        }
+        return category;
     }
 
-    private DictionaryCategory selectByID(String id) {
+    public DictionaryCategory selectByID(String id) {
         DictionaryCategory category = dictionaryCategoryMapper.selectById(id);
         if (category == null) {
             throw new NotFoundException(ExceptionType.CATEGORY_NOT_FOUND);
