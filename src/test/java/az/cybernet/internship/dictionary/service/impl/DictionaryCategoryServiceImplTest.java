@@ -1,11 +1,10 @@
-package java.az.cybernet.internship.dictionary.service.impl;
+package az.cybernet.internship.dictionary.service.impl;
 
 import az.cybernet.internship.dictionary.converter.DictionaryCategoryConverter;
 import az.cybernet.internship.dictionary.dto.request.DictionaryCategoryRequestDTO;
 import az.cybernet.internship.dictionary.dto.response.DictionaryCategoryResponseDTO;
 import az.cybernet.internship.dictionary.mapper.DictionaryCategoryMapper;
 import az.cybernet.internship.dictionary.model.DictionaryCategory;
-import az.cybernet.internship.dictionary.service.impl.DictionaryCategoryServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -14,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class DictionaryCategoryServiceImplTest {
-
     private DictionaryCategoryMapper mapper;
     private DictionaryCategoryConverter converter;
     private DictionaryCategoryServiceImpl service;

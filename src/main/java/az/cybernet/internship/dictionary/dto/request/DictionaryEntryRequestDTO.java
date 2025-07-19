@@ -6,11 +6,13 @@ import lombok.Data;
 import jakarta.validation.constraints.NotBlank;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DictionaryEntryRequestDTO {
+public class DictionaryEntryRequestDTO implements Serializable {
     private String id;
     @NotBlank(message = "Value must not be blank")
     private String value;

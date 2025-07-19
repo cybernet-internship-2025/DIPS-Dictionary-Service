@@ -13,6 +13,8 @@ import az.cybernet.internship.dictionary.model.DictionaryEntry;
 import az.cybernet.internship.dictionary.service.DictionaryCategoryService;
 import az.cybernet.internship.dictionary.service.DictionaryEntryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -28,6 +30,7 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     private final DictionaryCategoryMapper dictionaryCategoryMapper;
 
     @Override
+    @Cacheable(value = "entry_cache", key = "'all_entries'")
     public List<DictionaryEntryResponseDTO> selectAll() {
         return dictionaryEntryMapper.selectAll()
                 .stream()
@@ -42,6 +45,7 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     }
 
     @Override
+    @CacheEvict(value = "entry_cache", key = "'all_entries'")
     public DictionaryEntryResponseDTO insert(DictionaryEntryRequestDTO entryRequestDTO) {
         if (selectByValue(entryRequestDTO.getValue()) != null) {
             throw new AlreadyExistsException(ExceptionType.ENTRY_ALREADY_EXISTS);
@@ -63,6 +67,7 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     }
 
     @Override
+    @CacheEvict(value = "entry_cache", key = "'all_entries'")
     public DictionaryEntryResponseDTO update(DictionaryEntryRequestDTO entryRequestDTO) {
         DictionaryEntry entry = selectByID(entryRequestDTO.getId());
 
@@ -79,6 +84,7 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     }
 
     @Override
+    @CacheEvict(value = "entry_cache", key = "'all_entries'")
     public void delete(String id) {
         DictionaryEntry entry = selectByID(id);
 
@@ -88,10 +94,12 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
         dictionaryEntryMapper.update(entry);
     }
 
+    @CacheEvict(value = "entry_cache", key = "'all_entries'")
     public void deleteAllByName(String categoryID) {
         dictionaryEntryMapper.deleteAllById(categoryID);
     }
 
+    @CacheEvict(value = "entry_cache", key = "'all_entries'")
     public DictionaryEntryResponseDTO restore(String id) {
         DictionaryEntry entry = selectByID(id);
 
@@ -111,10 +119,14 @@ public class DictionaryEntryServiceImpl implements DictionaryEntryService {
     }
 
     public DictionaryEntry selectByValue(String value) {
-        return dictionaryEntryMapper.selectByValue(value);
+        DictionaryEntry entry = dictionaryEntryMapper.selectByValue(value);
+        if (entry == null) {
+            throw new NotFoundException(ExceptionType.ENTRY_NOT_FOUND);
+        }
+        return entry;
     }
 
-    private DictionaryEntry selectByID(String id) {
+    public DictionaryEntry selectByID(String id) {
         DictionaryEntry entry = dictionaryEntryMapper.selectById(id);
         if (entry == null) {
             throw new NotFoundException(ExceptionType.ENTRY_NOT_FOUND);
